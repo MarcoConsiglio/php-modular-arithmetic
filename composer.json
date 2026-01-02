@@ -6,7 +6,7 @@
     "autoload": {
         "psr-4": {
             "Marcoconsiglio\\ModularArithmetic\\": "src/",
-            "Marcoconsiglio\\ModularArithmetic\\Tests": "tests/"
+            "Marcoconsiglio\\ModularArithmetic\\Tests\\": "tests/"
         }
     },
     "authors": [
