@@ -9,13 +9,14 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 class TestCase extends PHPUnitTestCase
 {
+    protected const int MAX_INTEGER = 1000000;
+
     /**
      * The Faker random generator.
      *
      * @var Generator
      */
     protected Generator $faker;
-
 
     /**
      * This method is called before each test.
@@ -29,7 +30,7 @@ class TestCase extends PHPUnitTestCase
 
     protected function randomSign(): int
     {
-        return $this->faker->randomElement();
+        return $this->faker->randomElement([1, -1]);
     }
     /**
      * Return a random integer.
@@ -86,6 +87,37 @@ class TestCase extends PHPUnitTestCase
     protected function negativeRandomInteger($min = 0, $max = 2147483647): int
     {
         return $this->randomInteger(abs($min), abs($max), -1);
+    }
+
+    /**
+     * Return a random ModularInteger
+     * with a random modulus.
+     *
+     * @param integer $min
+     * @param integer $max
+     * @return ModularInteger
+     */
+    protected function randomModularInteger($min = 0, $max = 2147483647): ModularInteger
+    {
+        return new ModularInteger(
+            $this->randomInteger($min, $max),
+            $this->randomInteger($min, $max, 1)
+        );
+    }
+
+    /**
+     * Get a congruent integer number to $value modulo $modulus multiplied
+     * by $k.
+     *
+     * @param integer $value
+     * @param integer $modulus
+     * @param integer $k
+     * @return integer
+     */
+    protected function getCongruentIntegerValue(int $value, int $modulus, int $k): int
+    {
+        $reminder = $value % $modulus;
+        return $k * $modulus + $reminder;
     }
 
     /**

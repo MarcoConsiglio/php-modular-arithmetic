@@ -2,13 +2,16 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
 use DivisionByZeroError;
+use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 #[TestDox("The ModularInteger")]
 #[CoversClass(ModularInteger::class)]
+#[UsesClass(IntegerModularSum::class)]
 class ModularIntegerTest extends TestCase
 {
     #[TestDox("is an integer number used in modular arithmetic.")]
@@ -61,34 +64,73 @@ class ModularIntegerTest extends TestCase
         new ModularInteger($value, 0);
     }
 
-    #[TestDox("that is congruent to another value modulo n means that the other value is congruent to it.")]
+    #[TestDox("that is congruent to another value modulo n means that the 
+    other value is congruent to it.")]
     public function test_symmetry_property(): void
     {
         // Arrange
         $n = $this->nonZeroRandomInteger();
         $value = $this->randomInteger();
-        $reminder = $value % $n;
         $a = new ModularInteger($value, $n);
-        $b = new ModularInteger($n + $reminder, $n);
+        $b = new ModularInteger(
+            $this->getCongruentIntegerValue($value, $n, 1), 
+            $n
+        );
 
         // Act & Assert
         $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
         $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
 
-    #[TestDox("that is congruent to b modulo n, which in turn is congruent to c modulo n, is congruent to c modulo n.")]
+    #[TestDox("that is congruent to b modulo n, which in turn is congruent to c
+     modulo n, is congruent to c modulo n.")]
     public function test_transitivity_property(): void
     {
         $n = $this->nonZeroRandomInteger();
         $value = $this->randomInteger();
-        $reminder = $value % $n;
         $k = 1;
         $a = new ModularInteger($value, $n);
-        $b = new ModularInteger($k++ * $n + $reminder, $n);
-        $c = new ModularInteger($k * $n + $reminder, $n);
+        $b = new ModularInteger(
+            $this->getCongruentIntegerValue($value, $n, $k++), 
+            $n
+        );
+        $c = new ModularInteger(
+            $this->getCongruentIntegerValue($value, $n, $k),
+            $n
+        );
 
         $this->assertTrue($a->equals($b));
         $this->assertTrue($b->equals($c));
         $this->assertTrue($a->equals($c));
+    }
+
+    #[TestDox("that multiply two congruent numbers modulo n, produces two new 
+    numbers that are still congruent to each other modulo n.")]
+    public function test_invariance_property_under_multiplication(): void
+    {
+        // Arrange
+        $n = $this->nonZeroRandomInteger();
+        $k = 1;
+        $value_a = $this->randomInteger(max: self::MAX_INTEGER);
+        $value_b = $this->getCongruentIntegerValue($value_a, $n, $k++);
+        $value_c = $this->getCongruentIntegerValue($value_a, $n, $k);
+        $a = new ModularInteger($value_a * $value_c, $n);
+        $b = new ModularInteger($value_b * $value_c, $n);
+
+        // Act & Assert
+        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
+    }
+
+    public function test_sum_returns_modular_integer(): void
+    {
+        // Arrange
+        $a = $this->randomModularInteger(max: self::MAX_INTEGER);
+        $b = new ModularInteger(
+            $this->randomInteger(max: self::MAX_INTEGER),
+            $a->modulus
+        );
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularInteger::class, $a->sum($b));
     }
 }
