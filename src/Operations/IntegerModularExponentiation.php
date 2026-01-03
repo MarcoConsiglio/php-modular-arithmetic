@@ -24,6 +24,9 @@ class IntegerModularExponentiation extends IntegerModularOperation
      */
     public function result(): ModularInteger
     {
-        return new ModularInteger($this->a->value ** $this->exponent, $this->modulus);
+        return new ModularInteger(
+            $this->checkIntgerOverflow($this->a->value ** $this->exponent), 
+            $this->modulus
+        );
     }
 }
