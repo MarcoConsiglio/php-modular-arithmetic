@@ -3,7 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
-class IntegerModularExponentiation extends ModularOperation
+class IntegerModularExponentiation extends IntegerModularOperation
 {
     /**
      * The right operand.

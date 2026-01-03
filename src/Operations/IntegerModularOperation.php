@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
-abstract class ModularOperation
+abstract class IntegerModularOperation
 {
     /**
      * The left operand.
