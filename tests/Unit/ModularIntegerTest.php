@@ -41,7 +41,7 @@ class ModularIntegerTest extends TestCase
     }
 
     #[TestDox("is congruent to itself modulo n, for every n other than 0.")]
-    public function test_riflectivity_property(): void
+    public function test_reflexivity_property(): void
     {
         /**
          * n ≠ 0 OK
