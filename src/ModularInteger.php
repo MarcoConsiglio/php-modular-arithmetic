@@ -25,12 +25,14 @@ class ModularInteger
      * Construct an integer modular number.
      *
      * @param integer $value The value of this modular number.
-     * @param integer $modulus The modulus of the modular set of which this number is a part.
+     * @param integer $modulus The modulus of the modular set of which this 
+     * number is a part.
      * 
-     * Keep in mind that PHP always treats the right operand of the modulo operation as an
-     * absolute (positive) value, meaning that every negative value of this parameter is treated
-     * as a positive value. 
-     * @throws DivisionByZeroError when $modulus is zero.
+     * Keep in mind that PHP always treats the right operand of the modulo 
+     * operation as an absolute (positive) value, meaning that every negative
+     * value of this parameter is treated as a positive value. The same is not
+     * true for a traditional calculator.
+     * @throws DivisionByZeroError when $modulus equals zero.
      */
     public function __construct(int $value, int $modulus)
     {
@@ -38,14 +40,44 @@ class ModularInteger
         $this->modulus = $modulus;
     }
 
+    /**
+     * Return true if this instance is congruent to $number,
+     * false otherwise.
+     *
+     * @param ModularInteger $number
+     * @return boolean
+     * @throws DifferentModulusError when this instance has a modulus different
+     * from the modulus of $number. 
+     */
     public function isCongruent(ModularInteger $number): bool
     {
-        if ($this->modulus != $number->modulus) return false;
+        if ($this->modulus != $number->modulus) throw new DifferentModulusError($this, $number);
         return ($this->value - $number->value) % $this->modulus == 0;
     }
 
-    public function equals(ModularInteger $modularInteger): bool
+    /**
+     * Alias of isCongruent() method.
+     *
+     * @param ModularInteger $number
+     * @return boolean
+     * @throws DifferentModulusError when this instance has a modulus different
+     * from the modulus of $number. 
+     */
+    public function equals(ModularInteger $number): bool
     {
-        return $this->isCongruent($modularInteger);
+        return $this->isCongruent($number);
+    }
+
+    /**
+     * Sum this instance with $number.
+     *
+     * @param ModularInteger $number
+     * @return ModularInteger
+     * @throws DifferentModulusError when this instance and $number have 
+     * different modulus.
+     */
+    public function sum(ModularInteger $number): ModularInteger
+    {
+        return new IntegerModularSum($this, $number)->result();
     }
 }
