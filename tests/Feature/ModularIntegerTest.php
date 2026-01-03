@@ -71,7 +71,7 @@ class ModularIntegerTest extends TestCase
         $this->assertTrue($a->equals($c));
     }
 
-    #[TestDox("sum operation return a new ModularInteger.")]
+    #[TestDox("can be added to another.")]
     public function test_sum_returns_modular_integer(): void
     {
         // Arrange
@@ -83,5 +83,19 @@ class ModularIntegerTest extends TestCase
 
         // Act & Assert
         $this->assertInstanceOf(ModularInteger::class, $a->sum($b));
+    }
+
+    #[TestDox("can tell you if it is congruent with another.")]
+    public function test_isCongruent_returns_boolean(): void
+    {
+        // Arrange
+        $a = $this->randomModularInteger();
+        $b = new ModularInteger(
+            $this->randomInteger(),
+            $a->modulus
+        );
+
+        // Act & Assert
+        $this->assertIsBool($a->isCongruent($b));
     }
 }

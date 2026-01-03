@@ -109,7 +109,7 @@ class BaseTestCase extends TestCase
     {
         return new ModularInteger(
             $this->randomInteger($min, $max),
-            $this->randomInteger($min, $max, 1)
+            $this->randomInteger($min, $max, 1) // The modulus cannot be zero.
         );
     }
 
