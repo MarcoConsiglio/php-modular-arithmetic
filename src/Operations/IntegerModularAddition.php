@@ -7,7 +7,7 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
 class IntegerModularAddition extends ModularOperation
 {
     /**
-     * Return the result of the modular sum.
+     * Return the result of this operation.
      *
      * @return ModularInteger
      */

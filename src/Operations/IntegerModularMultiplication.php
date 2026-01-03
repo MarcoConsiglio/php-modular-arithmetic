@@ -5,6 +5,11 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 class IntegerModularMultiplication extends ModularOperation
 {
+    /**
+     * Return the result of this operation.
+     *
+     * @return ModularInteger
+     */
     public function result(): ModularInteger
     {
         return new ModularInteger(

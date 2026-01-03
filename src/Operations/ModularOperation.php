@@ -41,7 +41,7 @@ abstract class ModularOperation
     }
 
     /**
-     * The result of this operation.
+     * Return the result of this operation.
      *
      * @return ModularInteger
      */
