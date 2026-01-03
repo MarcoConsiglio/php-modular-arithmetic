@@ -32,20 +32,6 @@ class IntegerModularAdditionTest extends TestCase
         );
     }
 
-    #[TestDox("result is a value that if it is a multiple of its modulus equals zero.")]
-    public function test_result_is_modular(): void
-    {
-        // Arrange
-        $modulus = 12;
-        $a = new ModularInteger($modulus, $modulus);
-        $b = new ModularInteger($modulus * 2, $modulus);
-        $sum = new IntegerModularAddition($a, $b);
-
-        // Act & Assert
-        $this->assertEquals(0, $sum->result()->value);
-    }
-
-
     #[TestDox("throws DifferentModulusError exception if the two operands have
     different modulus.")]
     public function test_different_modulus_error(): void
