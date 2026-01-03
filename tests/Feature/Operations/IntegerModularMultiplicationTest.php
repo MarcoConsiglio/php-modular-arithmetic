@@ -19,15 +19,20 @@ class IntegerModularMultiplicationTest extends TestCase
     public function test_invariance_property(): void
     {
         // Arrange
-        $n = $this->nonZeroRandomInteger();
-        $k = 1;
-        $value_a = $this->randomInteger(max: self::MAX_INTEGER);
-        $value_b = $this->getCongruentIntegerValue($value_a, $n, $k++);
-        $value_c = $this->getCongruentIntegerValue($value_a, $n, $k);
-        $a = new ModularInteger($value_a * $value_c, $n);
-        $b = new ModularInteger($value_b * $value_c, $n);
+        // Arrange
+        $a = $this->randomModularInteger(max: self::MAX_INTEGER);
+        $b = new ModularInteger(
+            $this->getCongruentIntegerValue($a->value, $a->modulus, 1),
+            $a->modulus
+        );
+        $c = new ModularInteger(
+            $this->randomInteger(max: self::MAX_INTEGER, sign: 1),
+            $a->modulus
+        );
+        $a_times_c = (new IntegerModularMultiplication($a, $c))->result();
+        $b_times_c = (new IntegerModularMultiplication($b, $c))->result(); 
 
         // Act & Assert
-        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
+        $this->assertTrue($a_times_c->equals($b_times_c), $this->congruentFailure($a_times_c, $b_times_c));
     }
 }

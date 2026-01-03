@@ -72,7 +72,7 @@ class ModularIntegerTest extends TestCase
     }
 
     #[TestDox("can be added to another.")]
-    public function test_sum_returns_modular_integer(): void
+    public function test_add_returns_modular_integer(): void
     {
         // Arrange
         $a = $this->randomModularInteger(max: self::MAX_INTEGER);
@@ -82,7 +82,21 @@ class ModularIntegerTest extends TestCase
         );
 
         // Act & Assert
-        $this->assertInstanceOf(ModularInteger::class, $a->sum($b));
+        $this->assertInstanceOf(ModularInteger::class, $a->add($b));
+    }
+
+    #[TestDox("can be multiplied to another.")]
+    public function test_multiply_returns_modular_integer(): void
+    {
+        // Arrange
+        $a = $this->randomModularInteger(max: self::MAX_INTEGER);
+        $b = new ModularInteger(
+            $this->randomInteger(max: self::MAX_INTEGER),
+            $a->modulus
+        );
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularInteger::class, $a->multiply($b));
     }
 
     #[TestDox("can tell you if it is congruent with another.")]
