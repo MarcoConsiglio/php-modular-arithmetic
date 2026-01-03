@@ -5,14 +5,14 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
-#[TestDox("The IntegerModularSum")]
-#[CoversClass(IntegerModularSum::class)]
+#[TestDox("The IntegerModularAddition")]
+#[CoversClass(IntegerModularAddition::class)]
 #[UsesClass(ModularInteger::class)]
 #[UsesClass(DifferentModulusError::class)]
-class IntegerModularSumTest extends TestCase
+class IntegerModularAdditionTest extends TestCase
 {
     #[TestDox("sums two ModularInteger instances.")]
     public function test_result_is_modular_integer(): void
@@ -27,7 +27,7 @@ class IntegerModularSumTest extends TestCase
         // Act & Assert
         $this->assertInstanceOf(
             ModularInteger::class, 
-            (new IntegerModularSum($a, $b))->result()
+            (new IntegerModularAddition($a, $b))->result()
         );
     }
 
@@ -38,7 +38,7 @@ class IntegerModularSumTest extends TestCase
         $modulus = 12;
         $a = new ModularInteger($modulus, $modulus);
         $b = new ModularInteger($modulus * 2, $modulus);
-        $sum = new IntegerModularSum($a, $b);
+        $sum = new IntegerModularAddition($a, $b);
 
         // Act & Assert
         $this->assertEquals(0, $sum->result()->value);
@@ -61,8 +61,8 @@ class IntegerModularSumTest extends TestCase
         );
 
         // Act
-        $a_plus_c = (new IntegerModularSum($a, $c))->result();
-        $b_plus_c = (new IntegerModularSum($b, $c))->result();
+        $a_plus_c = (new IntegerModularAddition($a, $c))->result();
+        $b_plus_c = (new IntegerModularAddition($b, $c))->result();
         
         // Assert
         $this->assertTrue(
@@ -83,6 +83,6 @@ class IntegerModularSumTest extends TestCase
         $this->expectException(DifferentModulusError::class);
 
         // Act
-        new IntegerModularSum($a, $b);
+        new IntegerModularAddition($a, $b);
     }
 }

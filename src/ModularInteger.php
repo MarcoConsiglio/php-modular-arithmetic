@@ -3,7 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic;
 
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 
 class ModularInteger
 {
@@ -80,6 +80,6 @@ class ModularInteger
      */
     public function sum(ModularInteger $number): ModularInteger
     {
-        return new IntegerModularSum($this, $number)->result();
+        return new IntegerModularAddition($this, $number)->result();
     }
 }

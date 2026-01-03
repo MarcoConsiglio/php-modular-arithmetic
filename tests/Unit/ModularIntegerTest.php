@@ -6,13 +6,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 
 #[TestDox("The ModularInteger")]
 #[CoversClass(ModularInteger::class)]
-#[UsesClass(IntegerModularSum::class)]
+#[UsesClass(IntegerModularAddition::class)]
 #[UsesClass(DifferentModulusError::class)]
 class ModularIntegerTest extends TestCase
 {
