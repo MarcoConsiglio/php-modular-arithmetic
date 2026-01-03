@@ -4,6 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic;
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularExponentiation;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularMultiplication;
 
 class ModularInteger
@@ -93,5 +94,16 @@ class ModularInteger
     public function multiply(ModularInteger $number): ModularInteger
     {
         return new IntegerModularMultiplication($this, $number)->result();
+    }
+
+    /**
+     * Raise this instance to power $k.
+     *
+     * @param integer $k
+     * @return ModularInteger
+     */
+    public function power(int $k): ModularInteger
+    {
+        return new IntegerModularExponentiation($this, $k)->result();
     }
 }

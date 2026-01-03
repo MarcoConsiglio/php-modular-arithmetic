@@ -1,0 +1,29 @@
+<?php
+namespace Marcoconsiglio\ModularArithmetic\Operations;
+
+use Marcoconsiglio\ModularArithmetic\ModularInteger;
+
+class IntegerModularExponentiation extends ModularOperation
+{
+    /**
+     * The right operand.
+     */
+    protected int $exponent;
+
+    public function __construct(ModularInteger $a, int $exponent)
+    {
+        $this->a = $a;
+        $this->modulus = $a->modulus;
+        $this->exponent = $exponent;
+    }
+
+    /**
+     * Return the result of this operation.
+     *
+     * @return ModularInteger
+     */
+    public function result(): ModularInteger
+    {
+        return new ModularInteger($this->a->value ** $this->exponent, $this->modulus);
+    }
+}
