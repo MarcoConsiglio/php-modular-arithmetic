@@ -14,7 +14,7 @@ use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 class DifferentModulusErrorTest extends TestCase
 {
     #[TestDox("is thrown when two ModularInteger have different modulus.")]
-    public function test_different_modulus_error_test(): void
+    public function test_different_modulus_error(): void
     {
         // Arrange
         $a_modulus = 10;
