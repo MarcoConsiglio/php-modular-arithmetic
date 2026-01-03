@@ -1,11 +1,12 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
+namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Exceptions;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
-use PHPUnit\Framework\Attributes\TestDox;
+use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 
 #[CoversClass(DifferentModulusError::class)]
 #[UsesClass(ModularInteger::class)]
