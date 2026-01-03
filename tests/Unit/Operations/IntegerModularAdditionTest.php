@@ -5,6 +5,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
@@ -13,6 +14,7 @@ use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 #[CoversClass(IntegerModularAddition::class)]
 #[UsesClass(ModularInteger::class)]
 #[UsesClass(DifferentModulusError::class)]
+#[UsesClass(IntegerOverflowError::class)]
 class IntegerModularAdditionTest extends TestCase
 {
     #[TestDox("sums two ModularInteger instances.")]
@@ -45,5 +47,21 @@ class IntegerModularAdditionTest extends TestCase
 
         // Act
         new IntegerModularAddition($a, $b);
+    }
+
+    #[TestDox("throws IntegerOverflowError exception when the sum is too large
+    to be stored in a int type variable.")]
+    public function test_integer_overflow_error(): void
+    {
+        // Arrange
+        $max = PHP_INT_MAX;
+        $a = new ModularInteger(intval($max - 1), $max);
+        $b = new ModularInteger(intval($max - 1), $max);
+
+        // Assert
+        $this->expectException(IntegerOverflowError::class);
+
+        // Act
+        (new IntegerModularAddition($a, $b))->result();
     }
 }

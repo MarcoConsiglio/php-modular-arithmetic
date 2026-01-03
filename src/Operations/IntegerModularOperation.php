@@ -2,6 +2,7 @@
 namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 abstract class IntegerModularOperation
@@ -46,4 +47,23 @@ abstract class IntegerModularOperation
      * @return ModularInteger
      */
     abstract public function result(): ModularInteger;
+
+    /**
+     * Check if $value exceed the maximum integer value on this system.
+     * 
+     * Don't use this method with a float value, or you'll lose the decimal 
+     * portion, as the float value is converted to an integer. The $value 
+     * parameter is a float because PHP automatically converts large integers
+     * to a float.
+     *
+     * @param float $value
+     * @return integer
+     * @throws IntegerOverflowError if $value exceed PHP_INT_MAX.
+     */
+    protected function checkIntgerOverflow(float $value): int
+    {
+        if ($value > PHP_INT_MAX) throw new IntegerOverflowError($value);
+        return (int) $value;
+    }
+
 }
