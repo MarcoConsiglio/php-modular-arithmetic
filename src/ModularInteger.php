@@ -4,6 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic;
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularMultiplication;
 
 class ModularInteger
 {
@@ -78,8 +79,19 @@ class ModularInteger
      * @throws DifferentModulusError when this instance and $number have 
      * different modulus.
      */
-    public function sum(ModularInteger $number): ModularInteger
+    public function add(ModularInteger $number): ModularInteger
     {
         return new IntegerModularAddition($this, $number)->result();
+    }
+
+    /**
+     * Multiply this instance with $number.
+     *
+     * @param ModularInteger $number
+     * @return ModularInteger
+     */
+    public function multiply(ModularInteger $number): ModularInteger
+    {
+        return new IntegerModularMultiplication($this, $number)->result();
     }
 }
