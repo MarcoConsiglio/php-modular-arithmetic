@@ -1,34 +1,29 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Operations;
 
-use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\TestDox;
-use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularMultiplication;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
+use PHPUnit\Framework\Attributes\TestDox;
 
-#[TestDox("The IntegerModularAddition")]
-#[CoversClass(IntegerModularAddition::class)]
-#[UsesClass(ModularInteger::class)]
-#[UsesClass(DifferentModulusError::class)]
-class IntegerModularAdditionTest extends TestCase
+#[TestDox("The IntegerModularMultiplication operation")]
+class IntegerModularMultiplicationTest extends TestCase
 {
-    #[TestDox("sums two ModularInteger instances.")]
+    #[TestDox("multiply two ModularInteger instances.")]
     public function test_result_is_integer(): void
     {
         // Arrange
         $a = $this->randomModularInteger(max: self::MAX_INTEGER);
         $b = new ModularInteger(
-            $this->randomInteger(max: self::MAX_INTEGER), 
+            $this->randomInteger(max: self::MAX_INTEGER),
             $a->modulus
         );
 
         // Act & Assert
         $this->assertInstanceOf(
-            ModularInteger::class, 
-            (new IntegerModularAddition($a, $b))->result()
+            ModularInteger::class,
+            (new IntegerModularMultiplication($a, $b))->result()
         );
     }
 
@@ -44,6 +39,6 @@ class IntegerModularAdditionTest extends TestCase
         $this->expectException(DifferentModulusError::class);
 
         // Act
-        new IntegerModularAddition($a, $b);
+        new IntegerModularMultiplication($a, $b);
     }
 }

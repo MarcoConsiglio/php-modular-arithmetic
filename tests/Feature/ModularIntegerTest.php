@@ -8,7 +8,7 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
 #[TestDox("The ModularInteger")]
 class ModularIntegerTest extends TestCase
 {
-    #[TestDox("hase reflexivity property that states that every number is 
+    #[TestDox("has reflexivity property that states that every number is 
     congruent to itself modulo n, for every n other than 0.")]
     public function test_reflexivity_property(): void
     {

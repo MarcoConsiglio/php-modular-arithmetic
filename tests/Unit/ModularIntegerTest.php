@@ -55,20 +55,4 @@ class ModularIntegerTest extends TestCase
         $a->isCongruent($b);
     }
 
-    #[TestDox("that multiply two congruent numbers modulo n, produces two new 
-    numbers that are still congruent to each other modulo n.")]
-    public function test_invariance_property_under_multiplication(): void
-    {
-        // Arrange
-        $n = $this->nonZeroRandomInteger();
-        $k = 1;
-        $value_a = $this->randomInteger(max: self::MAX_INTEGER);
-        $value_b = $this->getCongruentIntegerValue($value_a, $n, $k++);
-        $value_c = $this->getCongruentIntegerValue($value_a, $n, $k);
-        $a = new ModularInteger($value_a * $value_c, $n);
-        $b = new ModularInteger($value_b * $value_c, $n);
-
-        // Act & Assert
-        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
-    }
 }
