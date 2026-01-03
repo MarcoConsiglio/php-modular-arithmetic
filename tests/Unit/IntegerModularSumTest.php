@@ -5,7 +5,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 #[TestDox("The IntegerModularSum")]

@@ -3,6 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic;
 
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
 
 class ModularInteger
 {
