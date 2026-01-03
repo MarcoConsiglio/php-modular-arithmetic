@@ -8,7 +8,8 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
 #[TestDox("The ModularInteger")]
 class ModularIntegerTest extends TestCase
 {
- #[TestDox("is congruent to itself modulo n, for every n other than 0.")]
+    #[TestDox("hase reflexivity property that states that every number is 
+    congruent to itself modulo n, for every n other than 0.")]
     public function test_reflexivity_property(): void
     {
         /**
@@ -29,8 +30,8 @@ class ModularIntegerTest extends TestCase
         new ModularInteger($value, 0);
     }
 
-    #[TestDox("that is congruent to another value modulo n means that the 
-    other value is congruent to it.")]
+    #[TestDox("has the symmetry property which states that if a is congruent to
+     b modulo n then b is congruent to a modulo n.")]
     public function test_symmetry_property(): void
     {
         // Arrange
@@ -47,8 +48,9 @@ class ModularIntegerTest extends TestCase
         $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
 
-    #[TestDox("that is congruent to b modulo n, which in turn is congruent to c
-     modulo n, is congruent to c modulo n.")]
+    #[TestDox("has the transitivity property which states that if a is 
+    congruent to b modulo n and b is congruent to c modulo n, then a is also 
+    congruent to c modulo n.")]
     public function test_transitivity_property(): void
     {
         $n = $this->nonZeroRandomInteger();
