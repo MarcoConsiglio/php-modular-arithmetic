@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
+use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 
@@ -16,17 +16,28 @@ use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 #[UsesClass(DifferentModulusError::class)]
 class ModularIntegerTest extends TestCase
 {
-    #[TestDox("is an integer number used in modular arithmetic.")]
-    public function test_is_integer(): void
+    #[TestDox("has \"value\" property which is an integer.")]
+    public function test_value_property(): void
     {
         // Arrange
-        $sign = $this->faker->randomElement([1, -1]);
-        $value = $sign * $this->randomInteger();
+        $value = $this->randomInteger();
         $modulus = $this->randomInteger(1);
         $number = new ModularInteger($value, $modulus);
 
         // Act & Assert
-        $this->assertIsInt($number->value);
+        $this->assertSame($value % $modulus, $number->value);
+    }
+
+    #[TestDox("has \"modulus\" property which is an integer.")]
+    public function test_modulus_property(): void
+    {
+        // Arrange
+        $value = $this->randomInteger();
+        $modulus = $this->randomInteger(1);
+        $number = new ModularInteger($value, $modulus);
+
+        // Act & Assert
+        $this->assertSame($modulus, $number->modulus);
     }
 
     #[TestDox("throws DifferentModulusError when performing a congruent 
