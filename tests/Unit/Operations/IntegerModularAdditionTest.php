@@ -16,7 +16,7 @@ use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
 class IntegerModularAdditionTest extends TestCase
 {
     #[TestDox("sums two ModularInteger instances.")]
-    public function test_result_is_integer(): void
+    public function test_result_is_modular_integer(): void
     {
         // Arrange
         $a = $this->randomModularInteger(max: self::MAX_INTEGER);
