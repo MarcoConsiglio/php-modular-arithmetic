@@ -22,6 +22,13 @@ class IntegerModularSum
      */
     public protected(set) int $modulus;
 
+    /**
+     * Construct a modular sum between $a and $b.
+     *
+     * @param ModularInteger $a
+     * @param ModularInteger $b
+     * @throws DifferentModulusError when $a and $b have different modulus.
+     */
     public function __construct(ModularInteger $a, ModularInteger $b)
     {
         if ($a->modulus != $b->modulus) throw new DifferentModulusError($a, $b);
@@ -33,10 +40,13 @@ class IntegerModularSum
     /**
      * Return the result of the modular sum.
      *
-     * @return void
+     * @return ModularInteger
      */
-    public function result()
+    public function result(): ModularInteger
     {
-        return ($this->a->value + $this->b->value) % $this->modulus;
+        return new ModularInteger(
+            $this->a->value + $this->b->value, 
+            $this->modulus
+        );
     }
 }
