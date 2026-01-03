@@ -1,6 +1,7 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
+use Marcoconsiglio\ModularArithmetic\DifferentModulusError;
 use PHPUnit\Framework\Attributes\TestDox;
 use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
@@ -10,6 +11,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 #[TestDox("The IntegerModularSum")]
 #[CoversClass(IntegerModularSum::class)]
 #[UsesClass(ModularInteger::class)]
+#[UsesClass(DifferentModulusError::class)]
 class IntegerModularSumTest extends TestCase
 {
     #[TestDox("sums two ModularInteger instances.")]
@@ -67,5 +69,20 @@ class IntegerModularSumTest extends TestCase
             $a_plus_c->isCongruent($b_plus_c), 
             $this->congruentFailure($a_plus_c, $b_plus_c)
         );
+    }
+
+    #[TestDox("throws DifferentModulusError exception if the two operands have
+    different modulus.")]
+    public function test_different_modulus_error(): void
+    {
+        // Arrange
+        $a = new ModularInteger($this->randomInteger(), 10);
+        $b = new ModularInteger($this->randomInteger(), 20);
+
+        // Assert
+        $this->expectException(DifferentModulusError::class);
+
+        // Act
+        new IntegerModularSum($a, $b);
     }
 }
