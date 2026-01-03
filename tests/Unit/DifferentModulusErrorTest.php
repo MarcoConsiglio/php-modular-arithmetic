@@ -1,15 +1,18 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
-use Marcoconsiglio\ModularArithmetic\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
+use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use PHPUnit\Framework\Attributes\TestDox;
 
 #[CoversClass(DifferentModulusError::class)]
 #[UsesClass(ModularInteger::class)]
+#[TestDox("The DifferentModulusError")]
 class DifferentModulusErrorTest extends TestCase
 {
+    #[TestDox("is thrown when two ModularInteger have different modulus.")]
     public function test_different_modulus_error_test(): void
     {
         // Arrange

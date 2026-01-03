@@ -1,12 +1,12 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
-use Marcoconsiglio\ModularArithmetic\DifferentModulusError;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\Attributes\UsesClass;
+use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
-use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\UsesClass;
 
 #[TestDox("The IntegerModularSum")]
 #[CoversClass(IntegerModularSum::class)]

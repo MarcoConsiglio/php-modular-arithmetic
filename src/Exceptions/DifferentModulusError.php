@@ -1,7 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic;
+namespace Marcoconsiglio\ModularArithmetic\Exceptions;
 
 use ErrorException;
+use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 class DifferentModulusError extends ErrorException
 {

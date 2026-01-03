@@ -1,6 +1,8 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic;
 
+use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+
 class IntegerModularSum
 {
     /**
