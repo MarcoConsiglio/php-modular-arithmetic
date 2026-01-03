@@ -99,6 +99,17 @@ class ModularIntegerTest extends TestCase
         $this->assertInstanceOf(ModularInteger::class, $a->multiply($b));
     }
 
+    #[TestDox("can be raised to power.")]
+    public function test_power_returns_modular_integer(): void
+    {
+        // Arrange
+        $a = $this->randomModularInteger(max: 1000);
+        $k = $this->randomInteger(max: 3);
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularInteger::class, $a->power($k));
+    }
+
     #[TestDox("can tell you if it is congruent with another.")]
     public function test_isCongruent_returns_boolean(): void
     {
