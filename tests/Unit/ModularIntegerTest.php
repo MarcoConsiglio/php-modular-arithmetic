@@ -38,10 +38,41 @@ class ModularIntegerTest extends TestCase
         $this->assertSame(0, $number_1->value);
         $this->assertSame(0, $number_2->value);
         $this->assertSame(0, $number_3->value);
-        $value = $sign * $this->faker->numberBetween();
-        $number = new ModularInteger($value);
+    }
+
+    #[TestDox("is congruent to itself modulo n, for every n other than 0.")]
+    public function test_riflectivity_property(): void
+    {
+        /**
+         * n ≠ 0 OK
+         */
+        // Arrange
+        $value = $this->randomInteger();
+        $n = $this->randomInteger(1);
+        $number = new ModularInteger($value, $n);
         
         // Act & Assert
-        $this->assertEquals($value, $number->value);
+        $this->assertTrue($number->isCongruent($number), $this->congruentFailure($number, $number));
+        
+        /**
+         * n = 0 ERROR
+         */
+        $this->expectException(DivisionByZeroError::class);
+        new ModularInteger($value, 0);
+    }
+
+    #[TestDox("that is congruent to another value modulo n means that the other value is congruent to it.")]
+    public function test_symmetry_property(): void
+    {
+        // Arrange
+        $n = $this->nonZeroRandomInteger();
+        $value = $this->randomInteger();
+        $reminder = $value % $n;
+        $a = new ModularInteger($value, $n);
+        $b = new ModularInteger($n + $reminder, $n);
+
+        // Act & Assert
+        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
+        $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
 }
