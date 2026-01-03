@@ -2,6 +2,7 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
 use DivisionByZeroError;
+use Marcoconsiglio\ModularArithmetic\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\IntegerModularSum;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
@@ -12,6 +13,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 #[TestDox("The ModularInteger")]
 #[CoversClass(ModularInteger::class)]
 #[UsesClass(IntegerModularSum::class)]
+#[UsesClass(DifferentModulusError::class)]
 class ModularIntegerTest extends TestCase
 {
     #[TestDox("is an integer number used in modular arithmetic.")]
@@ -104,6 +106,21 @@ class ModularIntegerTest extends TestCase
         $this->assertTrue($a->equals($c));
     }
 
+    #[TestDox("throws DifferentModulusError when performing a congruent 
+    comparison if the two modulus are different.")]
+    public function test_congruent_comparison_throws_different_modulus_error(): void
+    {
+        // Arrange
+        $a = new ModularInteger($this->randomInteger(), 10);
+        $b = new ModularInteger($this->randomInteger(), 20);
+
+        // Assert
+        $this->expectException(DifferentModulusError::class);
+
+        // Act
+        $a->isCongruent($b);
+    }
+
     #[TestDox("that multiply two congruent numbers modulo n, produces two new 
     numbers that are still congruent to each other modulo n.")]
     public function test_invariance_property_under_multiplication(): void
@@ -121,6 +138,7 @@ class ModularIntegerTest extends TestCase
         $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
     }
 
+    #[TestDox("sum operation return a new ModularInteger.")]
     public function test_sum_returns_modular_integer(): void
     {
         // Arrange
