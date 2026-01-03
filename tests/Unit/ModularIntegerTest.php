@@ -75,4 +75,20 @@ class ModularIntegerTest extends TestCase
         $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
         $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
+
+    #[TestDox("that is congruent to b modulo n, which in turn is congruent to c modulo n, is congruent to c modulo n.")]
+    public function test_transitivity_property(): void
+    {
+        $n = $this->nonZeroRandomInteger();
+        $value = $this->randomInteger();
+        $reminder = $value % $n;
+        $k = 1;
+        $a = new ModularInteger($value, $n);
+        $b = new ModularInteger($k++ * $n + $reminder, $n);
+        $c = new ModularInteger($k * $n + $reminder, $n);
+
+        $this->assertTrue($a->equals($b));
+        $this->assertTrue($b->equals($c));
+        $this->assertTrue($a->equals($c));
+    }
 }
