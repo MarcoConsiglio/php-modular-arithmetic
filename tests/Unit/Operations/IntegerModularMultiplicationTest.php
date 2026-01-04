@@ -2,6 +2,7 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Operations;
 
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularMultiplication;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\TestCase;
@@ -40,5 +41,20 @@ class IntegerModularMultiplicationTest extends TestCase
 
         // Act
         new IntegerModularMultiplication($a, $b);
+    }
+
+    #[TestDox("throws IntegerOverflowError when the product is too large to be
+    stored in a int type variable.")]
+    public function test_integer_overflow_error(): void
+    {
+        // Arrange
+        $a = new ModularInteger(PHP_INT_MAX - 1, PHP_INT_MAX);
+        $b = new ModularInteger(PHP_INT_MAX - 1, PHP_INT_MAX);
+
+        // Assert
+        $this->expectException(IntegerOverflowError::class);
+
+        // Act
+        new IntegerModularMultiplication($a, $b)->result();
     }
 }

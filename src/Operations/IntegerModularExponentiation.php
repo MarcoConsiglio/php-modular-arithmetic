@@ -21,6 +21,8 @@ class IntegerModularExponentiation extends IntegerModularOperation
      * Return the result of this operation.
      *
      * @return ModularInteger
+     * @throws IntegerOverflowError when the power is too large to be stored in
+     * a int type variable.
      */
     public function result(): ModularInteger
     {
