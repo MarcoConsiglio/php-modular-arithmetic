@@ -3,6 +3,9 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
+/**
+ * The multiplication operation between two ModularInteger.
+ */
 class IntegerModularMultiplication extends IntegerModularOperation
 {
     /**

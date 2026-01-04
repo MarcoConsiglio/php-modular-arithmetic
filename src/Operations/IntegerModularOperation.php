@@ -5,6 +5,10 @@ use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
+/**
+ * The abstract arithmetic operation of the
+ * modular arithmetic.
+ */
 abstract class IntegerModularOperation
 {
     /**

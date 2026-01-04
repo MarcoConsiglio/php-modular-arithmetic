@@ -4,6 +4,9 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 
+/**
+ * The addition operation between two ModularInteger.
+ */
 class IntegerModularAddition extends IntegerModularOperation
 {
     /**

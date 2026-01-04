@@ -3,6 +3,10 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
+/**
+ * The exponentiation operation between a ModularInteger and an
+ * exponent.
+ */
 class IntegerModularExponentiation extends IntegerModularOperation
 {
     /**

@@ -7,6 +7,12 @@ use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularAddition;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularExponentiation;
 use Marcoconsiglio\ModularArithmetic\Operations\IntegerModularMultiplication;
 
+/**
+ * A integer number along with its modulus.
+ * 
+ * For example, if this instance referred the hour 21, 
+ * its value would be 9 and its modulus would be 12.
+ */
 class ModularInteger
 {
     /**
