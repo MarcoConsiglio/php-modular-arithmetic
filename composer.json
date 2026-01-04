@@ -1,0 +1,27 @@
+{
+    "name": "marcoconsiglio/modular-arithmetic",
+    "description": "A PHP libarary to support modular arithmetic, aka clock arithmetic.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Marcoconsiglio\\ModularArithmetic\\": "src/",
+            "Marcoconsiglio\\ModularArithmetic\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marco Consiglio",
+            "email": "mrccnsgl@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^12.5",
+        "fakerphp/faker": "^1.24",
+        "rector/rector": "^2.3"
+    },
+    "require": {
+        "php": "^8.4"
+    }
+}
