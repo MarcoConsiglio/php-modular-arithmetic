@@ -128,9 +128,6 @@ class BaseTestCase extends TestCase
     /**
      * Normalize the $sign parameter so it can be multiplied to another
      * number to determine its sign.
-     *
-     * @param integer $sign
-     * @return integer
      */
     protected function normalizeSign(int $sign): int
     {

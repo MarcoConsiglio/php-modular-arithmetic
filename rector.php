@@ -8,7 +8,7 @@ use Rector\DeadCode\Rector\If_\RemoveAlwaysTrueIfConditionRector;
 use Rector\DeadCode\Rector\Plus\RemoveDeadZeroAndOneOperationRector;
 use Rector\Php84\Rector\MethodCall\NewMethodCallWithoutParenthesesRector;
 
-$level = 33;
+$level = 36;
 return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/src',
