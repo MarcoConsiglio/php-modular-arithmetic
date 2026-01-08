@@ -10,6 +10,9 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
  */
 class IntegerModularExponentiation extends IntegerModularOperation
 {
+    /**
+     * The alias for the left operand.
+     */
     protected ModularInteger $base {
         get {
             return $this->a;
@@ -68,6 +71,9 @@ class IntegerModularExponentiation extends IntegerModularOperation
         return abs($exponent) > log(abs(PHP_INT_MIN), abs($base));
     }
 
+    /**
+     * Return true if the $base is positive, false otherwise.
+     */
     protected function isBasePositive(int $base): bool
     {
         return $base >= 0;

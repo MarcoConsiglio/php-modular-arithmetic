@@ -45,9 +45,13 @@ abstract class IntegerModularOperation
     abstract public function result(): ModularInteger;
 
     /**
-     * Check if $value is greater than PHP_INT_MAX.
+     * Check if $value can be safely stored in a int type variable.
      *
-     * @throws IntegerOverflowError if the power exceed PHP_INT_MAX.
+     * @param float $value This parameter should not be used with float type 
+     * variables. It is intended to be used with int type variables beacuse
+     * PHP internally automatically cast to float when the int value overflows
+     * the int type variable.
+     * @throws IntegerOverflowError if $value overflow a int type variable.
      */
     protected function checkIntegerOverflow(float $value): void
     {
@@ -55,11 +59,11 @@ abstract class IntegerModularOperation
     }
 
     /**
-     * Return true if $value is greater than PHP_INT_MAX.
+     * Return true if $value is overflowing an int type variable.
      */
     protected function isOverflowingInteger(float $value): bool
     {
-        return abs($value) > PHP_INT_MAX;
+        return $value > PHP_INT_MAX || $value < PHP_INT_MIN;
     }
 
 }
