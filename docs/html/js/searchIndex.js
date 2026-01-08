@@ -83,7 +83,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularExponentiation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Construct\u0020a\u0020modular\u0020sum\u0020between\u0020\u0024a\u0020and\u0020\u0024b.",
+            "summary": "Construct\u0020the\u0020modular\u0020exponentiation\u0020operation.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularExponentiation.html#method___construct"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularExponentiation\u003A\u003Aresult\u0028\u0029",
@@ -108,7 +108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Construct\u0020a\u0020modular\u0020sum\u0020between\u0020\u0024a\u0020and\u0020\u0024b.",
+            "summary": "Construct\u0020a\u0020modular\u0020operation\u0020between\u0020\u0024a\u0020and\u0020\u0024b.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#method___construct"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003Aresult\u0028\u0029",
