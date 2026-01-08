@@ -2,6 +2,7 @@
 ## v2.0.0 - 2025-01-08
 ### Changed
 - BREAKING CHANGE: Parameter name `$a` to `$base` in `IntegerModularExponentiation::__construct()` method.
+- API documentation.
 
 ## v1.0.0 - 2025-01-04
 ### Added
