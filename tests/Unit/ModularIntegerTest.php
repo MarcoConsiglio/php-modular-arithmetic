@@ -40,19 +40,15 @@ class ModularIntegerTest extends TestCase
         $this->assertSame($modulus, $number->modulus);
     }
 
-    #[TestDox("throws DifferentModulusError when performing a congruent 
-    comparison if the two modulus are different.")]
-    public function test_congruent_comparison_throws_different_modulus_error(): void
+    public function test_congruence_is_false_with_different_modulus(): void
     {
         // Arrange
-        $a = new ModularInteger($this->randomInteger(), 10);
-        $b = new ModularInteger($this->randomInteger(), 20);
+        do {
+            $a = $this->randomModularInteger();
+            $b = $this->randomModularInteger();
+        } while($a->modulus == $b->modulus);
 
-        // Assert
-        $this->expectException(DifferentModulusError::class);
-
-        // Act
-        $a->isCongruent($b);
+        // Act & Assert
+        $this->assertFalse($a->isCongruent($b));
     }
-
 }

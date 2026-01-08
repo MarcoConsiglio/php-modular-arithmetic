@@ -11,9 +11,6 @@ class DifferentModulusError extends ErrorException
 {
     /**
      * Construct the exception with the two number.
-     *
-     * @param ModularInteger $a
-     * @param ModularInteger $b
      */
     public function __construct(ModularInteger $a, ModularInteger $b)
     {

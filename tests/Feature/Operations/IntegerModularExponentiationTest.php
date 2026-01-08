@@ -19,8 +19,8 @@ class IntegerModularExponentiationTest extends TestCase
     public function test_invariance_property(): void
     {
         // Arrange
-        $k = $this->randomInteger(max: 3);
-        $a = $this->randomModularInteger(max: 100);
+        $a = $this->randomModularInteger(min: 1, max: PHP_INT_MAX, sign: 1);
+        $k = $this->randomInteger(max: log(PHP_INT_MAX, $a->value));
         $b = new ModularInteger(
             $this->getCongruentIntegerValue($a->value, $a->modulus, 1),
             $a->modulus

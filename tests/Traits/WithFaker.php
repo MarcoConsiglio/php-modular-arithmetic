@@ -8,15 +8,11 @@ trait WithFaker
 {
     /**
      * The FakerPHP random generator.
-     *
-     * @var Generator
      */
     protected Generator $faker;
 
     /**
      * Set up the FakerPHP generator.
-     *
-     * @return void
      */
     protected function setUpFaker(): void
     {
