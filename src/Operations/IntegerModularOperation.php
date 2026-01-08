@@ -13,15 +13,11 @@ abstract class IntegerModularOperation
 {
     /**
      * The left operand.
-     *
-     * @var ModularInteger
      */
     public ModularInteger $a;
 
     /**
      * The right operand.
-     *
-     * @var ModularInteger
      */
     public ModularInteger $b;
 
@@ -31,10 +27,8 @@ abstract class IntegerModularOperation
     public protected(set) int $modulus;
 
     /**
-     * Construct a modular sum between $a and $b.
+     * Construct a modular operation between $a and $b.
      *
-     * @param ModularInteger $a
-     * @param ModularInteger $b
      * @throws DifferentModulusError when $a and $b have different modulus.
      */
     public function __construct(ModularInteger $a, ModularInteger $b)
@@ -47,27 +41,25 @@ abstract class IntegerModularOperation
 
     /**
      * Return the result of this operation.
-     *
-     * @return ModularInteger
      */
     abstract public function result(): ModularInteger;
 
     /**
-     * Check if $value exceed the maximum integer value on this system.
-     * 
-     * Don't use this method with a float value, or you'll lose the decimal 
-     * portion, as the float value is converted to an integer. The $value 
-     * parameter is a float because PHP automatically converts large integers
-     * to a float.
+     * Check if $value is greater than PHP_INT_MAX.
      *
-     * @param float $value
-     * @return integer
-     * @throws IntegerOverflowError if $value exceed PHP_INT_MAX.
+     * @throws IntegerOverflowError if the power exceed PHP_INT_MAX.
      */
-    protected function checkIntgerOverflow(float $value): int
+    protected function checkIntegerOverflow(float $value): void
     {
-        if ($value > PHP_INT_MAX) throw new IntegerOverflowError($value);
-        return (int) $value;
+        if ($this->isOverflowingInteger($value)) throw new IntegerOverflowError($value);
+    }
+
+    /**
+     * Return true if $value is greater than PHP_INT_MAX.
+     */
+    protected function isOverflowingInteger(float $value): bool
+    {
+        return abs($value) > PHP_INT_MAX;
     }
 
 }

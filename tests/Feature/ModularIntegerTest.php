@@ -75,14 +75,15 @@ class ModularIntegerTest extends TestCase
     public function test_add_returns_modular_integer(): void
     {
         // Arrange
-        $a = $this->randomModularInteger(max: self::MAX_INTEGER);
+        $a = $this->randomModularInteger(max: PHP_INT_MAX);
         $b = new ModularInteger(
-            $this->randomInteger(max: self::MAX_INTEGER),
+            $this->randomInteger(max: PHP_INT_MAX - $a->value),
             $a->modulus
         );
 
         // Act & Assert
-        $this->assertInstanceOf(ModularInteger::class, $a->add($b));
+        $this->assertInstanceOf(ModularInteger::class, $result = $a->add($b));
+        $this->assertEquals(($a->value + $b->value) % $a->modulus, $result->value);
     }
 
     #[TestDox("can be multiplied to another.")]

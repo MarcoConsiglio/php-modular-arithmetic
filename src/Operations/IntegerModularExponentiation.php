@@ -1,6 +1,7 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Operations;
 
+use Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 /**
@@ -9,30 +10,66 @@ use Marcoconsiglio\ModularArithmetic\ModularInteger;
  */
 class IntegerModularExponentiation extends IntegerModularOperation
 {
-    /**
-     * The right operand.
-     */
-    protected int $exponent;
+    protected ModularInteger $base {
+        get {
+            return $this->a;
+        }
+    }
 
-    public function __construct(ModularInteger $a, int $exponent)
+    /**
+     * Construct the modular exponentiation operation.
+     *
+     * @param ModularInteger $a
+     */
+    public function __construct(ModularInteger $base, protected int $exponent)
     {
-        $this->a = $a;
-        $this->modulus = $a->modulus;
-        $this->exponent = $exponent;
+        $this->a = $base;
+        $this->modulus = $base->modulus;
     }
 
     /**
      * Return the result of this operation.
      *
-     * @return ModularInteger
      * @throws IntegerOverflowError when the power is too large to be stored in
      * a int type variable.
      */
     public function result(): ModularInteger
     {
+        // Shortcuts
+        if ($this->base->value == 0) return $this->base;
+        if ($this->base->value == 1) 
+            return new ModularInteger($this->base->value ** $this->exponent, $this->modulus);
+        $this->checkPowerIntegerOverflow();
         return new ModularInteger(
-            $this->checkIntgerOverflow($this->a->value ** $this->exponent), 
+            $this->a->value ** $this->exponent, 
             $this->modulus
         );
+    }
+
+    /**
+     * Check if $base power $exponent goes beyond PHP_INT_MAX.
+     *
+     * @throws IntegerOverflowError if the power exceed PHP_INT_MAX.
+     */
+    protected function checkPowerIntegerOverflow(): void
+    {
+        if ($this->isPowerOverflowingInteger($this->base->value, $this->exponent)) 
+            throw new IntegerOverflowError($this->base->value ** $this->exponent);
+    }
+
+    /**
+     * Return true if $base power $exponent goes beyond PHP_INT_MAX.
+     */
+    protected function isPowerOverflowingInteger(int $base, int $exponent): bool
+    {
+        // This is checked in result() so here the base will never be zero or one.
+        // if ($this->isBaseOneOrZero($base)) return false;
+        if ($this->isBasePositive($base)) return $exponent > log(PHP_INT_MAX, $base);
+        return abs($exponent) > log(abs(PHP_INT_MIN), abs($base));
+    }
+
+    protected function isBasePositive(int $base): bool
+    {
+        return $base >= 0;
     }
 }

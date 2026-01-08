@@ -30,11 +30,9 @@ class BaseTestCase extends TestCase
 
    /**
      * Return a random sign.
-     * 
+     *
      * The returning value is a factor that multiply the number you want to set
      * the sign on.
-     *
-     * @return integer
      */
     protected function randomSign(): int
     {
@@ -47,15 +45,13 @@ class BaseTestCase extends TestCase
      * @param integer $max
      * less than 0 return a negative number.
      * @param integer|null $sign If greater than zero return a positive number, if
-     * less than zero return a negative number. If $sign is null, the returning 
+     * less than zero return a negative number. If $sign is null, the returning
      * value sign will be random.
-     * @return integer
      */
-    protected function randomInteger($min = 0, $max = 2147483647, $sign = null): int
+    protected function randomInteger($min = 0, $max = 2147483647, int|null $sign = null): int
     {
-        if ($sign !== null) return $this->randomSign() * $this->faker->numberBetween(abs($min), abs($max));
-        if ($sign >= 0) $sign = 1;
-        if ($sign < 0) $sign = -1;
+        if ($sign == null) return $this->randomSign() * $this->faker->numberBetween(abs($min), abs($max));
+        $sign = $this->normalizeSign($sign);
         return $sign * $this->faker->numberBetween(abs($min), abs($max));
     }
 
@@ -64,7 +60,6 @@ class BaseTestCase extends TestCase
      *
      * @param integer $min
      * @param integer $max
-     * @return integer
      */
     protected function positiveRandomInteger($min = 0, $max = 2147483647): int
     {
@@ -76,7 +71,6 @@ class BaseTestCase extends TestCase
      *
      * @param integer $min
      * @param integer $max
-     * @return integer
      */
     protected function nonZeroRandomInteger($min = 1, $max = 2147483647): int
     {
@@ -90,7 +84,6 @@ class BaseTestCase extends TestCase
      *
      * @param integer $min
      * @param integer $max
-     * @return integer
      */
     protected function negativeRandomInteger($min = 0, $max = 2147483647): int
     {
@@ -103,40 +96,46 @@ class BaseTestCase extends TestCase
      *
      * @param integer $min
      * @param integer $max
-     * @return ModularInteger
      */
-    protected function randomModularInteger($min = 0, $max = 2147483647): ModularInteger
+    protected function randomModularInteger($min = 0, $max = 2147483647, int|null $sign = null): ModularInteger
     {
         return new ModularInteger(
-            $this->randomInteger($min, $max),
-            $this->randomInteger($min, $max, 1) // The modulus cannot be zero.
+            $this->randomInteger($min, $max, $sign),
+            $this->randomInteger(1, $max, 1) // The modulus cannot be zero.
         );
     }
 
     /**
      * Get a congruent integer number to $value modulo $modulus multiplied
      * by $k.
-     *
-     * @param integer $value
-     * @param integer $modulus
-     * @param integer $k
-     * @return integer
      */
     protected function getCongruentIntegerValue(int $value, int $modulus, int $k): int
     {
         $reminder = $value % $modulus;
-        return $k * $modulus + $reminder;
+        $congruent_value = $k * $modulus + $reminder;
+        if (is_float($congruent_value)) return $reminder;
+        else return $k * $modulus + $reminder;
     }
 
     /**
      * Return a failure message when $a and $b are not congruent.
-     *
-     * @param ModularInteger $a
-     * @param ModularInteger $b
-     * @return string
      */
     protected function congruentFailure(ModularInteger $a, ModularInteger $b): string
     {
         return "$a->value is not congruent to $b->value";
+    }
+
+    /**
+     * Normalize the $sign parameter so it can be multiplied to another
+     * number to determine its sign.
+     *
+     * @param integer $sign
+     * @return integer
+     */
+    protected function normalizeSign(int $sign): int
+    {
+        if ($sign >= 0) $sign = 1;
+        if ($sign < 0) $sign = -1;
+        return $sign;
     }
 }
