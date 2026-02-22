@@ -1,0 +1,119 @@
+<?php
+namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
+
+use DivisionByZeroError;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use PHPUnit\Framework\Attributes\TestDox;
+use Throwable;
+
+#[TestDox("The ModularNumber")]
+class ModularNumberTest extends TestCase
+{
+    #[TestDox("has reflexivity property that states that every number is 
+    congruent to itself modulo n, for every n other than 0.")]
+    public function test_reflexivity_property(): void
+    {
+        /**
+         * n ≠ 0 OK
+         */
+        // Arrange
+        $value = $this->randomNumber(max: $this::MAX);
+        $n = $this->randomModulus(max: $this::MAX);
+        $number = new ModularNumber($value, $n);
+        
+        // Act & Assert
+        $this->assertTrue($number->isCongruent($number), $this->congruentFailure($number, $number));
+        
+        /**
+         * n = 0 ERROR
+         */
+        $this->expectException(DivisionByZeroError::class);
+        new ModularNumber($value, 0);
+    }
+
+    #[TestDox("has the symmetry property which states that if a is congruent to
+     b modulo n then b is congruent to a modulo n.")]
+    public function test_symmetry_property(): void
+    {
+        // Arrange
+        $n = $this->randomModulus(max: $this::MAX);
+        $value = $this->randomNumber(max: $this::MAX);
+        $a = new ModularNumber($value, $n);
+        $b = new ModularNumber(
+            $this->getCongruentNumber($value, $n, 1), 
+            $n
+        );
+
+        // Act & Assert
+        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
+        $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
+    }
+
+    #[TestDox("has the transitivity property which states that if a is 
+    congruent to b modulo n and b is congruent to c modulo n, then a is also 
+    congruent to c modulo n.")]
+    public function test_transitivity_property(): void
+    {
+        $n = $this->randomModulus(max: $this::MAX);
+        $value = $this->randomNumber(max: $this::MAX);
+        $a = new ModularNumber($value, $n);
+        $b = new ModularNumber($this->getCongruentNumber($value, $n, 1), $n);
+        $c = new ModularNumber($this->getCongruentNumber($value, $n, 2), $n);
+
+        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
+        $this->assertTrue($b->equals($c), $this->congruentFailure($b, $c));
+        $this->assertTrue($a->equals($c), $this->congruentFailure($a, $c));
+    }
+    
+
+    #[TestDox("can be added to another.")]
+    public function test_add_returns_modular_number(): void
+    {
+        // Arrange
+        $a = $this->randomModularNumber(max: $this::MAX);
+        $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularNumber::class, $result = $a->plus($b));
+        $this->assertEquals($a->value->plus($b->value)->mod($a->modulus)->value, $result->value);
+    }
+
+    #[TestDox("can be multiplied to another.")]
+    public function test_multiply_returns_modular_number(): void
+    {
+        // Arrange
+        $a = $this->randomModularNumber(max: $this::MAX);
+        $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularNumber::class, $product = $a->mul($b));
+        $this->assertEquals($a->value->mul($b->value)->mod($a->modulus)->value, $product->value);
+    }
+
+    #[TestDox("can be raised to power.")]
+    public function test_power_returns_modular_number(): void
+    {
+        // Arrange
+        $a = $this->randomModularNumber(max: 1000.0);
+        $k = $this->randomInteger(max: 100);
+
+        // Act & Assert
+        try {
+            $this->assertInstanceOf(ModularNumber::class, $power = $a->pow($k));
+            $this->assertEquals($a->value->pow($k)->mod($a->modulus), $power->value);
+        } catch (Throwable $e) {
+            $this->fail("Base: {$a->value}\nExponent: {$k}\n{$e->getMessage()}");
+        }
+    }
+
+    #[TestDox("can tell you if it is congruent with another one .")]
+    public function test_isCongruent_returns_boolean(): void
+    {
+        // Arrange
+        $a = $this->randomModularNumber();
+        $b = $this->randomModularNumberWithModulus($a->modulus);
+
+        // Act & Assert
+        $this->assertIsBool($a->isCongruent($b));
+    }
+}

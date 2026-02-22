@@ -1,4 +1,9 @@
 # Changelog
+## Unreleased
+### Added
+- `NegativeExponentError` exception is thrown when using exponentiation operation of a `ModularInteger` base with a negative exponent.
+
+
 ## v2.0.0 - 2025-01-08
 ### Changed
 - BREAKING CHANGE: Parameter name `$a` to `$base` in `IntegerModularExponentiation::__construct()` method.
