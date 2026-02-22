@@ -1,22 +1,26 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests;
 
+use Deprecated;
+use MarcoConsiglio\BCMathExtended\Number;
+use BcMath\Number as BCMathNumber;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\ModularReal;
+use Marcoconsiglio\ModularArithmetic\Tests\Enums\Sign;
 use Override;
 use PHPUnit\Framework\TestCase;
 use Marcoconsiglio\ModularArithmetic\Tests\Traits\WithFaker;
+use Marcoconsiglio\ModularArithmetic\Tests\Traits\WithStringFormatting;
 
 class BaseTestCase extends TestCase
 {
-    use WithFaker;
+    use WithFaker, WithStringFormatting;
 
     /**
-     * The max integer allowed to avoid integer overflow.
-     * 
-     * This value is completely arbitrary and does not guarantee that integer
-     * overflow will be avoided.
+     * Arbitrary limit for float numbers generation.
      */
-    protected const int MAX_INTEGER = 1000000;
+    const float MAX = 1_000_000.0;
 
     /**
      * This method is called before each test.
@@ -28,111 +32,62 @@ class BaseTestCase extends TestCase
         $this->setUpFaker();
     }
 
-   /**
-     * Return a random sign.
-     *
-     * The returning value is a factor that multiply the number you want to set
-     * the sign on.
-     */
-    protected function randomSign(): int
-    {
-        return $this->faker->randomElement([1, -1]);
-    }
     /**
-     * Return a random integer.
-     *
-     * @param integer $min
-     * @param integer $max
-     * less than 0 return a negative number.
-     * @param integer|null $sign If greater than zero return a positive number, if
-     * less than zero return a negative number. If $sign is null, the returning
-     * value sign will be random.
+     * Return a random non zero Number to safely use it as a modulus.
      */
-    protected function randomInteger($min = 0, $max = 2147483647, int|null $sign = null): int
+    protected function randomModulus(float $min = 0, float $max = PHP_FLOAT_MAX): Number
     {
-        if ($sign == null) return $this->randomSign() * $this->faker->numberBetween(abs($min), abs($max));
-        $sign = $this->normalizeSign($sign);
-        return $sign * $this->faker->numberBetween(abs($min), abs($max));
+        $value = $this->nonZeroRandomFloat($min, $max); // y ≠ 0
+        return new Number($this->string($value));
     }
 
     /**
-     * Return a random positive integer.
-     *
-     * @param integer $min
-     * @param integer $max
+     * Return a random Number.
      */
-    protected function positiveRandomInteger($min = 0, $max = 2147483647): int
+    protected function randomNumber(float $min = 0, float $max = PHP_FLOAT_MAX): Number
     {
-        return $this->randomInteger(abs($min), abs($max), 1);
+        $value = $this->randomFloat($min, $max);
+        return new Number($this->string($value));
     }
 
     /**
-     * Return a random integer except for zero.
-     *
-     * @param integer $min
-     * @param integer $max
+     * Return a random ModularNumber. Both value and modulus are random.
      */
-    protected function nonZeroRandomInteger($min = 1, $max = 2147483647): int
+    protected function randomModularNumber(float $min = 0, float $max = PHP_FLOAT_MAX): ModularNumber
     {
-        $min = abs($min);
-        if ($min == 0) $min = 1;
-        return $this->randomInteger($min);
+        $value = $this->randomNumber($min, $max);
+        $modulus = $this->randomModulus($min, $max);
+        return new ModularNumber($value, $modulus);
     }
 
     /**
-     * Return a random negative number.
-     *
-     * @param integer $min
-     * @param integer $max
+     * Return a random ModularNumber with a specified $modulus.
      */
-    protected function negativeRandomInteger($min = 0, $max = 2147483647): int
+    protected function randomModularNumberWithModulus(Number $modulus, float $min = 0, float $max = PHP_FLOAT_MAX): ModularNumber
     {
-        return $this->randomInteger(abs($min), abs($max), -1);
+        $value = $this->randomNumber($min, $max);
+        return new ModularNumber($value, $modulus);
     }
 
     /**
-     * Return a random ModularInteger
-     * with a random modulus.
-     *
-     * @param integer $min
-     * @param integer $max
-     */
-    protected function randomModularInteger($min = 0, $max = 2147483647, int|null $sign = null): ModularInteger
-    {
-        return new ModularInteger(
-            $this->randomInteger($min, $max, $sign),
-            $this->randomInteger(1, $max, 1) // The modulus cannot be zero.
-        );
-    }
-
-    /**
-     * Get a congruent integer number to $value modulo $modulus multiplied
+     * Get a congruent Number to $value modulo $modulus multiplied
      * by $k.
      */
-    protected function getCongruentIntegerValue(int $value, int $modulus, int $k): int
+    protected function getCongruentNumber(int|string|BCMathNumber|Number $value, int|string|BCMathNumber|Number $modulus, int $k): Number
     {
-        $reminder = $value % $modulus;
-        $congruent_value = $k * $modulus + $reminder;
-        if (is_float($congruent_value)) return $reminder;
-        else return $k * $modulus + $reminder;
+        $value = Number::toNumber($value);
+        $modulus = Number::toNumber($modulus);
+        $reminder = $value->mod($modulus);
+        return $modulus->mul($k)->add($reminder);
     }
 
     /**
      * Return a failure message when $a and $b are not congruent.
      */
-    protected function congruentFailure(ModularInteger $a, ModularInteger $b): string
+    protected function congruentFailure(ModularNumber $a, ModularNumber $b): string
     {
-        return "$a->value is not congruent to $b->value";
-    }
-
-    /**
-     * Normalize the $sign parameter so it can be multiplied to another
-     * number to determine its sign.
-     */
-    protected function normalizeSign(int $sign): int
-    {
-        if ($sign >= 0) $sign = 1;
-        if ($sign < 0) $sign = -1;
-        return $sign;
+        if ($a->modulus->not($b->modulus)) $modulus = "(mod {$a->modulus} or {$b->modulus}?)";
+        else $modulus = "(mod {$a->modulus})";
+        return "{$a->value} ≢ {$b->value} $modulus";
     }
 }

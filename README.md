@@ -1,6 +1,6 @@
 ![GitHub License](https://img.shields.io/github/license/MarcoConsiglio/php-modular-arithmetic)
 ![GitHub Release](https://img.shields.io/github/v/release/MarcoConsiglio/php-modular-arithmetic)
-![Static Badge](https://img.shields.io/badge/version-v2.0.0-white)<br>
+![Static Badge](https://img.shields.io/badge/version-v3.0.0-white)<br>
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Line%20coverage&labelColor=rgb(255%2C255%2C255))
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Branch%20coverage&labelColor=rgb(255%2C255%2C255))
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Path%20coverage&labelColor=rgb(255%2C255%2C255))
@@ -16,13 +16,13 @@ composer install marcoconsiglio/modular-arithmetic
 ```
 
 ## Usage
-Construct a modular integer with its modulus.
+Construct a modular number with its modulus.
 
 ```php
 use Marcoconsiglio\ModularArithmetic\ModularInteger;
 
 $hour_on_a_clock = 12;
-$current_hour = new ModularInteger(15, $hour_on_a_clock);
+$current_hour = new ModularNumber(15, $hour_on_a_clock);
 echo "The current hour is $current_hour->value o'clock.";
 ```
 ```
@@ -31,13 +31,13 @@ The current hour is 3 o'clock.
 
 ## Modular Arithmetic
 ### Addition
-You can add two `ModularInteger`: the sum will be a `ModularInteger` instance.
+You can add two `ModularNumber`: the sum will be a `ModularNumber` instance.
 ```php
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 $hour_on_a_clock = 12;
-$work_start = new ModularInteger(9, $hour_on_a_clock);
-$working_time = new ModularInteger(9, $hour_on_a_clock);
+$work_start = new ModularNumber(9, $hour_on_a_clock);
+$working_time = new ModularNumber(9, $hour_on_a_clock);
 $work_end = $work_start->add($working_time);
 echo "I'm going to start to work at {$work_start->value} o'clock a.m.\n";
 echo "I'll work for {$working_time->value} hours.\n";
@@ -50,15 +50,15 @@ I'll finish to work at 6 o'clock p.m.
 ```
 
 ### Multiplication
-You can multiply two `ModularInteger`: the product will be a `ModularInteger` instance.
+You can multiply two `ModularNumber`: the product will be a `ModularNumber` instance.
 
 ```php
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 $hours_in_a_day = 24;
-$start_shift = new ModularInteger(0, $hours_in_a_day); /* midnight */
-$shift_duration = new ModularInteger(3, $hours_in_a_day);
-$my_shift = new ModularInteger(5, $hours_in_a_day); /* 5th turn */
+$start_shift = new ModularNumber(0, $hours_in_a_day); /* midnight */
+$shift_duration = new ModularNumber(3, $hours_in_a_day);
+$my_shift = new ModularNumber(5, $hours_in_a_day); /* 5th turn */
 $time_to_wait = $shift_duration->multiply($my_shift);
 $my_shift_start = $start_shift->add($time_to_wait);
 echo "There is a new guard shift every {$shift_duration->value} hours.\n";
@@ -70,9 +70,9 @@ My shift, the 5th, starts at 15 o'clock.
 ```
 
 ### Exponentiation
-You can raise to power $k$ a `ModularInteger`: the result will be a `ModularInteger` instance.
+You can raise to power $k$ a `ModularNumber`: the result will be a `ModularNumber` instance.
 ```php
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 $alphabet_lenght = 26;
 $alphabet_set = range('A', 'Z');
@@ -82,7 +82,7 @@ $cypher_key = 3;
 echo "Encrypting the message:\n";
 echo implode("", $message)."\n";
 foreach ($message as $char) {
-    $unencrypted_index = new ModularInteger(
+    $unencrypted_index = new ModularNumber(
         array_search($char, $alphabet_set),
         $alphabet_lenght
     );
@@ -104,24 +104,11 @@ FMFFO
 This error is thrown when you try to perform an arithmetic operation using two `ModularInteger` with different modulus.
 
 ```php
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
-$a = new ModularInteger(3, 7);
-$b = new ModularInteger(5, 12);
+$a = new ModularNumber(3, 7);
+$b = new ModularNumber(5, 12);
 $sum = $a->add($b); // Throws DifferentModulusError
 ```
 ```
-Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError: Different modules cannot be used (7 and 12).
-```
-### IntegerOverflowError
-This error is thrown when the value of a `ModularInteger` cannot be stored in a int type variable because it's too large.
-
-```php
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
-
-$a = new ModularInteger(100, 1000);
-$sum = $a->power(100); // Throws IntegerOverflowError
-```
-```
-Marcoconsiglio\ModularArithmetic\Exceptions\IntegerOverflowError: The number 1.0E+200 exceeds the max integer value of 9223372036854775807 on this system.
-```
+Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError: Two different modulus cannot be used (7 and 12).

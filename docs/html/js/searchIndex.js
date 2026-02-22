@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Exceptions\\DifferentModulusError",
             "name": "DifferentModulusError",
-            "summary": "The\u0020exception\u0020thrown\u0020when\u0020two\u0020number\u0020have\u0020different\u0020modules.",
+            "summary": "The\u0020exception\u0020thrown\u0020when\u0020two\u0020number\u0020have\u0020different\u0020modulus.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Exceptions-DifferentModulusError.html"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Exceptions\\DifferentModulusError\u003A\u003A__construct\u0028\u0029",
@@ -11,125 +11,130 @@ Search.appendIndex(
             "summary": "Construct\u0020the\u0020exception\u0020with\u0020the\u0020two\u0020number.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Exceptions-DifferentModulusError.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Exceptions\\IntegerOverflowError",
-            "name": "IntegerOverflowError",
-            "summary": "The\u0020exception\u0020thrown\u0020when\u0020an\u0020overflowing\u0020integer\u0020is\u0020used.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Exceptions-IntegerOverflowError.html"
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber",
+            "name": "ModularNumber",
+            "summary": "A\u0020modular\u0020number,\u0020a.k.a.\u0020clock\u0020number.\u0020It\u0020represents\u0020a\u0020value\u0020in\u0020a\u0020ring,\u0020like\nthe\u0020hours\u0020on\u0020a\u0020clock.\u0020The\u0020length\u0020of\u0020the\u0020ring\u0020is\u0020represented\u0020by\u0020its\u0020modulus.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Exceptions\\IntegerOverflowError\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Exceptions-IntegerOverflowError.html#method___construct"
+            "summary": "Construct\u0020a\u0020modular\u0020number\u0020with\u0020a\u0020\u0024value\u0020and\u0020its\u0020\u0024modulus.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger",
-            "name": "ModularInteger",
-            "summary": "A\u0020integer\u0020number\u0020along\u0020with\u0020its\u0020modulus.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Construct\u0020an\u0020integer\u0020modular\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method___construct"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003AisCongruent\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AisCongruent\u0028\u0029",
             "name": "isCongruent",
-            "summary": "Return\u0020true\u0020if\u0020this\u0020instance\u0020is\u0020congruent\u0020to\u0020\u0024number,\nfalse\u0020otherwise.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method_isCongruent"
+            "summary": "Return\u0020true\u0020if\u0020this\u0020instance\u0020is\u0020congruent\u0020to\u0020another\u0020\u0024number,\u0020false\notherwise.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_isCongruent"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003Aequals\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aequals\u0028\u0029",
             "name": "equals",
             "summary": "Alias\u0020of\u0020isCongruent\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method_equals"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_equals"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "Sum\u0020this\u0020instance\u0020with\u0020\u0024number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method_add"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_add"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003Amultiply\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aplus\u0028\u0029",
+            "name": "plus",
+            "summary": "Alias\u0020of\u0020add\u0028\u0029\u0020method.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_plus"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amultiply\u0028\u0029",
             "name": "multiply",
-            "summary": "Multiply\u0020this\u0020instance\u0020with\u0020\u0024number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method_multiply"
+            "summary": "Multiply\u0020this\u0020instance\u0020by\u0020\u0024number.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_multiply"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003Apower\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amul\u0028\u0029",
+            "name": "mul",
+            "summary": "Alias\u0020of\u0020multiply\u0028\u0029\u0020method.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_mul"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apower\u0028\u0029",
             "name": "power",
-            "summary": "Raise\u0020this\u0020instance\u0020to\u0020power\u0020\u0024k.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#method_power"
+            "summary": "Raise\u0020this\u0020instance\u0020to\u0020\u0024exponent.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_power"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003A\u0024value",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apow\u0028\u0029",
+            "name": "pow",
+            "summary": "Alias\u0020of\u0020power\u0028\u0029\u0020method.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_pow"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A\u0024value",
             "name": "value",
-            "summary": "The\u0020value\u0020of\u0020this\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#property_value"
+            "summary": "The\u0020value\u0020of\u0020this\u0020modular\u0020number.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#property_value"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularInteger\u003A\u003A\u0024modulus",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A\u0024modulus",
             "name": "modulus",
-            "summary": "The\u0020modulus\u0020of\u0020the\u0020modular\u0020set\u0020of\u0020which\u0020this\u0020number\u0020is\u0020a\u0020part.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularInteger.html#property_modulus"
+            "summary": "The\u0020modulus\u0020of\u0020this\u0020modular\u0020number.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#property_modulus"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularAddition",
-            "name": "IntegerModularAddition",
-            "summary": "The\u0020addition\u0020operation\u0020between\u0020two\u0020ModularInteger.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularAddition.html"
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularAddition",
+            "name": "ModularAddition",
+            "summary": "The\u0020sum\u0020operation\u0020between\u0020two\u0020ModularNumber\u0028s\u0029.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularAddition.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularAddition\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularAddition\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularAddition.html#method_result"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularAddition.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularExponentiation",
-            "name": "IntegerModularExponentiation",
-            "summary": "The\u0020exponentiation\u0020operation\u0020between\u0020a\u0020ModularInteger\u0020and\u0020an\nexponent.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularExponentiation.html"
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation",
+            "name": "ModularExponentiation",
+            "summary": "The\u0020exponentiation\u0020operation\u0020between\u0020two\u0020ModularNumber\u0028s\u0029.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularExponentiation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020the\u0020modular\u0020exponentiation\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularExponentiation.html#method___construct"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularExponentiation\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularExponentiation.html#method_result"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularMultiplication",
-            "name": "IntegerModularMultiplication",
-            "summary": "The\u0020multiplication\u0020operation\u0020between\u0020two\u0020ModularInteger.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularMultiplication.html"
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularMultiplication",
+            "name": "ModularMultiplication",
+            "summary": "The\u0020multiplication\u0020operation\u0020between\u0020two\u0020ModularNumber\u0028s\u0029.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularMultiplication.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularMultiplication\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularMultiplication\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularMultiplication.html#method_result"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularMultiplication.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation",
-            "name": "IntegerModularOperation",
-            "summary": "The\u0020abstract\u0020arithmetic\u0020operation\u0020of\u0020the\nmodular\u0020arithmetic.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html"
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation",
+            "name": "Operation",
+            "summary": "",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003Aresult\u0028\u0029",
+            "name": "result",
+            "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020a\u0020modular\u0020operation\u0020between\u0020\u0024a\u0020and\u0020\u0024b.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#method___construct"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003Aresult\u0028\u0029",
-            "name": "result",
-            "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#method_result"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003A\u0024a",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024a",
             "name": "a",
             "summary": "The\u0020left\u0020operand.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#property_a"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_a"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003A\u0024b",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024b",
             "name": "b",
             "summary": "The\u0020right\u0020operand.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#property_b"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_b"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\IntegerModularOperation\u003A\u003A\u0024modulus",
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024modulus",
             "name": "modulus",
             "summary": "The\u0020modulus\u0020of\u0020the\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-IntegerModularOperation.html#property_modulus"
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_modulus"
         },                {
             "fqsen": "\\",
             "name": "\\",
