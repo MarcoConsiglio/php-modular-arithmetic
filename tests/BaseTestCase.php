@@ -75,8 +75,8 @@ class BaseTestCase extends TestCase
      */
     protected function getCongruentNumber(int|string|BCMathNumber|Number $value, int|string|BCMathNumber|Number $modulus, int $k): Number
     {
-        $value = Number::toNumber($value);
-        $modulus = Number::toNumber($modulus);
+        if (! $value instanceof Number) $value = new Number($value);
+        if (! $modulus instanceof Number) $modulus = new Number($modulus);
         $reminder = $value->mod($modulus);
         return $modulus->mul($k)->add($reminder);
     }
