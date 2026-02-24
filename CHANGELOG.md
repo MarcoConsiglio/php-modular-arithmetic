@@ -1,4 +1,8 @@
 # Changelog
+## v3.1.1 - 2026-02-24
+### Changed
+- Dependencies version.
+
 ## v3.1.0 - 2026-02-24
 ### Changed
 - `ModularNumber` class constructor now accept `float` type input for both `$value` and `$modulus` parameters.

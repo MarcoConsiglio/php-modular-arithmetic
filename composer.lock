@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "marcoconsiglio/bcmath-extended",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcoConsiglio/bcmath-extended.git",
-                "reference": "c518231cbc86f28bd56c637b48620aa177233922"
+                "reference": "f1308844dd1ebebb7bc8f258fb1bde9f4193f0d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcoConsiglio/bcmath-extended/zipball/c518231cbc86f28bd56c637b48620aa177233922",
-                "reference": "c518231cbc86f28bd56c637b48620aa177233922",
+                "url": "https://api.github.com/repos/MarcoConsiglio/bcmath-extended/zipball/f1308844dd1ebebb7bc8f258fb1bde9f4193f0d0",
+                "reference": "f1308844dd1ebebb7bc8f258fb1bde9f4193f0d0",
                 "shasum": ""
             },
             "require": {
@@ -59,9 +59,10 @@
                 "round"
             ],
             "support": {
-                "source": "https://github.com/MarcoConsiglio/bcmath-extended/tree/v2.0.0"
+                "issues": "https://github.com/MarcoConsiglio/bcmath-extended/issues",
+                "source": "https://github.com/MarcoConsiglio/bcmath-extended/tree/v2.0.1"
             },
-            "time": "2026-02-23T16:06:09+00:00"
+            "time": "2026-02-24T16:23:21+00:00"
         }
     ],
     "packages-dev": [
@@ -130,16 +131,16 @@
         },
         {
             "name": "marcoconsiglio/faker-php-number-helpers",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcoConsiglio/faker-php-number-helpers.git",
-                "reference": "c4ed6d2686f0e6aef989431430c4828743b9ec0d"
+                "reference": "7b74c4a9738169f4131ffac9cd4696c3812d6eed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcoConsiglio/faker-php-number-helpers/zipball/c4ed6d2686f0e6aef989431430c4828743b9ec0d",
-                "reference": "c4ed6d2686f0e6aef989431430c4828743b9ec0d",
+                "url": "https://api.github.com/repos/MarcoConsiglio/faker-php-number-helpers/zipball/7b74c4a9738169f4131ffac9cd4696c3812d6eed",
+                "reference": "7b74c4a9738169f4131ffac9cd4696c3812d6eed",
                 "shasum": ""
             },
             "require": {
@@ -165,12 +166,12 @@
                     "email": "mrccnsgl@gmail.com"
                 }
             ],
-            "description": "\"Adds a helper trait that makes it easier to generate random numbers using FakerPHP.\"",
+            "description": "Adds a helper trait that makes it easier to generate random numbers using FakerPHP.",
             "support": {
                 "issues": "https://github.com/MarcoConsiglio/faker-php-number-helpers/issues",
-                "source": "https://github.com/MarcoConsiglio/faker-php-number-helpers/tree/v1.0.0"
+                "source": "https://github.com/MarcoConsiglio/faker-php-number-helpers/tree/v1.1.0"
             },
-            "time": "2026-02-20T15:51:21+00:00"
+            "time": "2026-02-22T23:28:20+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -410,11 +411,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.39",
+            "version": "2.1.40",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
-                "reference": "c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
+                "reference": "9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
                 "shasum": ""
             },
             "require": {
@@ -459,7 +460,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-11T14:48:56+00:00"
+            "time": "2026-02-23T15:04:35+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1004,16 +1005,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.3.7",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "9c46ad17f57963932c9788fd1b0f1d07ff450370"
+                "reference": "bbd37aedd8df749916cffa2a947cfc4714d1ba2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9c46ad17f57963932c9788fd1b0f1d07ff450370",
-                "reference": "9c46ad17f57963932c9788fd1b0f1d07ff450370",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/bbd37aedd8df749916cffa2a947cfc4714d1ba2c",
+                "reference": "bbd37aedd8df749916cffa2a947cfc4714d1ba2c",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1053,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.3.7"
+                "source": "https://github.com/rectorphp/rector/tree/2.3.8"
             },
             "funding": [
                 {
@@ -1060,7 +1061,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-19T14:44:16+00:00"
+            "time": "2026-02-22T09:45:50+00:00"
         },
         {
             "name": "sebastian/cli-parser",
