@@ -1,4 +1,9 @@
 # Changelog
+## v3.1.0 - 2026-02-24
+### Changed
+- `ModularNumber` class constructor now accept `float` type input for both `$value` and `$modulus` parameters.
+- API and README documentation.
+
 ## v3.0.0 - 2026-02-22
 ### Add
 - `ModularNumber` to represent both integer and decimal modular numbers.
