@@ -27,7 +27,7 @@ class ModularNumber
     /**
      * Construct a modular number with a $value and its $modulus.
      */
-    public function __construct(int|string|BcMathNumber|Number $value, int|string|BcMathNumber|Number $modulus)
+    public function __construct(int|float|string|BcMathNumber|Number $value, int|float|string|BcMathNumber|Number $modulus)
     {
         $value = $this->normalizeArgument($value);
         $modulus = $this->normalizeArgument($modulus);
@@ -107,7 +107,7 @@ class ModularNumber
     /**
      * Normalize the input type of an $argument to the Number type.
      */
-    protected function normalizeArgument(int|string|BcMathNumber|Number $argument): Number
+    protected function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
     {
         if ($argument instanceof Number) return $argument;
         return new Number($argument);
