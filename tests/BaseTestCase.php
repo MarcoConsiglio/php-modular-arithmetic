@@ -86,8 +86,9 @@ class BaseTestCase extends TestCase
      */
     protected function congruentFailure(ModularNumber $a, ModularNumber $b): string
     {
-        if ($a->modulus->not($b->modulus)) $modulus = "(mod {$a->modulus} or {$b->modulus}?)";
-        else $modulus = "(mod {$a->modulus})";
+        $modulus = $a->modulus->not($b->modulus) ? 
+            "(mod {$a->modulus} or {$b->modulus}?)" : 
+            "(mod {$a->modulus})";
         return "{$a->value} ≢ {$b->value} $modulus";
     }
 }
