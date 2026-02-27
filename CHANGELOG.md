@@ -1,4 +1,8 @@
 # Changelog
+## v3.1.2 - 2026-02-27
+### Changed
+- Dependencies version.
+
 ## v3.1.1 - 2026-02-24
 ### Changed
 - Dependencies version.
