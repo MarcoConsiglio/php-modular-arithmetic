@@ -1,6 +1,6 @@
 ![GitHub License](https://img.shields.io/github/license/MarcoConsiglio/php-modular-arithmetic)
 ![GitHub Release](https://img.shields.io/github/v/release/MarcoConsiglio/php-modular-arithmetic)
-![Static Badge](https://img.shields.io/badge/version-v3.1.1-white)<br>
+![Static Badge](https://img.shields.io/badge/version-v3.1.2-white)<br>
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Line%20coverage&labelColor=rgb(255%2C255%2C255))
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Branch%20coverage&labelColor=rgb(255%2C255%2C255))
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Path%20coverage&labelColor=rgb(255%2C255%2C255))
