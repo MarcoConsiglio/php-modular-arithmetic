@@ -105,6 +105,28 @@ class ModularNumber
     }
 
     /**
+     * Return the highest integer below this number.
+     */
+    public function floor(): ModularNumber
+    {
+        return new ModularNumber(
+            $this->value->floor(),
+            $this->modulus
+        );
+    }
+
+    /**
+     * Return the lowest integer above this number.
+     */
+    public function ceil(): ModularNumber
+    {
+        return new ModularNumber(
+            $this->value->ceil(),
+            $this->modulus
+        );
+    }
+
+    /**
      * Normalize the input type of an $argument to the Number type.
      */
     protected function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number

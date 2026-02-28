@@ -3,12 +3,17 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use Marcoconsiglio\ModularArithmetic\Tests\Feature\Operations\OperationTest;
+use Marcoconsiglio\ModularArithmetic\Tests\Unit\Exceptions\DifferentModulusErrorTest;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\DependsOnClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use Throwable;
 
 #[TestDox("The ModularNumber")]
 class ModularNumberTest extends TestCase
 {
+    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has reflexivity property that states that every number is 
     congruent to itself modulo n, for every n other than 0.")]
     public function test_reflexivity_property(): void
@@ -31,6 +36,7 @@ class ModularNumberTest extends TestCase
         new ModularNumber($value, 0);
     }
 
+    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has the symmetry property which states that if a is congruent to
      b modulo n then b is congruent to a modulo n.")]
     public function test_symmetry_property(): void
@@ -49,6 +55,7 @@ class ModularNumberTest extends TestCase
         $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
 
+    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has the transitivity property which states that if a is 
     congruent to b modulo n and b is congruent to c modulo n, then a is also 
     congruent to c modulo n.")]
@@ -65,7 +72,8 @@ class ModularNumberTest extends TestCase
         $this->assertTrue($a->equals($c), $this->congruentFailure($a, $c));
     }
     
-
+    #[DependsOnClass(DifferentModulusErrorTest::class)]
+    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be added to another.")]
     public function test_add_returns_modular_number(): void
     {
@@ -78,6 +86,8 @@ class ModularNumberTest extends TestCase
         $this->assertEquals($a->value->plus($b->value)->mod($a->modulus)->value, $result->value);
     }
 
+    #[DependsOnClass(DifferentModulusErrorTest::class)]
+    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be multiplied to another.")]
     public function test_multiply_returns_modular_number(): void
     {
@@ -90,6 +100,8 @@ class ModularNumberTest extends TestCase
         $this->assertEquals($a->value->mul($b->value)->mod($a->modulus)->value, $product->value);
     }
 
+    #[DependsOnClass(DifferentModulusErrorTest::class)]
+    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be raised to power.")]
     public function test_power_returns_modular_number(): void
     {
@@ -104,6 +116,28 @@ class ModularNumberTest extends TestCase
         } catch (Throwable $e) {
             $this->fail("Base: {$a->value}\nExponent: {$k}\n{$e->getMessage()}");
         }
+    }
+
+    #[TestDox("can calculate the floor of itself.")]
+    public function test_floor(): void
+    {
+        // Arrange
+        $number = $this->randomModularNumber(max: $this::MAX);
+        $value = $number->value;
+
+        // Act & Assert
+        $this->assertEquals($value->floor()->value, $number->floor()->value->value);
+    }
+
+    #[TestDox("can calculate the ceil of itself.")]
+    public function test_ceil(): void
+    {
+        // Arrange
+        $number = $this->randomModularNumber(max: $this::MAX);
+        $value = $number->value;
+
+        // Act & Assert
+        $this->assertEquals($value->ceil()->value, $number->ceil()->value->value);
     }
 
     #[TestDox("can tell you if it is congruent with another one .")]
