@@ -1,4 +1,11 @@
 # Changelog
+## v3.2.0 - 2026-02-28
+### Added
+- `ModularNumber::floor()` method to return the floor `ModularNumber` with the same modulus.
+- `ModularNumber::ceil()` method to return the ceil `ModularNumber` with the same modulus.
+### Changed
+- API documentation.
+
 ## v3.1.2 - 2026-02-27
 ### Changed
 - Dependencies version.
