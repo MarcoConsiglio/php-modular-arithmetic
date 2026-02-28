@@ -5,6 +5,10 @@
 - `Modular::number::divide()` method to perform division.
 - `Modular::number::sub()` alias of `Modular::number::subtract()`.
 - `Modular::number::div()` alias of `Modular::number::divide()`.
+- `Modular{`  
+&ensp;&ensp;&ensp;&ensp;`Subtraction`   
+&ensp;&ensp;&ensp;&ensp;`Division`   
+`}` to provide arithmetic operations on modular numbers.
 ### Changed
 - API documentation.
 
@@ -14,10 +18,6 @@
 - `ModularNumber::ceil()` method to return the ceil `ModularNumber` with the same modulus.
 ### Changed
 - API documentation.
-- `Modular{`  
-&ensp;&ensp;&ensp;&ensp;`Subtraction`   
-&ensp;&ensp;&ensp;&ensp;`Division`   
-`}` to provide arithmetic operations on modular numbers.
 
 ## v3.1.2 - 2026-02-27
 ### Changed
