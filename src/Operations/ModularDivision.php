@@ -4,16 +4,18 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The multiplication operation between two ModularNumber(s).
+ * The division operation between two ModularNumber(s).
  */
-class ModularMultiplication extends Operation
+class ModularDivision extends Operation
 {
     /**
      * Return the result of this operation.
      */
     public function result(): ModularNumber
     {
-        $result = $this->a->value->mul($this->b->value);
-        return new ModularNumber($result, $this->modulus);
+        return new ModularNumber(
+            $this->a->value->div($this->b->value),
+            $this->modulus
+        );
     }
 }

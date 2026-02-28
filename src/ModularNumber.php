@@ -4,8 +4,10 @@ namespace Marcoconsiglio\ModularArithmetic;
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularDivision;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularMultiplication;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
 
 /**
  * A modular number, a.k.a. clock number. It represents a value in a ring, like
@@ -119,7 +121,29 @@ class ModularNumber
     }
 
     /**
-     * Raise this instance to $exponent.
+     * Divide by $divisor.
+     * 
+     * @throws DifferentModulusError when this instance and $divisor have
+     * different modulus.
+     */
+    public function divide(ModularNumber $divisor): ModularNumber
+    {
+        return new ModularDivision($this, $divisor)->result();
+    }
+
+    /**
+     * Alias of divide() method.
+     * 
+     * @throws DifferentModulusError when this instance and $divisor have
+     * different modulus.
+     */
+    public function div(ModularNumber $divisor): ModularNumber
+    {
+        return $this->divide($divisor);
+    }
+
+    /**
+     * Raise to $exponent.
      */
     public function power(int $exponent): ModularNumber
     {

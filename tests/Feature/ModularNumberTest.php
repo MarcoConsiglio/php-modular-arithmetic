@@ -116,6 +116,22 @@ class ModularNumberTest extends TestCase
 
     #[DependsOnClass(DifferentModulusErrorTest::class)]
     #[DependsOnClass(OperationTest::class)]
+    #[TestDox("can be divide by another.")]
+    public function test_division(): void
+    {
+        // Arrange
+        $a = $this->randomModularNumber(max: $this::MAX);
+        do {
+            $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+        } while ($b->value->isEqual(0));
+
+        // Act & Assert
+        $this->assertInstanceOf(ModularNumber::class, $quotient = $a->div($b));
+        $this->assertEquals($a->value->div($b->value)->mod($a->modulus)->value, $quotient->value);
+    }
+
+    #[DependsOnClass(DifferentModulusErrorTest::class)]
+    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be raised to power.")]
     public function test_power(): void
     {
