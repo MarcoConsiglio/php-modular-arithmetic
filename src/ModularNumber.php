@@ -2,11 +2,12 @@
 namespace Marcoconsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
-use Deprecated;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularDivision;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularMultiplication;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
 
 /**
  * A modular number, a.k.a. clock number. It represents a value in a ring, like
@@ -54,9 +55,9 @@ class ModularNumber
     }
 
     /**
-     * Sum this instance with $number.
+     * Sum $addend.
     *
-    * @throws DifferentModulusError when this instance and $number have
+    * @throws DifferentModulusError when this instance and $addend have
     * different modulus.
     */
     public function add(ModularNumber $addend): ModularNumber
@@ -66,6 +67,9 @@ class ModularNumber
     
     /**
      * Alias of add() method.
+     * 
+     * @throws DifferentModulusError when this instance and $addend have
+     * different modulus.
      */
     public function plus(ModularNumber $addend): ModularNumber
     {
@@ -73,7 +77,32 @@ class ModularNumber
     }
 
     /**
-     * Multiply this instance by $number.
+     * Subtract $minuend.
+     * 
+     * @throws DifferentModulusError when this instance and $minuend have
+     * different modulus.
+     */
+    public function subtract(ModularNumber $minuend): ModularNumber
+    {
+        return new ModularSubtraction($this, $minuend)->result();
+    }
+
+    /**
+     * Alias of subtract() method.
+     * 
+     * @throws DifferentModulusError when this instance and $minuend have
+     * different modulus.
+     */
+    public function sub(ModularNumber $minuend): ModularNumber
+    {
+        return $this->subtract($minuend);
+    }
+
+    /**
+     * Multiply by $factor.
+     * 
+     * @throws DifferentModulusError when this instance and $factor have
+     * different modulus.
      */
     public function multiply(ModularNumber $factor): ModularNumber
     {
@@ -82,6 +111,9 @@ class ModularNumber
 
     /**
      * Alias of multiply() method.
+     * 
+     * @throws DifferentModulusError when this instance and $factor have
+     * different modulus.
      */
     public function mul(ModularNumber $factor): ModularNumber
     {
@@ -89,7 +121,29 @@ class ModularNumber
     }
 
     /**
-     * Raise this instance to $exponent.
+     * Divide by $divisor.
+     * 
+     * @throws DifferentModulusError when this instance and $divisor have
+     * different modulus.
+     */
+    public function divide(ModularNumber $divisor): ModularNumber
+    {
+        return new ModularDivision($this, $divisor)->result();
+    }
+
+    /**
+     * Alias of divide() method.
+     * 
+     * @throws DifferentModulusError when this instance and $divisor have
+     * different modulus.
+     */
+    public function div(ModularNumber $divisor): ModularNumber
+    {
+        return $this->divide($divisor);
+    }
+
+    /**
+     * Raise to $exponent.
      */
     public function power(int $exponent): ModularNumber
     {

@@ -4,16 +4,18 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The multiplication operation between two ModularNumber(s).
+ * The subtraction operation between two ModularNumbers(s).
  */
-class ModularMultiplication extends Operation
+class ModularSubtraction extends Operation
 {
     /**
      * Return the result of this operation.
      */
     public function result(): ModularNumber
     {
-        $result = $this->a->value->mul($this->b->value);
-        return new ModularNumber($result, $this->modulus);
+        return new ModularNumber(
+            $this->a->value->sub($this->b->value),
+            $this->modulus
+        );
     }
 }

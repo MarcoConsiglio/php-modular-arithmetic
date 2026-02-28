@@ -1,4 +1,17 @@
 # Changelog
+## v3.3.0 - 2026-02-28
+### Added
+- `Modular::number::subtract()` method to perform subtraction.
+- `Modular::number::divide()` method to perform division.
+- `Modular::number::sub()` alias of `Modular::number::subtract()`.
+- `Modular::number::div()` alias of `Modular::number::divide()`.
+- `Modular{`  
+&ensp;&ensp;&ensp;&ensp;`Subtraction`   
+&ensp;&ensp;&ensp;&ensp;`Division`   
+`}` to provide arithmetic operations on modular numbers.
+### Changed
+- API documentation.
+
 ## v3.2.0 - 2026-02-28
 ### Added
 - `ModularNumber::floor()` method to return the floor `ModularNumber` with the same modulus.
