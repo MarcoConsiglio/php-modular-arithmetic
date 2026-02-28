@@ -3,9 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Feature\Operations;
 
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\Operations\Operation;
 use Marcoconsiglio\ModularArithmetic\Tests\Feature\TestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
 

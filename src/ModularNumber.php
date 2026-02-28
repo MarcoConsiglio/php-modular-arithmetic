@@ -2,7 +2,6 @@
 namespace Marcoconsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
-use Deprecated;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
 use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
@@ -54,9 +53,9 @@ class ModularNumber
     }
 
     /**
-     * Sum this instance with $number.
+     * Sum $addend.
     *
-    * @throws DifferentModulusError when this instance and $number have
+    * @throws DifferentModulusError when this instance and $addend have
     * different modulus.
     */
     public function add(ModularNumber $addend): ModularNumber
@@ -66,6 +65,9 @@ class ModularNumber
     
     /**
      * Alias of add() method.
+     * 
+     * @throws DifferentModulusError when this instance and $addend have
+     * different modulus.
      */
     public function plus(ModularNumber $addend): ModularNumber
     {
@@ -73,7 +75,32 @@ class ModularNumber
     }
 
     /**
-     * Multiply this instance by $number.
+     * Subtract $minuend.
+     * 
+     * @throws DifferentModulusError when this instance and $minuend have
+     * different modulus.
+     */
+    public function subtract(ModularNumber $minuend): ModularNumber
+    {
+        return new ModularSubtraction($this, $minuend)->result();
+    }
+
+    /**
+     * Alias of subtract() method.
+     * 
+     * @throws DifferentModulusError when this instance and $minuend have
+     * different modulus.
+     */
+    public function sub(ModularNumber $minuend): ModularNumber
+    {
+        return $this->subtract($minuend);
+    }
+
+    /**
+     * Multiply by $factor.
+     * 
+     * @throws DifferentModulusError when this instance and $factor have
+     * different modulus.
      */
     public function multiply(ModularNumber $factor): ModularNumber
     {
@@ -82,6 +109,9 @@ class ModularNumber
 
     /**
      * Alias of multiply() method.
+     * 
+     * @throws DifferentModulusError when this instance and $factor have
+     * different modulus.
      */
     public function mul(ModularNumber $factor): ModularNumber
     {
