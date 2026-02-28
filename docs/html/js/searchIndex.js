@@ -33,7 +33,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aadd\u0028\u0029",
             "name": "add",
-            "summary": "Sum\u0020this\u0020instance\u0020with\u0020\u0024number.",
+            "summary": "Sum\u0020\u0024addend.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_add"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aplus\u0028\u0029",
@@ -41,9 +41,19 @@ Search.appendIndex(
             "summary": "Alias\u0020of\u0020add\u0028\u0029\u0020method.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_plus"
         },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asubtract\u0028\u0029",
+            "name": "subtract",
+            "summary": "Subtract\u0020\u0024minuend.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_subtract"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asub\u0028\u0029",
+            "name": "sub",
+            "summary": "Alias\u0020of\u0020subtract\u0028\u0029\u0020method.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_sub"
+        },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amultiply\u0028\u0029",
             "name": "multiply",
-            "summary": "Multiply\u0020this\u0020instance\u0020by\u0020\u0024number.",
+            "summary": "Multiply\u0020by\u0020\u0024factor.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_multiply"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amul\u0028\u0029",
@@ -51,9 +61,19 @@ Search.appendIndex(
             "summary": "Alias\u0020of\u0020multiply\u0028\u0029\u0020method.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_mul"
         },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adivide\u0028\u0029",
+            "name": "divide",
+            "summary": "Divide\u0020by\u0020\u0024divisor.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_divide"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adiv\u0028\u0029",
+            "name": "div",
+            "summary": "Alias\u0020of\u0020divide\u0028\u0029\u0020method.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_div"
+        },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apower\u0028\u0029",
             "name": "power",
-            "summary": "Raise\u0020this\u0020instance\u0020to\u0020\u0024exponent.",
+            "summary": "Raise\u0020to\u0020\u0024exponent.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_power"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apow\u0028\u0029",
@@ -91,6 +111,16 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularAddition.html#method_result"
         },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularDivision",
+            "name": "ModularDivision",
+            "summary": "The\u0020division\u0020operation\u0020between\u0020two\u0020ModularNumber\u0028s\u0029.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularDivision.html"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularDivision\u003A\u003Aresult\u0028\u0029",
+            "name": "result",
+            "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularDivision.html#method_result"
+        },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation",
             "name": "ModularExponentiation",
             "summary": "The\u0020exponentiation\u0020operation\u0020between\u0020two\u0020ModularNumber\u0028s\u0029.",
@@ -115,6 +145,16 @@ Search.appendIndex(
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularMultiplication.html#method_result"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularSubtraction",
+            "name": "ModularSubtraction",
+            "summary": "The\u0020subtraction\u0020operation\u0020between\u0020two\u0020ModularNumbers\u0028s\u0029.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularSubtraction.html"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularSubtraction\u003A\u003Aresult\u0028\u0029",
+            "name": "result",
+            "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularSubtraction.html#method_result"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation",
             "name": "Operation",
