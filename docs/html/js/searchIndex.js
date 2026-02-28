@@ -61,6 +61,16 @@ Search.appendIndex(
             "summary": "Alias\u0020of\u0020power\u0028\u0029\u0020method.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_pow"
         },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Afloor\u0028\u0029",
+            "name": "floor",
+            "summary": "Return\u0020the\u0020highest\u0020integer\u0020below\u0020this\u0020number.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_floor"
+        },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aceil\u0028\u0029",
+            "name": "ceil",
+            "summary": "Return\u0020the\u0020lowest\u0020integer\u0020above\u0020this\u0020number.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_ceil"
+        },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A\u0024value",
             "name": "value",
             "summary": "The\u0020value\u0020of\u0020this\u0020modular\u0020number.",
