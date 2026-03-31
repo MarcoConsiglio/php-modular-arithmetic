@@ -1,5 +1,6 @@
-/vendor/
-/tests/coverage_report
-.phpunit.cache
 .phpdoc
+.phpunit.cache
 .vscode
+/tests/coverage_report
+/vendor/
+composer.lock
