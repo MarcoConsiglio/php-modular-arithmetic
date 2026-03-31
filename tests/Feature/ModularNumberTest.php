@@ -3,6 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 
 use DivisionByZeroError;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
 use Marcoconsiglio\ModularArithmetic\Tests\Feature\Operations\OperationTest;
 use Marcoconsiglio\ModularArithmetic\Tests\Unit\Exceptions\DifferentModulusErrorTest;
 use PHPUnit\Framework\Attributes\Depends;
@@ -11,7 +12,7 @@ use PHPUnit\Framework\Attributes\TestDox;
 use Throwable;
 
 #[TestDox("The ModularNumber")]
-class ModularNumberTest extends TestCase
+class ModularNumberTest extends BaseTestCase
 {
     #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has reflexivity property that states that every number is 
@@ -136,8 +137,8 @@ class ModularNumberTest extends TestCase
     public function test_power(): void
     {
         // Arrange
-        $a = $this->randomModularNumber(max: 1000.0);
-        $k = $this->randomInteger(max: 100);
+        $a = $this->randomModularNumber(min: -1000, max: 1000);
+        $k = $this->randomInteger(min: -100, max: 100);
 
         // Act & Assert
         try {

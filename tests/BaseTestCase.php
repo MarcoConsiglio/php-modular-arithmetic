@@ -1,21 +1,17 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests;
 
-use Deprecated;
 use MarcoConsiglio\BCMathExtended\Number;
 use BcMath\Number as BCMathNumber;
+use MarcoConsiglio\FakerPhpNumberHelpers\WithFakerHelpers;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\ModularInteger;
-use Marcoconsiglio\ModularArithmetic\ModularReal;
-use Marcoconsiglio\ModularArithmetic\Tests\Enums\Sign;
 use Override;
 use PHPUnit\Framework\TestCase;
-use Marcoconsiglio\ModularArithmetic\Tests\Traits\WithFaker;
 use Marcoconsiglio\ModularArithmetic\Tests\Traits\WithStringFormatting;
 
 class BaseTestCase extends TestCase
 {
-    use WithFaker, WithStringFormatting;
+    use WithFakerHelpers;
 
     /**
      * Arbitrary limit for float numbers generation.
@@ -29,31 +25,31 @@ class BaseTestCase extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->setUpFaker();
+        self::setUpFaker();
     }
 
     /**
-     * Return a random non zero Number to safely use it as a modulus.
+     * Return a random non zero `Number` to safely use it as a modulus.
      */
-    protected function randomModulus(float $min = 0, float $max = PHP_FLOAT_MAX): Number
+    protected function randomModulus(float $min = -PHP_FLOAT_MAX, float $max = PHP_FLOAT_MAX): Number
     {
-        $value = $this->nonZeroRandomFloat($min, $max); // y ≠ 0
-        return new Number($this->string($value));
+        $value = $this->nonZeroRandomFloat($min, $max);
+        return new Number(Number::string($value));
     }
 
     /**
-     * Return a random Number.
+     * Return a random `Number`.
      */
-    protected function randomNumber(float $min = 0, float $max = PHP_FLOAT_MAX): Number
+    protected function randomNumber(float $min = -PHP_FLOAT_MAX, float $max = PHP_FLOAT_MAX): Number
     {
         $value = $this->randomFloat($min, $max);
-        return new Number($this->string($value));
+        return new Number(Number::string($value));
     }
 
     /**
-     * Return a random ModularNumber. Both value and modulus are random.
+     * Return a random `ModularNumber`. Both value and modulus are random.
      */
-    protected function randomModularNumber(float $min = 0, float $max = PHP_FLOAT_MAX): ModularNumber
+    protected function randomModularNumber(float $min = -PHP_FLOAT_MAX, float $max = PHP_FLOAT_MAX): ModularNumber
     {
         $value = $this->randomNumber($min, $max);
         $modulus = $this->randomModulus($min, $max);
@@ -61,20 +57,28 @@ class BaseTestCase extends TestCase
     }
 
     /**
-     * Return a random ModularNumber with a specified $modulus.
+     * Return a random `ModularNumber` with a specified `$modulus`.
      */
-    protected function randomModularNumberWithModulus(Number $modulus, float $min = 0, float $max = PHP_FLOAT_MAX): ModularNumber
-    {
-        $value = $this->randomNumber($min, $max);
-        return new ModularNumber($value, $modulus);
+    protected function randomModularNumberWithModulus(
+        Number $modulus, 
+        float $min = -PHP_FLOAT_MAX, 
+        float $max = PHP_FLOAT_MAX
+    ): ModularNumber {
+        return new ModularNumber(
+            $this->randomNumber($min, $max), 
+            $modulus
+        );
     }
 
     /**
-     * Get a congruent Number to $value modulo $modulus multiplied
-     * by $k.
+     * Get a `Number` congruent to `$value` modulo `$modulus` multiplied
+     * by `$k`.
      */
-    protected function getCongruentNumber(int|string|BCMathNumber|Number $value, int|string|BCMathNumber|Number $modulus, int $k): Number
-    {
+    protected function getCongruentNumber(
+        int|string|BCMathNumber|Number $value, 
+        int|string|BCMathNumber|Number $modulus, 
+        int $k
+    ): Number {
         if (! $value instanceof Number) $value = new Number($value);
         if (! $modulus instanceof Number) $modulus = new Number($modulus);
         $reminder = $value->mod($modulus);
@@ -82,7 +86,7 @@ class BaseTestCase extends TestCase
     }
 
     /**
-     * Return a failure message when $a and $b are not congruent.
+     * Return a failure message when `$a` and `$b` are not congruent.
      */
     protected function congruentFailure(ModularNumber $a, ModularNumber $b): string
     {
