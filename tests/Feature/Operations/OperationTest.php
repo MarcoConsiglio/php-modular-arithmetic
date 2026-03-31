@@ -3,6 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Feature\Operations;
 
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
 use Marcoconsiglio\ModularArithmetic\Tests\Feature\TestCase;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;
@@ -10,7 +11,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 #[TestDox("The Operation")]
 #[UsesClass(DifferentModulusError::class)]
 #[UsesClass(ModularNumber::class)]
-class OperationTest extends TestCase
+class OperationTest extends BaseTestCase
 {
     #[TestDox("check both operand have the same modulus.")]
     public function test_different_modulus(): void
