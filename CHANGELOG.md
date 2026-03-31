@@ -1,4 +1,9 @@
 # Changelog
+## v3.3.1 - 2026-03-31
+### Changed
+- Development dependencies:
+  - `marcoconsiglio/faker-php-number-helpers` from ^3 to ^4
+
 ## v3.3.0 - 2026-02-28
 ### Added
 - `Modular::number::subtract()` method to perform subtraction.
