@@ -23,8 +23,8 @@ class ModularNumberTest extends BaseTestCase
          * n ≠ 0 OK
          */
         // Arrange
-        $value = $this->randomNumber(max: $this::MAX);
-        $n = $this->randomModulus(max: $this::MAX);
+        $value = $this->randomNumber($this::MIN, $this::MAX);
+        $n = $this->randomModulus($this::MIN, $this::MAX);
         $number = new ModularNumber($value, $n);
         
         // Act & Assert
@@ -43,8 +43,8 @@ class ModularNumberTest extends BaseTestCase
     public function test_symmetry_property(): void
     {
         // Arrange
-        $n = $this->randomModulus(max: $this::MAX);
-        $value = $this->randomNumber(max: $this::MAX);
+        $n = $this->randomModulus($this::MIN, $this::MAX);
+        $value = $this->randomNumber($this::MIN, $this::MAX);
         $a = new ModularNumber($value, $n);
         $b = new ModularNumber(
             $this->getCongruentNumber($value, $n, 1), 
@@ -62,8 +62,8 @@ class ModularNumberTest extends BaseTestCase
     congruent to c modulo n.")]
     public function test_transitivity_property(): void
     {
-        $n = $this->randomModulus(max: $this::MAX);
-        $value = $this->randomNumber(max: $this::MAX);
+        $n = $this->randomModulus($this::MIN, $this::MAX);
+        $value = $this->randomNumber($this::MIN, $this::MAX);
         $a = new ModularNumber($value, $n);
         $b = new ModularNumber($this->getCongruentNumber($value, $n, 1), $n);
         $c = new ModularNumber($this->getCongruentNumber($value, $n, 2), $n);
@@ -79,8 +79,8 @@ class ModularNumberTest extends BaseTestCase
     public function test_addition(): void
     {
         // Arrange
-        $a = $this->randomModularNumber(max: $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+        $a = $this->randomModularNumber($this::MIN, $this::MAX);
+        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $result = $a->plus($b));
@@ -93,8 +93,8 @@ class ModularNumberTest extends BaseTestCase
     public function test_subtraction(): void
     {
         // Arrange
-        $a = $this->randomModularNumber(max: $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+        $a = $this->randomModularNumber($this::MIN, $this::MAX);
+        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $result = $a->sub($b));
@@ -107,8 +107,8 @@ class ModularNumberTest extends BaseTestCase
     public function test_multiplication(): void
     {
         // Arrange
-        $a = $this->randomModularNumber(max: $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+        $a = $this->randomModularNumber($this::MIN, $this::MAX);
+        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $product = $a->mul($b));
@@ -121,9 +121,9 @@ class ModularNumberTest extends BaseTestCase
     public function test_division(): void
     {
         // Arrange
-        $a = $this->randomModularNumber(max: $this::MAX);
+        $a = $this->randomModularNumber($this::MIN, $this::MAX);
         do {
-            $b = $this->randomModularNumberWithModulus($a->modulus, max: $this::MAX);
+            $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
         } while ($b->value->isEqual(0));
 
         // Act & Assert
@@ -153,7 +153,7 @@ class ModularNumberTest extends BaseTestCase
     public function test_floor(): void
     {
         // Arrange
-        $number = $this->randomModularNumber(max: $this::MAX);
+        $number = $this->randomModularNumber($this::MIN, $this::MAX);
         $value = $number->value;
 
         // Act & Assert
@@ -164,7 +164,7 @@ class ModularNumberTest extends BaseTestCase
     public function test_ceil(): void
     {
         // Arrange
-        $number = $this->randomModularNumber(max: $this::MAX);
+        $number = $this->randomModularNumber($this::MIN, $this::MAX);
         $value = $number->value;
 
         // Act & Assert

@@ -19,6 +19,11 @@ class BaseTestCase extends TestCase
     const float MAX = 1_000_000.0;
 
     /**
+     * Arbitrary limit for float numbers generation.
+     */
+    const float MIN = -self::MAX;
+
+    /**
      * This method is called before each test.
      */
     #[Override]
