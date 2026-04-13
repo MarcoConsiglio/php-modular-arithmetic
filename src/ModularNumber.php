@@ -13,18 +13,8 @@ use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
  * A modular number, a.k.a. clock number. It represents a value in a ring, like
  * the hours on a clock. The length of the ring is represented by its modulus.
  */
-class ModularNumber
+class ModularNumber extends ModularArithmeticNumber
 {
-    /**
-     * The value of this modular number.
-     */
-    public protected(set) Number $value;
-
-    /**
-     * The modulus of this modular number.
-     */
-    public protected(set) Number $modulus;
-
     /**
      * Construct a modular number with a $value and its $modulus.
      */
