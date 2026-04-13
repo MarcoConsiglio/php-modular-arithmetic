@@ -19,7 +19,7 @@ abstract class ModularArithmeticNumber
     /**
      *  Construct a `ModularArithmeticNumber`.
      */
-    abstract public function __construct(
+    abstract protected function __construct(
         int|float|string|BcMathNumber|Number $value, 
         int|float|string|BcMathNumber|Number $modulus
     );

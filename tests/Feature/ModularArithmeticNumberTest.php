@@ -5,11 +5,13 @@ use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
-use PHPUnit\Framework\Attributes\CoversClassesThatExtendClass;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 #[TestDox("The ModuluarArithmeticNumber")]
-#[CoversClassesThatExtendClass(ModularArithmeticNumber::class)]
+#[CoversClass(ModularArithmeticNumber::class)]
+#[UsesClass(ModularNumber::class)]
 class ModularArithmeticNumberTest extends BaseTestCase
 {
     #[TestDox("has a \"value\" property which is a Number.")]
