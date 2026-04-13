@@ -18,8 +18,10 @@ class ModularNumber extends ModularArithmeticNumber
     /**
      * Construct a modular number with a $value and its $modulus.
      */
-    public function __construct(int|float|string|BcMathNumber|Number $value, int|float|string|BcMathNumber|Number $modulus)
-    {
+    public function __construct(
+        int|float|string|BcMathNumber|Number $value, 
+        int|float|string|BcMathNumber|Number $modulus
+    ) {
         $value = $this->normalizeArgument($value);
         $modulus = $this->normalizeArgument($modulus);
         $this->value = $value->mod($modulus);
