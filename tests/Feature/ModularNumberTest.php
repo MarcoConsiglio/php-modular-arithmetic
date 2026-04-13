@@ -2,19 +2,15 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 
 use DivisionByZeroError;
+use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
-use Marcoconsiglio\ModularArithmetic\Tests\Feature\Operations\OperationTest;
-use Marcoconsiglio\ModularArithmetic\Tests\Unit\Exceptions\DifferentModulusErrorTest;
-use PHPUnit\Framework\Attributes\Depends;
-use PHPUnit\Framework\Attributes\DependsOnClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use Throwable;
 
 #[TestDox("The ModularNumber")]
 class ModularNumberTest extends BaseTestCase
 {
-    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has reflexivity property that states that every number is 
     congruent to itself modulo n, for every n other than 0.")]
     public function test_reflexivity_property(): void
@@ -29,15 +25,8 @@ class ModularNumberTest extends BaseTestCase
         
         // Act & Assert
         $this->assertTrue($number->isCongruent($number), $this->congruentFailure($number, $number));
-        
-        /**
-         * n = 0 ERROR
-         */
-        $this->expectException(DivisionByZeroError::class);
-        new ModularNumber($value, 0);
     }
 
-    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has the symmetry property which states that if a is congruent to
      b modulo n then b is congruent to a modulo n.")]
     public function test_symmetry_property(): void
@@ -56,7 +45,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
     }
 
-    #[Depends("test_isCongruent_returns_boolean")]
     #[TestDox("has the transitivity property which states that if a is 
     congruent to b modulo n and b is congruent to c modulo n, then a is also 
     congruent to c modulo n.")]
@@ -73,8 +61,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertTrue($a->equals($c), $this->congruentFailure($a, $c));
     }
     
-    #[DependsOnClass(DifferentModulusErrorTest::class)]
-    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be added to another.")]
     public function test_addition(): void
     {
@@ -87,8 +73,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertEquals($a->value->plus($b->value)->mod($a->modulus)->value, $result->value);
     }
 
-    #[DependsOnClass(DifferentModulusErrorTest::class)]
-    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be subtracted from another.")]
     public function test_subtraction(): void
     {
@@ -101,8 +85,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertEquals($a->value->sub($b->value)->mod($a->modulus)->value, $result->value);
     }
 
-    #[DependsOnClass(DifferentModulusErrorTest::class)]
-    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be multiplied to another.")]
     public function test_multiplication(): void
     {
@@ -115,8 +97,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertEquals($a->value->mul($b->value)->mod($a->modulus)->value, $product->value);
     }
 
-    #[DependsOnClass(DifferentModulusErrorTest::class)]
-    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be divide by another.")]
     public function test_division(): void
     {
@@ -131,8 +111,6 @@ class ModularNumberTest extends BaseTestCase
         $this->assertEquals($a->value->div($b->value)->mod($a->modulus)->value, $quotient->value);
     }
 
-    #[DependsOnClass(DifferentModulusErrorTest::class)]
-    #[DependsOnClass(OperationTest::class)]
     #[TestDox("can be raised to power.")]
     public function test_power(): void
     {
@@ -180,5 +158,15 @@ class ModularNumberTest extends BaseTestCase
 
         // Act & Assert
         $this->assertIsBool($a->isCongruent($b));
+    }
+
+    #[TestDox("cannot have a zero modulus.")]
+    public function test_null_mudulus(): void
+    {
+        // Assert
+        $this->expectException(DivisionByZeroError::class);
+
+        // Act
+        $this->randomModularNumberWithModulus(new Number(0));
     }
 }
