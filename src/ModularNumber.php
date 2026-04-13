@@ -171,13 +171,4 @@ class ModularNumber extends ModularArithmeticNumber
             $this->modulus
         );
     }
-
-    /**
-     * Normalize the input type of an $argument to the Number type.
-     */
-    protected function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
-    {
-        if ($argument instanceof Number) return $argument;
-        return new Number($argument);
-    }
 }
