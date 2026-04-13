@@ -11,6 +11,19 @@ use Throwable;
 #[TestDox("The ModularNumber")]
 class ModularNumberTest extends BaseTestCase
 {
+    #[TestDox("is never congruent with another one with different modulus.")]
+    public function test_congruence_with_different_modulus(): void
+    {
+        // Arrange
+        do {
+            $a = $this->randomModularNumber();
+            $b = $this->randomModularNumber();
+        } while ($a->modulus->value == $b->modulus->value);
+
+        // Act & Assert
+        $this->assertFalse($a->equals($b));
+    }
+
     #[TestDox("has reflexivity property that states that every number is 
     congruent to itself modulo n, for every n other than 0.")]
     public function test_reflexivity_property(): void

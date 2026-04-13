@@ -1,6 +1,7 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 
+use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
@@ -31,6 +32,81 @@ class ModularArithmeticNumberTest extends BaseTestCase
         $number = $this->randomModularNumber();
 
         // Act & Assert
+        $this->assertInstanceOf(Number::class, $number->modulus);
+    }
+
+    #[TestDox("accepts inputs of type int.")]
+    public function test_normalize_int_type_argument(): void
+    {
+        // Arrange
+        $value = $this->randomInteger();
+        $modulus = $this->nonZeroRandomInteger();
+
+        // Act
+        $number = new ModularNumber($value, $modulus);
+
+        // Assert
+        $this->assertInstanceOf(Number::class, $number->value);
+        $this->assertInstanceOf(Number::class, $number->modulus);
+    }
+
+    #[TestDox("accepts inputs of type float.")]
+    public function test_normalize_float_type_argument(): void
+    {
+        // Arrange
+        $value = $this->randomFloat();
+        $modulus = $this->nonZeroRandomFloat();
+
+        // Act
+        $number = new ModularNumber($value, $modulus);
+
+        // Assert
+        $this->assertInstanceOf(Number::class, $number->value);
+        $this->assertInstanceOf(Number::class, $number->modulus);
+    }
+
+    #[TestDox("accepts inputs of type string.")]
+    public function test_normalize_string_type_argument(): void
+    {
+        // Arrange
+        $value = Number::string($this->randomFloat());
+        $modulus = Number::string($this->nonZeroRandomFloat());
+
+        // Act
+        $number = new ModularNumber($value, $modulus);
+
+        // Assert
+        $this->assertInstanceOf(Number::class, $number->value);
+        $this->assertInstanceOf(Number::class, $number->modulus);
+    }
+
+    #[TestDox("accepts inputs of type BcMath\Number.")]
+    public function test_normalize_BcMath_Number_type_argument(): void
+    {
+        // Arrange
+        $value = new BcMathNumber($this->randomInteger());
+        $modulus = new BcMathNumber($this->nonZeroRandomInteger());
+
+        // Act
+        $number = new ModularNumber($value, $modulus);
+
+        // Assert
+        $this->assertInstanceOf(Number::class, $number->value);
+        $this->assertInstanceOf(Number::class, $number->modulus);
+    }
+
+    #[TestDox("accepts inputs of type BcMathExtendend\Number.")]
+    public function test_normalize_BcMathExtended_Number_type_argument(): void
+    {
+        // Arrange
+        $value = new Number($this->randomInteger());
+        $modulus = new Number($this->nonZeroRandomInteger());
+
+        // Act
+        $number = new ModularNumber($value, $modulus);
+
+        // Assert
+        $this->assertInstanceOf(Number::class, $number->value);
         $this->assertInstanceOf(Number::class, $number->modulus);
     }
 }
