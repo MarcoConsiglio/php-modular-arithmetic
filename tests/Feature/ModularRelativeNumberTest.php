@@ -81,7 +81,7 @@ class ModularRelativeNumberTest extends BaseTestCase
             ),
             $this->start_ring, $this->end_ring
         );
-        $b = $this->randomIntNumber(min: -360, max: 360);
+        $b = $this->randomIntNumber(min: -360 * 2, max: 360 * 2);
 
         // Act
         $sum = $a->plus($b);
