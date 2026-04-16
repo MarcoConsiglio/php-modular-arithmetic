@@ -5,7 +5,7 @@ use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The exponentiation operation between two ModularNumber(s).
+ * The exponentiation operation on a `ModularNumber`.
  */
 class ModularExponentiation extends Operation
 {

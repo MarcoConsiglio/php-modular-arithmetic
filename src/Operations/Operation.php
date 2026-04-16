@@ -2,9 +2,11 @@
 namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
 use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
 
+/**
+ * An `Operation` of the modular arithmetic.
+ */
 abstract class Operation
 {    
     /**
@@ -23,18 +25,17 @@ abstract class Operation
     public protected(set) Number $modulus;
 
     /**
-     * Return the result of this operation.
-     */
-    abstract public function result(): ModularArithmeticNumber;
-
-    /**
-     * Construct a modular operation between $a and $b.when $a and $b have different modulus.
+     * Construct a modular operation between `$a` and `$b`.
      */
     public function __construct(ModularArithmeticNumber $a, Number $b)
     {
-        // if ($a->modulus->not($b->modulus)) throw new DifferentModulusError($a, $b);
         $this->a = $a;
         $this->b = $b;
         $this->modulus = $this->a->modulus;
     }
+
+    /**
+     * Return the result of this `Operation`.
+     */
+    abstract public function result(): ModularArithmeticNumber;
 }

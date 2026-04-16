@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The multiplication operation between two ModularNumber(s).
+ * The multiplication operation on a `ModularNumber`.
  */
 class ModularMultiplication extends Operation
 {

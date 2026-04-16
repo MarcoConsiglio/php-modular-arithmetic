@@ -5,6 +5,9 @@ use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use Stringable;
 
+/**
+ * A number of the modular arithmetic branch.
+ */
 abstract class ModularArithmeticNumber implements Stringable
 {
     /**

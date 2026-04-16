@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The subtraction operation between two ModularNumbers(s).
+ * The subtraction operation on a `ModularNumber`.
  */
 class ModularSubtraction extends Operation
 {

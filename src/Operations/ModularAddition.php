@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The sum operation between two ModularNumber(s).
+ * The sum operation on a `ModularNumber`.
  */
 class ModularAddition extends Operation
 {

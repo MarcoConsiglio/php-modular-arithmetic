@@ -5,8 +5,14 @@ use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 
+/**
+ * The `ModularRelativeNumber`.
+ */
 class ModularRelativeNumber extends ModularArithmeticNumber
 {
+    /**
+     * The `Ring` of this `ModularRelativeNumber`.
+     */
     public Ring $ring {
         set(Ring $ring) {
             if (! isset($this->ring))
@@ -14,6 +20,9 @@ class ModularRelativeNumber extends ModularArithmeticNumber
         }
     }
 
+    /**
+     * Construct a `ModularRelativeNumber`.
+     */
     protected function __construct(
         int|float|string|BcMathNumber|Number $value,
         int|float|string|BcMathNumber|Number $modulus,
@@ -26,8 +35,8 @@ class ModularRelativeNumber extends ModularArithmeticNumber
     }
 
     /**
-     * Create a `ModularRelativeNumber` from its `$value` and the 
-     * `$circumference` of its ring.
+     * Create a `ModularRelativeNumber` from its `$value` and its 
+     * `$ring`.
      */
     public static function createFromRing(
         Number $value, 
@@ -63,9 +72,6 @@ class ModularRelativeNumber extends ModularArithmeticNumber
 
     /**
      * Add $addend.
-    *
-    * @throws DifferentModulusError when this instance and $addend have
-    * different modulus.
     */
     public function add(Number $addend): ModularRelativeNumber
     {
@@ -74,9 +80,6 @@ class ModularRelativeNumber extends ModularArithmeticNumber
     
     /**
      * Alias of add() method.
-     * 
-     * @throws DifferentModulusError when this instance and $addend have
-     * different modulus.
      */
     public function plus(Number $addend): ModularRelativeNumber
     {

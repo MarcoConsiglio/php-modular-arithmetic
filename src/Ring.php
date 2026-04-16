@@ -19,6 +19,9 @@ class Ring extends Range
         }
     }
 
+    /**
+     * The positive `Range` of this `Ring`.
+     */
     public Range $positive {
         get {
             if ($this->start->isPositive() && $this->end->isPositive())
@@ -30,6 +33,9 @@ class Ring extends Range
         }
     }
 
+    /**
+     * The negative `Range` of this `Ring`.
+     */
     public Range $negative {
         get {
             if ($this->start->isNegative() && $this->end->isNegative())

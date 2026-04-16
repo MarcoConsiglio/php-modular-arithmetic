@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The division operation between two ModularNumber(s).
+ * The division operation on a `ModularNumber`.
  */
 class ModularDivision extends Operation
 {
