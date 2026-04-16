@@ -3,19 +3,25 @@ namespace Marcoconsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
+use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 
 class ModularRelativeNumber extends ModularArithmeticNumber
 {
+    public Ring $ring {
+        set(Ring $ring) {
+            if (! isset($this->ring))
+                $this->ring = $ring;
+        }
+    }
+
     protected function __construct(
-        int|float|string|BcMathNumber|Number $value, 
-        int|float|string|BcMathNumber|Number $modulus
+        int|float|string|BcMathNumber|Number $value,
+        int|float|string|BcMathNumber|Number $modulus,
     ) {
-        $value = $this->normalizeArgument($value);
         $modulus = $this->normalizeArgument($modulus);
-        if ($value->isPositive()) 
-            $this->modulus = $modulus->abs();
-        else
-            $this->modulus = $modulus->abs()->opposite(); 
+        $value = $this->normalizeArgument($value);
+        if ($value->isPositive()) $this->modulus = $modulus->abs();
+        else $this->modulus = $modulus->abs()->opposite();
         $this->value = $value->mod($this->modulus);
     }
 
@@ -23,25 +29,57 @@ class ModularRelativeNumber extends ModularArithmeticNumber
      * Create a `ModularRelativeNumber` from its `$value` and the 
      * `$circumference` of its ring.
      */
-    public static function createFromCircumference(
+    public static function createFromRing(
         Number $value, 
-        Number $circumference
+        Ring $ring
     ): ModularRelativeNumber {
-        return new ModularRelativeNumber($value, $circumference);
+        if ($value->isPositive())
+            $modulus = $ring->length;
+        else
+            $modulus = $ring->length->opposite();
+        $number = new ModularRelativeNumber($value, $modulus);
+        $number->ring = $ring;
+        return $number;
     }
 
     /**
      * Create a `ModularRelativeNumber` from its `$value` and the length
-     * between the `$ring_start` and `$ring_end`.
+     * between the `$start` and `$end`.
      */
-    public static function createFromRingExtremes(
+    public static function createFromExtremes(
         Number $value,
-        Number $ring_start,
-        Number $ring_end
-    ): ModularArithmeticNumber {
-        return new ModularRelativeNumber(
-            $value,
-            $ring_end->abs()->plus($ring_start->abs())
-        );
+        Number $start,
+        Number $end
+    ): ModularRelativeNumber {
+        $ring = new Ring($start, $end);
+        if ($value->isPositive())
+            $modulus = $ring->length;
+        else
+            $modulus = $ring->length->opposite();
+        $number = new ModularRelativeNumber($value, $modulus);
+        $number->ring = $ring;
+        return $number;
+    }
+
+    /**
+     * Add $addend.
+    *
+    * @throws DifferentModulusError when this instance and $addend have
+    * different modulus.
+    */
+    public function add(Number $addend): ModularRelativeNumber
+    {
+        return new ModularAddition($this, $addend)->result();
+    }
+    
+    /**
+     * Alias of add() method.
+     * 
+     * @throws DifferentModulusError when this instance and $addend have
+     * different modulus.
+     */
+    public function plus(Number $addend): ModularRelativeNumber
+    {
+        return $this->add($addend);
     }
 }
