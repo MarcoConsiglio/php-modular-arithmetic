@@ -28,9 +28,7 @@ abstract class Operation
     abstract public function result(): ModularArithmeticNumber;
 
     /**
-     * Construct a modular operation between $a and $b.
-     *
-     * @throws DifferentModulusError when $a and $b have different modulus.
+     * Construct a modular operation between $a and $b.when $a and $b have different modulus.
      */
     public function __construct(ModularArithmeticNumber $a, Number $b)
     {
