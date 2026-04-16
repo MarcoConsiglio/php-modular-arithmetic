@@ -14,7 +14,7 @@ class ModularSubtraction extends Operation
     public function result(): ModularNumber
     {
         return new ModularNumber(
-            $this->a->value->sub($this->b->value),
+            $this->a->value->sub($this->b),
             $this->modulus
         );
     }

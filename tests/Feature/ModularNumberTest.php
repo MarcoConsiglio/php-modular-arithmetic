@@ -6,7 +6,6 @@ use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\TestDox;
-use Throwable;
 
 #[TestDox("The ModularNumber")]
 class ModularNumberTest extends BaseTestCase
@@ -14,6 +13,7 @@ class ModularNumberTest extends BaseTestCase
     #[TestDox("is never congruent with another one with different modulus.")]
     public function test_congruence_with_different_modulus(): void
     {
+        $this->markTestSkipped("This test is now meaningless.");
         // Arrange
         do {
             $a = $this->randomModularNumber();
@@ -21,7 +21,7 @@ class ModularNumberTest extends BaseTestCase
         } while ($a->modulus->value == $b->modulus->value);
 
         // Act & Assert
-        $this->assertFalse($a->equals($b));
+        $this->assertFalse($a->equals($b->value));
     }
 
     #[TestDox("has reflexivity property that states that every number is 
@@ -32,12 +32,13 @@ class ModularNumberTest extends BaseTestCase
          * n ≠ 0 OK
          */
         // Arrange
-        $value = $this->randomNumber($this::MIN, $this::MAX);
-        $n = $this->randomModulus($this::MIN, $this::MAX);
+        $value = $this->randomFloatNumber($this::MIN, $this::MAX);
+        $n = $this->randomFloatModulus($this::MIN, $this::MAX);
         $number = new ModularNumber($value, $n);
+        $congruent_number = $this->getCongruentNumber($number);
         
         // Act & Assert
-        $this->assertTrue($number->isCongruent($number), $this->congruentFailure($number, $number));
+        $this->assertTrue($number->isCongruent($congruent_number), $this->congruentFailure($number, $number));
     }
 
     #[TestDox("has the symmetry property which states that if a is congruent to
@@ -45,17 +46,14 @@ class ModularNumberTest extends BaseTestCase
     public function test_symmetry_property(): void
     {
         // Arrange
-        $n = $this->randomModulus($this::MIN, $this::MAX);
-        $value = $this->randomNumber($this::MIN, $this::MAX);
+        $n = $this->randomFloatModulus($this::MIN, $this::MAX);
+        $value = $this->randomFloatNumber($this::MIN, $this::MAX);
         $a = new ModularNumber($value, $n);
-        $b = new ModularNumber(
-            $this->getCongruentNumber($value, $n, 1), 
-            $n
-        );
+        $b = new ModularNumber($this->getCongruentNumber($a, 1), $n);
 
         // Act & Assert
-        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
-        $this->assertTrue($b->equals($a), $this->congruentFailure($b, $a));
+        $this->assertTrue($a->equals($b->value), $this->congruentFailure($a, $b));
+        $this->assertTrue($b->equals($a->value), $this->congruentFailure($b, $a));
     }
 
     #[TestDox("has the transitivity property which states that if a is 
@@ -63,15 +61,15 @@ class ModularNumberTest extends BaseTestCase
     congruent to c modulo n.")]
     public function test_transitivity_property(): void
     {
-        $n = $this->randomModulus($this::MIN, $this::MAX);
-        $value = $this->randomNumber($this::MIN, $this::MAX);
+        $n = $this->randomFloatModulus($this::MIN, $this::MAX);
+        $value = $this->randomFloatNumber($this::MIN, $this::MAX);
         $a = new ModularNumber($value, $n);
-        $b = new ModularNumber($this->getCongruentNumber($value, $n, 1), $n);
-        $c = new ModularNumber($this->getCongruentNumber($value, $n, 2), $n);
+        $b = new ModularNumber($this->getCongruentNumber($a, 1), $n);
+        $c = new ModularNumber($this->getCongruentNumber($b, 2), $n);
 
-        $this->assertTrue($a->equals($b), $this->congruentFailure($a, $b));
-        $this->assertTrue($b->equals($c), $this->congruentFailure($b, $c));
-        $this->assertTrue($a->equals($c), $this->congruentFailure($a, $c));
+        $this->assertTrue($a->equals($b->value), $this->congruentFailure($a, $b));
+        $this->assertTrue($b->equals($c->value), $this->congruentFailure($b, $c));
+        $this->assertTrue($a->equals($c->value), $this->congruentFailure($a, $c));
     }
     
     #[TestDox("can be added to another.")]
@@ -79,7 +77,7 @@ class ModularNumberTest extends BaseTestCase
     {
         // Arrange
         $a = $this->randomModularNumber($this::MIN, $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
+        $b = $this->randomIntNumber($this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $result = $a->plus($b));
@@ -91,7 +89,7 @@ class ModularNumberTest extends BaseTestCase
     {
         // Arrange
         $a = $this->randomModularNumber($this::MIN, $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
+        $b = $this->randomIntNumber($this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $result = $a->sub($b));
@@ -103,7 +101,7 @@ class ModularNumberTest extends BaseTestCase
     {
         // Arrange
         $a = $this->randomModularNumber($this::MIN, $this::MAX);
-        $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
+        $b = $this->randomIntNumber($this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $product = $a->mul($b));
@@ -116,8 +114,8 @@ class ModularNumberTest extends BaseTestCase
         // Arrange
         $a = $this->randomModularNumber($this::MIN, $this::MAX);
         do {
-            $b = $this->randomModularNumberWithModulus($a->modulus, $this::MIN, $this::MAX);
-        } while ($b->value->isEqual(0));
+            $b = $this->randomIntNumber($this::MIN, $this::MAX);
+        } while ($b->isEqual(0));
 
         // Act & Assert
         $this->assertInstanceOf(ModularNumber::class, $quotient = $a->div($b));
@@ -132,12 +130,8 @@ class ModularNumberTest extends BaseTestCase
         $k = $this->randomInteger(min: -100, max: 100);
 
         // Act & Assert
-        try {
-            $this->assertInstanceOf(ModularNumber::class, $power = $a->pow($k));
-            $this->assertEquals($a->value->pow($k)->mod($a->modulus), $power->value);
-        } catch (Throwable $e) {
-            $this->fail("Base: {$a->value}\nExponent: {$k}\n{$e->getMessage()}");
-        }
+        $this->assertInstanceOf(ModularNumber::class, $power = $a->pow($k));
+        $this->assertEquals($a->value->pow($k)->mod($a->modulus), $power->value);
     }
 
     #[TestDox("can calculate the floor of itself.")]
@@ -166,8 +160,8 @@ class ModularNumberTest extends BaseTestCase
     public function test_isCongruent_returns_boolean(): void
     {
         // Arrange
-        $a = $this->randomModularNumber();
-        $b = $this->randomModularNumberWithModulus($a->modulus);
+        $a = $this->randomModularNumber($this::MIN, $this::MAX);
+        $b = $this->randomIntNumber($this::MIN, $this::MAX);
 
         // Act & Assert
         $this->assertIsBool($a->isCongruent($b));

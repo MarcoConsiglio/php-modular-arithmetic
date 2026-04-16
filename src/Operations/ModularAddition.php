@@ -13,7 +13,7 @@ class ModularAddition extends Operation
      */
     public function result(): ModularNumber
     {
-        $result = $this->a->value->add($this->b->value);
+        $result = $this->a->value->add($this->b);
         return new ModularNumber($result, $this->modulus);
     }
 }

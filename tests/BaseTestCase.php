@@ -322,14 +322,11 @@ class BaseTestCase extends TestCase
      * by `$k`.
      */
     protected function getCongruentNumber(
-        int|string|BCMathNumber|Number $value, 
-        int|string|BCMathNumber|Number $modulus, 
-        int $k
+        ModularNumber $number,
+        int $k = 1
     ): Number {
-        if (! $value instanceof Number) $value = new Number($value);
-        if (! $modulus instanceof Number) $modulus = new Number($modulus);
-        $reminder = $value->mod($modulus);
-        return $modulus->mul($k)->add($reminder);
+        $reminder = $number->value->mod($number->modulus);
+        return $number->modulus->mul($k)->add($reminder);
     }
 
     /**

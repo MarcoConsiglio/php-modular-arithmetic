@@ -3,19 +3,19 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
 
 abstract class Operation
 {    
     /**
      * The left operand.
      */
-    public ModularNumber $a;
+    public ModularArithmeticNumber $a;
 
     /**
      * The right operand.
      */
-    public ModularNumber $b;
+    public Number $b;
 
     /**
      * The modulus of the operation.
@@ -25,16 +25,16 @@ abstract class Operation
     /**
      * Return the result of this operation.
      */
-    abstract public function result(): ModularNumber;
+    abstract public function result(): ModularArithmeticNumber;
 
     /**
      * Construct a modular operation between $a and $b.
      *
      * @throws DifferentModulusError when $a and $b have different modulus.
      */
-    public function __construct(ModularNumber $a, ModularNumber $b)
+    public function __construct(ModularArithmeticNumber $a, Number $b)
     {
-        if ($a->modulus->not($b->modulus)) throw new DifferentModulusError($a, $b);
+        // if ($a->modulus->not($b->modulus)) throw new DifferentModulusError($a, $b);
         $this->a = $a;
         $this->b = $b;
         $this->modulus = $this->a->modulus;

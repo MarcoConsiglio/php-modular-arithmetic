@@ -32,16 +32,15 @@ class ModularNumber extends ModularArithmeticNumber
      * Return true if this instance is congruent to another $number, false 
      * otherwise.
      */
-    public function isCongruent(ModularNumber $number): bool
+    public function isCongruent(Number $number): bool
     {
-        if ($this->modulus->not($number->modulus)) return false;
-        return ($this->value->sub($number->value)->mod($this->modulus))->eq(0);
+        return ($this->value->sub($number)->mod($this->modulus))->eq(0);
     }
 
     /**
      * Alias of isCongruent() method.
      */
-    public function equals(ModularNumber $number): bool
+    public function equals(Number $number): bool
     {
         return $this->isCongruent($number);
     }
@@ -52,7 +51,7 @@ class ModularNumber extends ModularArithmeticNumber
     * @throws DifferentModulusError when this instance and $addend have
     * different modulus.
     */
-    public function add(ModularNumber $addend): ModularNumber
+    public function add(Number $addend): ModularNumber
     {
         return new ModularAddition($this, $addend)->result();
     }
@@ -63,7 +62,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $addend have
      * different modulus.
      */
-    public function plus(ModularNumber $addend): ModularNumber
+    public function plus(Number $addend): ModularNumber
     {
         return $this->add($addend);
     }
@@ -74,7 +73,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $minuend have
      * different modulus.
      */
-    public function subtract(ModularNumber $minuend): ModularNumber
+    public function subtract(Number $minuend): ModularNumber
     {
         return new ModularSubtraction($this, $minuend)->result();
     }
@@ -85,7 +84,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $minuend have
      * different modulus.
      */
-    public function sub(ModularNumber $minuend): ModularNumber
+    public function sub(Number $minuend): ModularNumber
     {
         return $this->subtract($minuend);
     }
@@ -96,7 +95,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $factor have
      * different modulus.
      */
-    public function multiply(ModularNumber $factor): ModularNumber
+    public function multiply(Number $factor): ModularNumber
     {
         return new ModularMultiplication($this, $factor)->result();
     }
@@ -107,7 +106,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $factor have
      * different modulus.
      */
-    public function mul(ModularNumber $factor): ModularNumber
+    public function mul(Number $factor): ModularNumber
     {
         return $this->multiply($factor);
     }
@@ -118,7 +117,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $divisor have
      * different modulus.
      */
-    public function divide(ModularNumber $divisor): ModularNumber
+    public function divide(Number $divisor): ModularNumber
     {
         return new ModularDivision($this, $divisor)->result();
     }
@@ -129,7 +128,7 @@ class ModularNumber extends ModularArithmeticNumber
      * @throws DifferentModulusError when this instance and $divisor have
      * different modulus.
      */
-    public function div(ModularNumber $divisor): ModularNumber
+    public function div(Number $divisor): ModularNumber
     {
         return $this->divide($divisor);
     }

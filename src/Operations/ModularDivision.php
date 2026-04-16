@@ -14,7 +14,7 @@ class ModularDivision extends Operation
     public function result(): ModularNumber
     {
         return new ModularNumber(
-            $this->a->value->div($this->b->value),
+            $this->a->value->div($this->b),
             $this->modulus
         );
     }
