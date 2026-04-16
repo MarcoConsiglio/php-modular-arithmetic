@@ -36,11 +36,30 @@ class ModularRelativeNumberTest extends BaseTestCase
         $this->absolute_modulus = $this->end_ring->sub($this->start_ring)->abs();
     }
 
-    #[TestDox("can be created from the circumference of its ring.")]
+    #[TestDox("can be created from its ring.")]
     public function test_create_from_circumference(): void
     {
+        /**
+         * Positive
+         */
         // Arrange
-        $value = new Number($this->randomInteger());
+        $value = new Number($this->positiveRandomInteger(max: $this->end_ring->toInt()));
+        $ring = new Ring($this->start_ring, $this->end_ring);
+
+        // Act
+        $number = ModularRelativeNumber::createFromRing(
+            $value, $ring
+        );
+
+        // Assert
+        $this->assertInstanceOf(ModularRelativeNumber::class, $number);
+        $this->assertEquals($ring->length->abs(), $number->modulus->abs());
+
+        /**
+         * Negative
+         */
+        // Arrange
+        $value = new Number($this->negativeRandomInteger(min: $this->start_ring->toInt()));
         $ring = new Ring($this->start_ring, $this->end_ring);
 
         // Act
