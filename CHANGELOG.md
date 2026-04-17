@@ -1,4 +1,17 @@
 # Changelog
+## v4.0.0 - 2026-04-17
+### Changed
+- Both `ModularNumber` and `ModularRelativeNumber` now extends the abstract class `ModularArithmeticNumber`.
+- Operations methods on `ModularNumber` objects accept `int`, `string`, `float` and `BcMath\Number` types arguments other than `MarcoConsiglio\BCMathExtended\Number` type.
+### Added
+- `ModularArithmeticNumber` are now `Stringable`.
+- `ModularNumber::normalizeArgument()` static method to transform `int` `string` `float` and `BcMath\Number` types into `MarcoConsiglio\BCMathExtended\Number` type.
+- `ModularRelativeNumber` class to represent relative modular numbers.
+- `Ring` class to represent the relative range allowed for a `ModularRelativeNumber` object.
+### Removed
+- `DifferentModulusError` exception class.
+
+
 ## v3.3.1 - 2026-03-31
 ### Changed
 - Development dependencies:
