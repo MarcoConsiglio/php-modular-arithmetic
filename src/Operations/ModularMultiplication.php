@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The multiplication operation between two ModularNumber(s).
+ * The multiplication operation on a `ModularNumber`.
  */
 class ModularMultiplication extends Operation
 {
@@ -13,7 +13,7 @@ class ModularMultiplication extends Operation
      */
     public function result(): ModularNumber
     {
-        $result = $this->a->value->mul($this->b->value);
+        $result = $this->a->value->mul($this->b);
         return new ModularNumber($result, $this->modulus);
     }
 }

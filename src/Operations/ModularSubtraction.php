@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The subtraction operation between two ModularNumbers(s).
+ * The subtraction operation on a `ModularNumber`.
  */
 class ModularSubtraction extends Operation
 {
@@ -14,7 +14,7 @@ class ModularSubtraction extends Operation
     public function result(): ModularNumber
     {
         return new ModularNumber(
-            $this->a->value->sub($this->b->value),
+            $this->a->value->sub($this->b),
             $this->modulus
         );
     }

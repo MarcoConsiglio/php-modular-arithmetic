@@ -94,13 +94,15 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/marcoconsiglio.html">Marcoconsiglio</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/marcoconsiglio-modulararithmetic.html">ModularArithmetic</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/marcoconsiglio-modulararithmetic-operations.html">Operations</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Operation
+    Ring
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -115,18 +117,16 @@
 <div class="phpdocumentor-label-line">
 
 
-    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Abstract</span><span>Yes</span></div>
-
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Operations/Operation.php"><a href="files/src-operations-operation.html"><abbr title="src/Operations/Operation.php">Operation.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Ring.php"><a href="files/src-ring.html"><abbr title="src/Ring.php">Ring.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">An `Operation` of the modular arithmetic.</p>
+            <p class="phpdocumentor-summary">The ring of finite space of numbers.</p>
 
 
 
@@ -136,7 +136,7 @@
     
 <h3 id="toc">
     Table of Contents
-    <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -148,139 +148,217 @@
 
 
 
-
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method___construct">__construct()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_length">$length</a>
     <span>
-                                &nbsp;: mixed    </span>
+                        &nbsp;: <abbr title="\MarcoConsiglio\BCMathExtended\Number">Number</abbr>            </span>
 </dt>
-<dd>Construct a modular operation between `$a` and `$b`.</dd>
+<dd>The length of this `Ring`.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result">result()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_negative">$negative</a>
     <span>
-                                &nbsp;: <a href="classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"><abbr title="\Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber">ModularArithmeticNumber</abbr></a>    </span>
+                        &nbsp;: <abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr>            </span>
 </dt>
-<dd>Return the result of this `Operation`.</dd>
+<dd>The negative `Range` of this `Ring`.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_positive">$positive</a>
+    <span>
+                        &nbsp;: <abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr>            </span>
+</dt>
+<dd>The positive `Range` of this `Ring`.</dd>
 
     </dl>
 
 
 
-        
 
         
 
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
-        class="phpdocumentor-element
-            -method
+        class="
+            phpdocumentor-element
+            -property
             -public
-                                                        "
+                                                -read-only            -virtual        "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_length">
+        $length
+        <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_length" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                        <small class="phpdocumentor-element__modifier">read-only</small>            <small class="phpdocumentor-element__modifier">virtual</small>        </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Operations/Operation.php"><a href="files/src-operations-operation.html"><abbr title="src/Operations/Operation.php">Operation.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Ring.php"><a href="files/src-ring.html"><abbr title="src/Ring.php">Ring.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Construct a modular operation between `$a` and `$b`.</p>
+        <p class="phpdocumentor-summary">The length of this `Ring`.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"><abbr title="\Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber">ModularArithmeticNumber</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$a</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">string|int|float|<abbr title="\BcMath\Number">Number</abbr>|<abbr title="\MarcoConsiglio\BCMathExtended\Number">Number</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$b</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Number">Number</abbr></span>
+    <span class="phpdocumentor-signature__name">$length</span>
+    </code>
 
-    <div class="phpdocumentor-label-line">
-        </div>
     
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$a</span>
-                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"><abbr title="\Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber">ModularArithmeticNumber</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$b</span>
-                : <span class="phpdocumentor-argument-list__argument__type">string|int|float|<abbr title="\BcMath\Number">Number</abbr>|<abbr title="\MarcoConsiglio\BCMathExtended\Number">Number</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
     
 
         
+            <h5>Hooks</h5>
+            <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Number">Number</abbr></span>
+        <span class="phpdocumentor-signature__name">get</span>
+</code>
+
+
+
+
+
+
     
     
+
+
+    
+
 </article>
                     <article
-        class="phpdocumentor-element
-            -method
+        class="
+            phpdocumentor-element
+            -property
             -public
-                        -abstract                                "
+                                                -read-only            -virtual        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_result">
-        result()
-        <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_negative">
+        $negative
+        <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_negative" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                        <small class="phpdocumentor-element__modifier">read-only</small>            <small class="phpdocumentor-element__modifier">virtual</small>        </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Operations/Operation.php"><a href="files/src-operations-operation.html"><abbr title="src/Operations/Operation.php">Operation.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Ring.php"><a href="files/src-ring.html"><abbr title="src/Ring.php">Ring.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Return the result of this `Operation`.</p>
+        <p class="phpdocumentor-summary">The negative `Range` of this `Ring`.</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">result</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"><abbr title="\Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber">ModularArithmeticNumber</abbr></a></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
     
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr></span>
+    <span class="phpdocumentor-signature__name">$negative</span>
+    </code>
+
     
     
     
 
         
+            <h5>Hooks</h5>
+            <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr></span>
+        <span class="phpdocumentor-signature__name">get</span>
+</code>
+
+
+
+
+
+
     
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"><abbr title="\Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber">ModularArithmeticNumber</abbr></a></span>
-            </section>
+    
+
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                -read-only            -virtual        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_positive">
+        $positive
+        <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_positive" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                        <small class="phpdocumentor-element__modifier">read-only</small>            <small class="phpdocumentor-element__modifier">virtual</small>        </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Ring.php"><a href="files/src-ring.html"><abbr title="src/Ring.php">Ring.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The positive `Range` of this `Ring`.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr></span>
+    <span class="phpdocumentor-signature__name">$positive</span>
+    </code>
+
+    
+    
+    
+
+        
+            <h5>Hooks</h5>
+            <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__type"><abbr title="\MarcoConsiglio\BCMathExtended\Range">Range</abbr></span>
+        <span class="phpdocumentor-signature__name">get</span>
+</code>
+
+
+
+
+
+
+    
+    
+
+
+    
 
 </article>
             </section>
 
+        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Operations/Operation.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Ring.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -381,18 +459,19 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#toc-methods">Methods</a></li>
-                                    </ul>
+                                                            <li><a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#toc-properties">Properties</a></li>
+                                                        </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_length">$length</a></li>
+                                                    <li class=""><a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_negative">$negative</a></li>
+                                                    <li class=""><a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_positive">$positive</a></li>
+                                            </ul>
+                </li>
             
-                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method___construct">__construct()</a></li>
-                                            <li class=""><a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result">result()</a></li>
-                                    </ul>
-            </li>
                     </ul>
     </section>
 
@@ -410,7 +489,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Marcoconsiglio-ModularArithmetic-Ring.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

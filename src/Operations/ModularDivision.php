@@ -4,7 +4,7 @@ namespace Marcoconsiglio\ModularArithmetic\Operations;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The division operation between two ModularNumber(s).
+ * The division operation on a `ModularNumber`.
  */
 class ModularDivision extends Operation
 {
@@ -14,7 +14,7 @@ class ModularDivision extends Operation
     public function result(): ModularNumber
     {
         return new ModularNumber(
-            $this->a->value->div($this->b->value),
+            $this->a->value->div($this->b),
             $this->modulus
         );
     }

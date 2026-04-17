@@ -1,42 +1,43 @@
 <?php
 namespace Marcoconsiglio\ModularArithmetic\Operations;
 
+use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Exceptions\DifferentModulusError;
+use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
+/**
+ * An `Operation` of the modular arithmetic.
+ */
 abstract class Operation
 {    
     /**
      * The left operand.
      */
-    public ModularNumber $a;
+    protected ModularArithmeticNumber $a;
 
     /**
      * The right operand.
      */
-    public ModularNumber $b;
+    protected Number $b;
 
     /**
      * The modulus of the operation.
      */
-    public protected(set) Number $modulus;
+    protected Number $modulus;
 
     /**
-     * Return the result of this operation.
+     * Construct a modular operation between `$a` and `$b`.
      */
-    abstract public function result(): ModularNumber;
-
-    /**
-     * Construct a modular operation between $a and $b.
-     *
-     * @throws DifferentModulusError when $a and $b have different modulus.
-     */
-    public function __construct(ModularNumber $a, ModularNumber $b)
+    public function __construct(ModularArithmeticNumber $a, string|int|float|BCMathNumber|Number $b)
     {
-        if ($a->modulus->not($b->modulus)) throw new DifferentModulusError($a, $b);
         $this->a = $a;
-        $this->b = $b;
+        $this->b = ModularNumber::normalizeArgument($b);
         $this->modulus = $this->a->modulus;
     }
+
+    /**
+     * Return the result of this `Operation`.
+     */
+    abstract public function result(): ModularArithmeticNumber;
 }

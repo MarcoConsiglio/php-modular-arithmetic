@@ -5,7 +5,7 @@ use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 
 /**
- * The exponentiation operation between two ModularNumber(s).
+ * The exponentiation operation on a `ModularNumber`.
  */
 class ModularExponentiation extends Operation
 {
@@ -21,7 +21,7 @@ class ModularExponentiation extends Operation
     /**
      * The right operand.
      */
-    protected Number $exponent;
+    protected int $exponent;
 
     /**
      * Construct the modular exponentiation operation.
@@ -30,7 +30,7 @@ class ModularExponentiation extends Operation
      */
     public function __construct(ModularNumber $base, int $exponent)
     {
-        $this->exponent = new Number($exponent);
+        $this->exponent = $exponent;
         $this->a = $base;
         $this->modulus = $base->modulus;
     }
