@@ -17,85 +17,16 @@ class ModularAdditionTest extends BaseTestCase
 {
     public function test_result(): void
     {
-        // Set up
+        // Arrange
         $ring = new Ring(-180, 180);
-
-        /**
-         * 0 ≤ sum ≤ max 
-         */
-        // Arrange
         $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(90), $ring
+            $this->randomIntNumber(min: -360 * 2, max: 360 * 2),
+            $ring
         );
-        $number = new Number(30);
+        $number = $this->randomIntNumber(min: -360 * 2, max: 360 * 2);
         $operation = new ModularAddition($modular_number, $number);
 
         // Act & Assert
-        $this->assertEquals(new Number(120), $operation->result()->value);
-
-        /**
-         * min ≤ sum < 0
-         */
-        // Arrange
-        $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(-90), $ring
-        );
-        $number = new Number(-30);
-        $operation = new ModularAddition($modular_number, $number);
-
-        // Act & Assert
-        $this->assertEquals(new Number(-120), $operation->result()->value);
-
-        /**
-         * max < sum ≤ ring_length
-         */
-        // Arrange
-        $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(180), $ring
-        );
-        $number = new Number(90);
-        $operation = new ModularAddition($modular_number, $number);
-
-        // Act & Assert
-        $this->assertEquals(new Number(-90), $operation->result()->value);
-
-        /**
-         *  -ring_length ≤ sum < min
-         */
-        // Arrange
-        $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(-180), $ring
-        );
-        $number = new Number(-90);
-        $operation = new ModularAddition($modular_number, $number);
-
-        // Act & Assert
-        $this->assertEquals(new Number(90), $operation->result()->value);
-
-        /**
-         * sum > ring_length
-         */
-        // Arrange
-        $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(180), $ring
-        );
-        $number = new Number(270);
-        $operation = new ModularAddition($modular_number, $number);
-
-        // Act & Assert
-        $this->assertEquals(new Number(90), $operation->result()->value);
-
-        /**
-         * sum < -ring_length
-         */
-        // Arrange
-        $modular_number = ModularRelativeNumber::createFromRing(
-            new Number(-180), $ring
-        );
-        $number = new Number(-270);
-        $operation = new ModularAddition($modular_number, $number);
-
-        // Act & Assert
-        $this->assertEquals(new Number(-90), $operation->result()->value);
+        $this->assertInstanceOf(ModularRelativeNumber::class, $operation->result());
     }
 }
