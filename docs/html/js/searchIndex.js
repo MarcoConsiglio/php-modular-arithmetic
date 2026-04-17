@@ -101,6 +101,11 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020lowest\u0020integer\u0020above\u0020this\u0020number.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_ceil"
         },                {
+            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AnormalizeArgument\u0028\u0029",
+            "name": "normalizeArgument",
+            "summary": "Normalize\u0020the\u0020input\u0020type\u0020of\u0020an\u0020\u0060\u0024argument\u0060\u0020to\u0020the\u0020\u0060Number\u0060\u0020type.",
+            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_normalizeArgument"
+        },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber",
             "name": "ModularRelativeNumber",
             "summary": "The\u0020\u0060ModularRelativeNumber\u0060.",
@@ -200,21 +205,6 @@ Search.appendIndex(
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020\u0060Operation\u0060.",
             "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024a",
-            "name": "a",
-            "summary": "The\u0020left\u0020operand.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_a"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024b",
-            "name": "b",
-            "summary": "The\u0020right\u0020operand.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_b"
-        },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A\u0024modulus",
-            "name": "modulus",
-            "summary": "The\u0020modulus\u0020of\u0020the\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#property_modulus"
         },                {
             "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\ModularAddition",
             "name": "ModularAddition",
