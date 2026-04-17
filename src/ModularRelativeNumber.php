@@ -29,7 +29,7 @@ class ModularRelativeNumber extends ModularArithmeticNumber
         Ring $ring,
     ) {
         // $modulus = $this->normalizeArgument($modulus);
-        $value = $this->normalizeArgument($value);
+        $value = ModularNumber::normalizeArgument($value);
         $this->ring = $ring;
         while (! ($value->inRange($this->ring->positive) || $value->inRange($this->ring->negative))) {
             if ($value->inRangeMinExcluded(new Range(

@@ -20,16 +20,6 @@ abstract class ModularArithmeticNumber implements Stringable
      */
     public protected(set) Number $modulus;
 
-
-    /**
-     * Normalize the input type of an $argument to the Number type.
-     */
-    protected function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
-    {
-        if ($argument instanceof Number) return $argument;
-        return new Number($argument);
-    }
-
     /**
      * Cast to `string` this instance.
      */

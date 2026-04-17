@@ -2,12 +2,15 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit;
 
 use MarcoConsiglio\BCMathExtended\Number;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
 use Marcoconsiglio\ModularArithmetic\Ring;
 use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 #[CoversClass(ModularRelativeNumber::class)]
+#[UsesClass(ModularNumber::class)]
 class ModularRelativeNumberTest extends BaseTestCase
 {
     public function test_construct(): void

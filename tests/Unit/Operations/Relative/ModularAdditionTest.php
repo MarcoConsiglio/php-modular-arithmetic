@@ -3,6 +3,7 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Operations\Relative;
 
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
+use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
 use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 use Marcoconsiglio\ModularArithmetic\Ring;
@@ -13,6 +14,7 @@ use PHPUnit\Framework\Attributes\UsesClass;
 #[CoversClass(ModularAddition::class)]
 #[UsesClass(ModularArithmeticNumber::class)]
 #[UsesClass(ModularRelativeNumber::class)]
+#[UsesClass(ModularNumber::class)]
 class ModularAdditionTest extends BaseTestCase
 {
     public function test_result(): void
