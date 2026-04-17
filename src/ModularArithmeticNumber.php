@@ -20,13 +20,6 @@ abstract class ModularArithmeticNumber implements Stringable
      */
     public protected(set) Number $modulus;
 
-    /**
-     *  Construct a `ModularArithmeticNumber`.
-     */
-    abstract protected function __construct(
-        int|float|string|BcMathNumber|Number $value, 
-        int|float|string|BcMathNumber|Number $modulus
-    );
 
     /**
      * Normalize the input type of an $argument to the Number type.
