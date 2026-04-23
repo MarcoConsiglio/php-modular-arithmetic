@@ -10,16 +10,20 @@ class EvaluationEndTest extends StateTestCase
     public function test_do_nothing(): void
     {
         // Arrange
-        $this->value = $this->randomIntNumber(
+        $this->arrange($this->randomIntNumber(
             $this->ring->start->toInt(),
             $this->ring->end->toInt()
-        );
-        $this->state = new EvaluationEnd($this->value, $this->ring);
+        ));
 
         // Act
         $this->state->evaluate();
 
         // Assert
         $this->assertSame($this->value, $this->state->value);
+    }
+
+    protected function setState(): void
+    {
+        $this->state = new EvaluationEnd($this->value, $this->ring);
     }
 }

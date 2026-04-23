@@ -2,11 +2,11 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Range;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingLengthAndRingStart;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-#[CoversClass(ValueInsideRingEndAndRingLength::class)]
-class ValueInsideRingEndAndRingLengthTest extends StateTestCase
+#[CoversClass(ValueInsideRingLengthAndRingStart::class)]
+class ValueInsideRingLengthAndRingStartTest extends StateTestCase
 {
     public function test_evaluate(): void
     {
@@ -15,10 +15,9 @@ class ValueInsideRingEndAndRingLengthTest extends StateTestCase
          */
         // Arrange
         $this->arrange($this->randomIntNumber(
-            $this->ring->end->toInt() + 1,
-            $this->ring->length->toInt()
+            $this->ring->length->opposite()->toInt(), 
+            $this->ring->start->toInt() - 1
         ));
-
         // Act
         $this->state->evaluate();
 
@@ -33,23 +32,20 @@ class ValueInsideRingEndAndRingLengthTest extends StateTestCase
          * Value outside range
          */
         // Arrange
-        $this->arrange($this->ring->end);
+        $this->arrange($this->ring->start);
 
         // Act
         $this->state->evaluate();
 
         // Assert
-        $this->assertEquals(
-            $this->value, $this->state->value
-        );
+        $this->assertSame($this->value, $this->state->value);
+
     }
 
     protected function setState(): void
     {
-        $this->state = new ValueInsideRingEndAndRingLength(
+        $this->state = new ValueInsideRingLengthAndRingStart(
             $this->value, $this->ring
         );
     }
-
-
 }
