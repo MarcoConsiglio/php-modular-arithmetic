@@ -32,7 +32,7 @@ abstract class Operation
     public function __construct(ModularArithmeticNumber $a, string|int|float|BCMathNumber|Number $b)
     {
         $this->a = $a;
-        $this->b = ModularNumber::normalizeArgument($b);
+        $this->b = Number::normalize($b);
         $this->modulus = $this->a->modulus;
     }
 

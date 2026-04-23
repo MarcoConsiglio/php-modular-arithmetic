@@ -2,6 +2,15 @@
 namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 
 use MarcoConsiglio\BCMathExtended\Number;
+use Marcoconsiglio\ModularArithmetic\Builders\FromExtremes;
+use Marcoconsiglio\ModularArithmetic\Builders\FromRing;
+use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluatorState;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingLengthAndRingStart;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueOutsideNegativeRingLength;
+use Marcoconsiglio\ModularArithmetic\Builders\States\ValueOutsidePositiveRingLength;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
 use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
 use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
@@ -15,10 +24,19 @@ use PHPUnit\Framework\Attributes\UsesClass;
 
 #[TestDox("The ModularRelativeNumber")]
 #[CoversClass(ModularRelativeNumber::class)]
-#[UsesClass(ModularNumber::class)]
+#[UsesClass(FromExtremes::class)]
+#[UsesClass(FromRing::class)]
 #[UsesClass(ModularAddition::class)]
+#[UsesClass(ModularNumber::class)]
+#[UsesClass(ModularRelativeNumberBuilder::class)]
 #[UsesClass(Operation::class)]
 #[UsesClass(Ring::class)]
+#[UsesClass(EvaluatorState::class)]
+#[UsesClass(ValueNeedsReduction::class)]
+#[UsesClass(ValueInsideRingEndAndRingLength::class)]
+#[UsesClass(ValueInsideRingLengthAndRingStart::class)]
+#[UsesClass(ValueOutsideNegativeRingLength::class)]
+#[UsesClass(ValueOutsidePositiveRingLength::class)]
 class ModularRelativeNumberTest extends BaseTestCase
 {
     protected Number $end_ring;

@@ -22,8 +22,8 @@ class ModularNumber extends ModularArithmeticNumber
         int|float|string|BcMathNumber|Number $value, 
         int|float|string|BcMathNumber|Number $modulus
     ) {
-        $value = $this->normalizeArgument($value);
-        $modulus = $this->normalizeArgument($modulus);
+        $value = Number::normalize($value);
+        $modulus = Number::normalize($modulus);
         $this->value = $value->mod($modulus);
         $this->modulus = $modulus;
     }
@@ -169,14 +169,5 @@ class ModularNumber extends ModularArithmeticNumber
             $this->value->ceil(),
             $this->modulus
         );
-    }
-
-    /**
-     * Normalize the input type of an `$argument` to the `Number` type.
-     */
-    public static function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
-    {
-        if ($argument instanceof Number) return $argument;
-        return new Number($argument);
     }
 }

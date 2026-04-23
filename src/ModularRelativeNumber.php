@@ -4,6 +4,10 @@ namespace Marcoconsiglio\ModularArithmetic;
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use MarcoConsiglio\BCMathExtended\Range;
+use Marcoconsiglio\ModularArithmetic\Builders\FromExtremes;
+use Marcoconsiglio\ModularArithmetic\Builders\FromRing;
+use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use Marcoconsiglio\ModularArithmetic\Interfaces\Builder;
 use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 
 /**
@@ -12,43 +16,21 @@ use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 class ModularRelativeNumber extends ModularArithmeticNumber
 {
     /**
-     * The `Ring` of this `ModularRelativeNumber`.
+     * The `Ring` number space of this `ModularRelativeNumber`.
      */
-    public Ring $ring {
-        set(Ring $ring) {
-            if (! isset($this->ring))
-                $this->ring = $ring;
-        }
-    }
+    public protected(set) Ring $ring;
 
     /**
      * Construct a `ModularRelativeNumber`.
      */
     protected function __construct(
-        int|float|string|BcMathNumber|Number $value,
-        Ring $ring,
-    ) {
-        // $modulus = $this->normalizeArgument($modulus);
-        $value = ModularNumber::normalizeArgument($value);
-        $this->ring = $ring;
-        while (! ($value->inRange($this->ring->positive) || $value->inRange($this->ring->negative))) {
-            if ($value->inRangeMinExcluded(new Range(
-                $this->ring->end, $this->ring->length
-            )))
-                $value = $value->mod($this->ring->length->opposite());
-            else if ($value->inRangeMaxExcluded(new Range(
-                $this->ring->length->opposite(), $this->ring->start
-            )))
-                $value = $value->mod($this->ring->length);
-            else if ($value->isGreaterThan($this->ring->length))
-                $value = $value->mod($this->ring->length->opposite());
-            else // $value < $this->ring->opposite()
-                $value = $value->mod($this->ring->length);
-        };
-
-        if ($value->isPositive()) $this->modulus = $ring->length->abs();
-        else $this->modulus = $ring->length->abs()->opposite();
-        $this->value = $value->mod($this->modulus);
+        ModularRelativeNumberBuilder $builder
+    ) { 
+        $builder->evaluate(); 
+        if ($builder->value->isPositive()) $this->modulus = $builder->ring->length;
+        else $this->modulus = $builder->ring->length->opposite();
+        $this->value = $builder->value->mod($this->modulus);
+        $this->ring = $builder->ring;
     }
 
     /**
@@ -59,9 +41,9 @@ class ModularRelativeNumber extends ModularArithmeticNumber
         int|float|string|BcMathNumber|Number $value, 
         Ring $ring
     ): ModularRelativeNumber {
-        $number = new ModularRelativeNumber($value, $ring);
-        $number->ring = $ring;
-        return $number;
+        return new ModularRelativeNumber(
+            new FromRing($value, $ring)
+        );
     }
 
     /**
@@ -73,15 +55,14 @@ class ModularRelativeNumber extends ModularArithmeticNumber
         Number $start,
         Number $end
     ): ModularRelativeNumber {
-        $ring = new Ring($start, $end);
-        $number = new ModularRelativeNumber($value, $ring);
-        $number->ring = $ring;
-        return $number;
+        return new ModularRelativeNumber(
+            new FromExtremes($value, $start, $end)
+        );
     }
 
     /**
      * Add $addend.
-    */
+     */
     public function add(Number $addend): ModularRelativeNumber
     {
         return new ModularAddition($this, $addend)->result();
