@@ -4,10 +4,25 @@ namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
 use DivisionByZeroError;
 use MarcoConsiglio\BCMathExtended\Number;
 use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularDivision;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularMultiplication;
+use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
+use Marcoconsiglio\ModularArithmetic\Operations\Operation;
 use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 #[TestDox("The ModularNumber")]
+#[CoversClass(ModularNumber::class)]
+#[UsesClass(ModularAddition::class)]
+#[UsesClass(ModularDivision::class)]
+#[UsesClass(ModularExponentiation::class)]
+#[UsesClass(ModularMultiplication::class)]
+#[UsesClass(ModularSubtraction::class)]
+#[UsesClass(Operation::class)]
 class ModularNumberTest extends BaseTestCase
 {
     #[TestDox("has reflexivity property that states that every number is 

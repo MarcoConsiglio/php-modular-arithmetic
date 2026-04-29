@@ -18,6 +18,7 @@ class ValueInsideRingLengthAndRingStartTest extends StateTestCase
             $this->ring->length->opposite()->toInt(), 
             $this->ring->start->toInt() - 1
         ));
+        
         // Act
         $this->state->evaluate();
 
