@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/version-v4.0.0-white)<br>
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Line%20coverage&labelColor=rgb(255%2C255%2C255))
 ![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Branch%20coverage&labelColor=rgb(255%2C255%2C255))
-![Static Badge](https://img.shields.io/badge/67%25-rgb(229%2C%20161%2C%200)?label=Path%20coverage&labelColor=rgb(255%2C255%2C255))
+![Static Badge](https://img.shields.io/badge/100%25-rgb(40%2C%20167%2C%2069)?label=Path%20coverage&labelColor=rgb(255%2C255%2C255))
 # Modular Arithmetic
 A PHP libarary to support modular arithmetic, aka *clock arithmetic*. 
 
