@@ -2,6 +2,7 @@
 namespace MarcoConsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
+use Deprecated;
 use MarcoConsiglio\BCMathExtended\Number;
 use MarcoConsiglio\ModularArithmetic\Operations\ModularAddition;
 use MarcoConsiglio\ModularArithmetic\Operations\ModularDivision;
@@ -145,5 +146,15 @@ class ModularNumber extends ModularArithmeticNumber
             $this->value->ceil(),
             $this->modulus
         );
+    }
+
+    /**
+     * Normalize the input type of an `$argument` to the `Number` type.
+     */
+    #[Deprecated("use \MarcoConsiglio\BCMathExtended\Number::normalize() instead", "version")]
+    public static function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
+    {
+        if ($argument instanceof Number) return $argument;
+        return new Number($argument);
     }
 }
