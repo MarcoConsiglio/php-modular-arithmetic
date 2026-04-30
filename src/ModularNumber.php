@@ -151,7 +151,7 @@ class ModularNumber extends ModularArithmeticNumber
     /**
      * Normalize the input type of an `$argument` to the `Number` type.
      */
-    #[Deprecated("use \MarcoConsiglio\BCMathExtended\Number::normalize() instead", "version")]
+    #[Deprecated("use \MarcoConsiglio\BCMathExtended\Number::normalize() instead", "v4.1.0")]
     public static function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
     {
         if ($argument instanceof Number) return $argument;
