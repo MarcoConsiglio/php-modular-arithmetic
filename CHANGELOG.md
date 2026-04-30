@@ -6,7 +6,7 @@
 ### Added
 - `Ring::$range` virtual read-only property to express the range of the `Ring` object.
 ### Deprecated
-- `
+- `ModularNumber::normalizeArgument()`, use `\MarcoConsiglio\BCMathExtended\Number::normalize()` instead.
 
 ## v4.0.0 - 2026-04-17
 ### Changed
