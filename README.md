@@ -150,21 +150,26 @@ FMFFO
 ### Addition
 Only addition is available for `ModularRelativeNumber`s. To perform subtraction, add a negative `Number`.
 ```php
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\Ring;
+
 $ring = new Ring(-180, 180);
-$moon_longitude = new ModularNumber(56, $ring->length);
-$sun_longitude = new ModularNumber(321, $ring->length);
+$moon_longitude = new ModularNumber(60, $ring->length);
+$sun_longitude = new ModularNumber(330, $ring->length);
 $angular_distance = ModularRelativeNumber::createFromRing(0, $ring);
 $angular_distance = $angular_distance->add($sun_longitude->value);
-$angular_distance = $angular_distance->add($moon_longitude->value);
+$angular_distance = $angular_distance->add($moon_longitude->value->opposite());
 
-echo "The sun is at {$sun_longitude->value}°." . PHP_EOL;
-echo "The moon is at {$moon_longitude->value}°." . PHP_EOL;
-echo "The angular distance between the two is {$angular_distance->value}°." . PHP_EOL;
+$test = "The sun is at {$sun_longitude->value}°." . PHP_EOL;
+$test .= "The moon is at {$moon_longitude->value}°." . PHP_EOL;
+$test .= "The angular distance between the two is {$angular_distance->value}°." . PHP_EOL;
+
 ```
 ```
-The sun is at 321°.
-The moon is at 56°.
-The angular distance between the two is 17°.
+The sun is at 330°.
+The moon is at 60°.
+The angular distance between the two is -90°.
 ```
 
 ```php
