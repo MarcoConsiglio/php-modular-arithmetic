@@ -53,8 +53,7 @@ class Ring extends Range
                 return $this;
             else if ($this->start->isNegative())
                 return new Range($this->start, NextFloat::beforeZero());
-            else
-                return new Range(0, 0);
+            return new Range(0, 0);
         }
     }
 }

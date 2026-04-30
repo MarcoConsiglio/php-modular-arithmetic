@@ -3,7 +3,6 @@ namespace MarcoConsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use MarcoConsiglio\BCMathExtended\Range;
 use MarcoConsiglio\ModularArithmetic\Builders\FromExtremes;
 use MarcoConsiglio\ModularArithmetic\Builders\FromRing;
 use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
