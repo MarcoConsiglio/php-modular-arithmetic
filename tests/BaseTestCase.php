@@ -1,16 +1,15 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests;
+namespace MarcoConsiglio\ModularArithmetic\Tests;
 
+use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use BcMath\Number as BCMathNumber;
-use MarcoConsiglio\FakerPhpNumberHelpers\NextFloat;
 use MarcoConsiglio\FakerPhpNumberHelpers\WithFakerHelpers;
-use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\ModularArithmeticNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\Ring;
 use Override;
 use PHPUnit\Framework\TestCase;
-use Marcoconsiglio\ModularArithmetic\Tests\Traits\WithStringFormatting;
 
 class BaseTestCase extends TestCase
 {
@@ -206,8 +205,9 @@ class BaseTestCase extends TestCase
      * Return a random `ModularNumber` with the given `$modulus`.
      */
     protected function randomModularNumberWithModulus(
-        Number $modulus
+        int|float|string|BcMathNumber|Number $modulus
     ): ModularNumber {
+        $modulus = Number::normalize($modulus);
         return new ModularNumber(
             $this->randomFloatNumber(
                 min: $modulus->abs()->opposite()->toFloat(), 
@@ -227,22 +227,13 @@ class BaseTestCase extends TestCase
      */
     protected function randomModularRelativeNumber(
         float $min = -PHP_FLOAT_MAX, 
-        float $max = PHP_FLOAT_MAX
+        float $max = PHP_FLOAT_MAX,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        $modulus = $this->randomFloatModulus($min, $max);
-        if ($modulus->isPositive())
-            return new ModularRelativeNumber(
-                $this->randomFloatNumber(min: 0, max: $modulus->toFloat()),
-                $modulus
-            );
-        else
-            return new ModularRelativeNumber(
-                $this->randomFloatNumber(
-                    min: $modulus->toFloat(), 
-                    max: NextFloat::beforeZero()
-                ),
-                $modulus
-            );
+        return ModularRelativeNumber::createFromExtremes(
+            $this->randomFloat($min, $max, $precision),
+            $min, $max
+        );
     }
 
     /**
@@ -250,15 +241,12 @@ class BaseTestCase extends TestCase
      */
     protected function positiveRandomModularRelativeNumber(
         float $min = 0.0,
-        float $max = PHP_FLOAT_MAX
+        float $max = PHP_FLOAT_MAX,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        $modulus = $this->positiveRandomFloatNumber($min, $max);
-        return new ModularRelativeNumber(
-            $this->positiveRandomFloatNumber(
-                min: 0.0,
-                max: $modulus->toFloat()
-            ),
-            $modulus
+        return ModularRelativeNumber::createFromExtremes(
+            $this->positiveRandomFloat($min, $max, $precision),
+            $min, $max
         );
     }
 
@@ -267,53 +255,60 @@ class BaseTestCase extends TestCase
      */
     protected function negativeRandomModularRelativeNumber(
         float $min = -PHP_FLOAT_MAX,
-        float $max = 0.0
+        float $max = 0.0,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        $modulus = $this->negativeRandomFloatNumber($min, $max);
-        return new ModularRelativeNumber(
-            $this->negativeRandomFloatNumber(
-                min: $modulus->toFloat(),
-                max: 0.0
-            ),
-            $modulus
+        return ModularRelativeNumber::createFromExtremes(
+            $this->negativeRandomFloat($min, $max, $precision),
+            $min, $max
         );
     }
 
     /**
-     * Return a random `ModularRelativeNumber` with the given `$modulus`.
+     * Return a random `ModularRelativeNumber` within the given `$ring`.
      */
-    protected function randomModularRelativeNumberWithModulus(
-        Number $modulus
+    protected function randomModularRelativeNumberWithRing(
+        Ring $ring,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        return new ModularRelativeNumber(
-            $this->randomFloatNumber(
-                min: $modulus->abs()->opposite()->toFloat(),
-                max: $modulus->abs()->toFloat()
-            ),
-            $modulus
+        return ModularRelativeNumber::createFromRing(
+            $this->randomFloat(
+                $ring->start->toFloat(), 
+                $ring->end->toFloat(), 
+                $precision
+            ), $ring
         );
     }
 
     /**
-     * Return a positive random `ModularRelativeNumber` with the given `$modulus`.
+     * Return a positive random `ModularRelativeNumber` within the given `$ring`.
      */
-    protected function positiveRandomModularRelativeNumberWithModulus(
-        Number $modulus
+    protected function positiveRandomModularRelativeNumberWithRing(
+        Ring $ring,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        return new ModularRelativeNumber(
-            $this->positiveRandomFloatNumber(max: $modulus->abs()->toFloat()),
-            $modulus->abs()
+        return ModularRelativeNumber::createFromRing(
+            $this->positiveRandomFloat(
+                $ring->start->toFloat($precision),
+                $ring->end->toFloat($precision),
+                $precision
+            ), $ring
         );
     }
 
     /**
-     * Return a negative random `ModularRelativeNumber` with the given `$modulus`. */    
-    protected function negativeRandomModularRelativeNumberWithModulus(
-        Number $modulus
+     * Return a negative random `ModularRelativeNumber` within the given `$ring`. 
+     */    
+    protected function negativeRandomModularRelativeNumberWithRing(
+        Ring $ring,
+        int $precision = PHP_FLOAT_DIG
     ): ModularRelativeNumber {
-        return new ModularRelativeNumber(
-            $this->negativeRandomFloatNumber(min: $modulus->abs()->opposite()->toFloat()),
-            $modulus
+        return ModularRelativeNumber::createFromRing(
+            $this->negativeRandomFloat(
+                $ring->start->toFloat($precision),
+                $ring->end->toFloat($precision),
+                $precision
+            ), $ring
         );
     }
 

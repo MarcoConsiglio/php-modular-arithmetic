@@ -1,277 +1,447 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularArithmeticNumber",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\FromExtremes",
+            "name": "FromExtremes",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-FromExtremes.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\FromExtremes\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-FromExtremes.html#method___construct"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\FromRing",
+            "name": "FromRing",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-FromRing.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\FromRing\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-FromRing.html#method___construct"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\ModularRelativeNumberBuilder",
+            "name": "ModularRelativeNumberBuilder",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-ModularRelativeNumberBuilder.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\ModularRelativeNumberBuilder\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-ModularRelativeNumberBuilder.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\ModularRelativeNumberBuilder\u003A\u003AsetEvaluatorState\u0028\u0029",
+            "name": "setEvaluatorState",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-ModularRelativeNumberBuilder.html#method_setEvaluatorState"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\ModularRelativeNumberBuilder\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-ModularRelativeNumberBuilder.html#property_value"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\ModularRelativeNumberBuilder\u003A\u003A\u0024ring",
+            "name": "ring",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-ModularRelativeNumberBuilder.html#property_ring"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluationEnd",
+            "name": "EvaluationEnd",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluationEnd.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluationEnd\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluationEnd.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluatorState",
+            "name": "EvaluatorState",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluatorState.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluatorState\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluatorState.html#method___construct"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluatorState\u003A\u003AsetBuilderContext\u0028\u0029",
+            "name": "setBuilderContext",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluatorState.html#method_setBuilderContext"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluatorState\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluatorState.html#property_value"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\EvaluatorState\u003A\u003A\u0024ring",
+            "name": "ring",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-EvaluatorState.html#property_ring"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueInsideRingEndAndRingLength",
+            "name": "ValueInsideRingEndAndRingLength",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueInsideRingEndAndRingLength.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueInsideRingEndAndRingLength\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueInsideRingEndAndRingLength.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueInsideRingLengthAndRingStart",
+            "name": "ValueInsideRingLengthAndRingStart",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueInsideRingLengthAndRingStart.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueInsideRingLengthAndRingStart\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueInsideRingLengthAndRingStart.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueNeedsReduction",
+            "name": "ValueNeedsReduction",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueNeedsReduction.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueNeedsReduction\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueNeedsReduction.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueOutsideNegativeRingLength",
+            "name": "ValueOutsideNegativeRingLength",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueOutsideNegativeRingLength.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueOutsideNegativeRingLength\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueOutsideNegativeRingLength.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueOutsidePositiveRingLength",
+            "name": "ValueOutsidePositiveRingLength",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueOutsidePositiveRingLength.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States\\ValueOutsidePositiveRingLength\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Builders-States-ValueOutsidePositiveRingLength.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Interfaces\\Builder",
+            "name": "Builder",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Interfaces-Builder.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Interfaces\\Builder\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Interfaces-Builder.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Interfaces\\BuilderState",
+            "name": "BuilderState",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Interfaces-BuilderState.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Interfaces\\BuilderState\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Interfaces-BuilderState.html#method_evaluate"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularArithmeticNumber",
             "name": "ModularArithmeticNumber",
             "summary": "A\u0020number\u0020of\u0020the\u0020modular\u0020arithmetic\u0020branch.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularArithmeticNumber.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A__toString\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Cast\u0020to\u0020\u0060string\u0060\u0020this\u0020instance.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html#method___toString"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularArithmeticNumber.html#method___toString"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A\u0024value",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A\u0024value",
             "name": "value",
             "summary": "The\u0020value\u0020of\u0020this\u0020modular\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html#property_value"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularArithmeticNumber.html#property_value"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A\u0024modulus",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularArithmeticNumber\u003A\u003A\u0024modulus",
             "name": "modulus",
             "summary": "The\u0020modulus\u0020of\u0020this\u0020modular\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularArithmeticNumber.html#property_modulus"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularArithmeticNumber.html#property_modulus"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber",
             "name": "ModularNumber",
             "summary": "A\u0020modular\u0020number,\u0020a.k.a.\u0020clock\u0020number.\u0020It\u0020represents\u0020a\u0020value\u0020in\u0020a\u0020ring,\u0020like\nthe\u0020hours\u0020on\u0020a\u0020clock.\u0020The\u0020length\u0020of\u0020the\u0020ring\u0020is\u0020represented\u0020by\u0020its\u0020modulus.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020a\u0020modular\u0020number\u0020with\u0020a\u0020\u0024value\u0020and\u0020its\u0020\u0024modulus.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method___construct"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AisCongruent\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AisCongruent\u0028\u0029",
             "name": "isCongruent",
             "summary": "Return\u0020true\u0020if\u0020this\u0020instance\u0020is\u0020congruent\u0020to\u0020another\u0020\u0024number,\u0020false\notherwise.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_isCongruent"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_isCongruent"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aequals\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aequals\u0028\u0029",
             "name": "equals",
             "summary": "Alias\u0020of\u0020isCongruent\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_equals"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_equals"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "Sum\u0020\u0024addend.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_add"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_add"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aplus\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aplus\u0028\u0029",
             "name": "plus",
             "summary": "Alias\u0020of\u0020add\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_plus"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_plus"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asubtract\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asubtract\u0028\u0029",
             "name": "subtract",
             "summary": "Subtract\u0020\u0024minuend.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_subtract"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_subtract"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asub\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Asub\u0028\u0029",
             "name": "sub",
             "summary": "Alias\u0020of\u0020subtract\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_sub"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_sub"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amultiply\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amultiply\u0028\u0029",
             "name": "multiply",
             "summary": "Multiply\u0020by\u0020\u0024factor.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_multiply"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_multiply"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amul\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Amul\u0028\u0029",
             "name": "mul",
             "summary": "Alias\u0020of\u0020multiply\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_mul"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_mul"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adivide\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adivide\u0028\u0029",
             "name": "divide",
             "summary": "Divide\u0020by\u0020\u0024divisor.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_divide"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_divide"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adiv\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Adiv\u0028\u0029",
             "name": "div",
             "summary": "Alias\u0020of\u0020divide\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_div"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_div"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apower\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apower\u0028\u0029",
             "name": "power",
             "summary": "Raise\u0020to\u0020\u0024exponent.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_power"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_power"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apow\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Apow\u0028\u0029",
             "name": "pow",
             "summary": "Alias\u0020of\u0020power\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_pow"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_pow"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Afloor\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Afloor\u0028\u0029",
             "name": "floor",
             "summary": "Return\u0020the\u0020highest\u0020integer\u0020below\u0020this\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_floor"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_floor"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aceil\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003Aceil\u0028\u0029",
             "name": "ceil",
             "summary": "Return\u0020the\u0020lowest\u0020integer\u0020above\u0020this\u0020number.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_ceil"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_ceil"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AnormalizeArgument\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularNumber\u003A\u003AnormalizeArgument\u0028\u0029",
             "name": "normalizeArgument",
             "summary": "Normalize\u0020the\u0020input\u0020type\u0020of\u0020an\u0020\u0060\u0024argument\u0060\u0020to\u0020the\u0020\u0060Number\u0060\u0020type.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularNumber.html#method_normalizeArgument"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularNumber.html#method_normalizeArgument"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber",
             "name": "ModularRelativeNumber",
             "summary": "The\u0020\u0060ModularRelativeNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003AcreateFromRing\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003AcreateFromRing\u0028\u0029",
             "name": "createFromRing",
             "summary": "Create\u0020a\u0020\u0060ModularRelativeNumber\u0060\u0020from\u0020its\u0020\u0060\u0024value\u0060\u0020and\u0020its\n\u0060\u0024ring\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html#method_createFromRing"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html#method_createFromRing"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003AcreateFromExtremes\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003AcreateFromExtremes\u0028\u0029",
             "name": "createFromExtremes",
             "summary": "Create\u0020a\u0020\u0060ModularRelativeNumber\u0060\u0020from\u0020its\u0020\u0060\u0024value\u0060\u0020and\u0020the\u0020length\nbetween\u0020the\u0020\u0060\u0024start\u0060\u0020and\u0020\u0060\u0024end\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html#method_createFromExtremes"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html#method_createFromExtremes"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "Add\u0020\u0024addend.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html#method_add"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html#method_add"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003Aplus\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003Aplus\u0028\u0029",
             "name": "plus",
             "summary": "Alias\u0020of\u0020add\u0028\u0029\u0020method.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html#method_plus"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html#method_plus"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003A\u0024ring",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\ModularRelativeNumber\u003A\u003A\u0024ring",
             "name": "ring",
-            "summary": "The\u0020\u0060Ring\u0060\u0020of\u0020this\u0020\u0060ModularRelativeNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-ModularRelativeNumber.html#property_ring"
+            "summary": "The\u0020\u0060Ring\u0060\u0020number\u0020space\u0020of\u0020this\u0020\u0060ModularRelativeNumber\u0060.",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-ModularRelativeNumber.html#property_ring"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularAddition",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularAddition",
             "name": "ModularAddition",
             "summary": "The\u0020sum\u0020operation\u0020on\u0020a\u0020\u0060ModularNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularAddition.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularAddition.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularAddition\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularAddition\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularAddition.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularAddition.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularDivision",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularDivision",
             "name": "ModularDivision",
             "summary": "The\u0020division\u0020operation\u0020on\u0020a\u0020\u0060ModularNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularDivision.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularDivision.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularDivision\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularDivision\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularDivision.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularDivision.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularExponentiation",
             "name": "ModularExponentiation",
             "summary": "The\u0020exponentiation\u0020operation\u0020on\u0020a\u0020\u0060ModularNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularExponentiation.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020the\u0020modular\u0020exponentiation\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method___construct"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularExponentiation\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularExponentiation.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularMultiplication",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularMultiplication",
             "name": "ModularMultiplication",
             "summary": "The\u0020multiplication\u0020operation\u0020on\u0020a\u0020\u0060ModularNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularMultiplication.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularMultiplication.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularMultiplication\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularMultiplication\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularMultiplication.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularMultiplication.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularSubtraction",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularSubtraction",
             "name": "ModularSubtraction",
             "summary": "The\u0020subtraction\u0020operation\u0020on\u0020a\u0020\u0060ModularNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularSubtraction.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularSubtraction.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\ModularSubtraction\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\ModularSubtraction\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-ModularSubtraction.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-ModularSubtraction.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Operation",
             "name": "Operation",
             "summary": "An\u0020\u0060Operation\u0060\u0020of\u0020the\u0020modular\u0020arithmetic.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Operation.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020a\u0020modular\u0020operation\u0020between\u0020\u0060\u0024a\u0060\u0020and\u0020\u0060\u0024b\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method___construct"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Operation.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Operation\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020\u0060Operation\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Operation.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Operation.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\ModularAddition",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative\\ModularAddition",
             "name": "ModularAddition",
             "summary": "The\u0020addition\u0020operation\u0020on\u0020a\u0020\u0060ModularRelativeNumber\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Relative-ModularAddition.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Relative-ModularAddition.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\ModularAddition\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative\\ModularAddition\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020operation.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Relative-ModularAddition.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Relative-ModularAddition.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\Operation",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative\\Operation",
             "name": "Operation",
             "summary": "An\u0020\u0060Operation\u0060\u0020of\u0020the\u0020modular\u0020arithmetic\u0020when\u0020its\u0020\u0060Ring\u0060\u0020is\na\u0020relative\u0020space\u0020of\u0020numbers.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Relative-Operation.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Relative-Operation.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\Operation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative\\Operation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Construct\u0020a\u0020modular\u0020operation\u0020between\u0020\u0060\u0024a\u0060\u0020and\u0020\u0060\u0024b\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Relative-Operation.html#method___construct"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Relative-Operation.html#method___construct"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative\\Operation\u003A\u003Aresult\u0028\u0029",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative\\Operation\u003A\u003Aresult\u0028\u0029",
             "name": "result",
             "summary": "Return\u0020the\u0020result\u0020of\u0020this\u0020\u0060Operation\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Operations-Relative-Operation.html#method_result"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Operations-Relative-Operation.html#method_result"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Ring",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Ring",
             "name": "Ring",
             "summary": "The\u0020ring\u0020of\u0020finite\u0020space\u0020of\u0020numbers.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Ring.html"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Ring.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024length",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024length",
             "name": "length",
             "summary": "The\u0020length\u0020of\u0020this\u0020\u0060Ring\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_length"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Ring.html#property_length"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024positive",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024range",
+            "name": "range",
+            "summary": "The\u0020\u0060Range\u0060\u0020of\u0020this\u0020\u0060Ring\u0060.",
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Ring.html#property_range"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024positive",
             "name": "positive",
             "summary": "The\u0020positive\u0020\u0060Range\u0060\u0020of\u0020this\u0020\u0060Ring\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_positive"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Ring.html#property_positive"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024negative",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Ring\u003A\u003A\u0024negative",
             "name": "negative",
             "summary": "The\u0020negative\u0020\u0060Range\u0060\u0020of\u0020this\u0020\u0060Ring\u0060.",
-            "url": "classes/Marcoconsiglio-ModularArithmetic-Ring.html#property_negative"
+            "url": "classes/MarcoConsiglio-ModularArithmetic-Ring.html#property_negative"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders",
+            "name": "Builders",
+            "summary": "",
+            "url": "namespaces/marcoconsiglio-modulararithmetic-builders.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Builders\\States",
+            "name": "States",
+            "summary": "",
+            "url": "namespaces/marcoconsiglio-modulararithmetic-builders-states.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Interfaces",
+            "name": "Interfaces",
+            "summary": "",
+            "url": "namespaces/marcoconsiglio-modulararithmetic-interfaces.html"
+        },                {
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic",
             "name": "ModularArithmetic",
             "summary": "",
             "url": "namespaces/marcoconsiglio-modulararithmetic.html"
         },                {
-            "fqsen": "\\Marcoconsiglio",
-            "name": "Marcoconsiglio",
+            "fqsen": "\\MarcoConsiglio",
+            "name": "MarcoConsiglio",
             "summary": "",
             "url": "namespaces/marcoconsiglio.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations",
             "name": "Operations",
             "summary": "",
             "url": "namespaces/marcoconsiglio-modulararithmetic-operations.html"
         },                {
-            "fqsen": "\\Marcoconsiglio\\ModularArithmetic\\Operations\\Relative",
+            "fqsen": "\\MarcoConsiglio\\ModularArithmetic\\Operations\\Relative",
             "name": "Relative",
             "summary": "",
             "url": "namespaces/marcoconsiglio-modulararithmetic-operations-relative.html"

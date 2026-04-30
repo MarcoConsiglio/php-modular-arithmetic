@@ -5,8 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Marcoconsiglio\\ModularArithmetic\\": "src/",
-            "Marcoconsiglio\\ModularArithmetic\\Tests\\": "tests/"
+            "MarcoConsiglio\\ModularArithmetic\\": "src/",
+            "MarcoConsiglio\\ModularArithmetic\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -24,6 +24,6 @@
     },
     "require": {
         "php": "^8.4",
-        "marcoconsiglio/bcmath-extended": "^2.0"
+        "marcoconsiglio/bcmath-extended": "^2.5"
     }
 }

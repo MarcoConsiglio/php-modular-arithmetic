@@ -1,13 +1,14 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic;
+namespace MarcoConsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
+use Deprecated;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularDivision;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularMultiplication;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularAddition;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularDivision;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularExponentiation;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularMultiplication;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularSubtraction;
 
 /**
  * A modular number, a.k.a. clock number. It represents a value in a ring, like
@@ -22,8 +23,8 @@ class ModularNumber extends ModularArithmeticNumber
         int|float|string|BcMathNumber|Number $value, 
         int|float|string|BcMathNumber|Number $modulus
     ) {
-        $value = $this->normalizeArgument($value);
-        $modulus = $this->normalizeArgument($modulus);
+        $value = Number::normalize($value);
+        $modulus = Number::normalize($modulus);
         $this->value = $value->mod($modulus);
         $this->modulus = $modulus;
     }
@@ -47,10 +48,7 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Sum $addend.
-    *
-    * @throws DifferentModulusError when this instance and $addend have
-    * different modulus.
-    */
+     */
     public function add(string|int|float|BCMathNumber|Number $addend): ModularNumber
     {
         return new ModularAddition($this, $addend)->result();
@@ -58,9 +56,6 @@ class ModularNumber extends ModularArithmeticNumber
     
     /**
      * Alias of add() method.
-     * 
-     * @throws DifferentModulusError when this instance and $addend have
-     * different modulus.
      */
     public function plus(string|int|float|BCMathNumber|Number $addend): ModularNumber
     {
@@ -69,9 +64,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Subtract $minuend.
-     * 
-     * @throws DifferentModulusError when this instance and $minuend have
-     * different modulus.
      */
     public function subtract(string|int|float|BCMathNumber|Number $minuend): ModularNumber
     {
@@ -80,9 +72,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Alias of subtract() method.
-     * 
-     * @throws DifferentModulusError when this instance and $minuend have
-     * different modulus.
      */
     public function sub(string|int|float|BCMathNumber|Number $minuend): ModularNumber
     {
@@ -91,9 +80,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Multiply by $factor.
-     * 
-     * @throws DifferentModulusError when this instance and $factor have
-     * different modulus.
      */
     public function multiply(string|int|float|BCMathNumber|Number $factor): ModularNumber
     {
@@ -102,9 +88,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Alias of multiply() method.
-     * 
-     * @throws DifferentModulusError when this instance and $factor have
-     * different modulus.
      */
     public function mul(string|int|float|BCMathNumber|Number $factor): ModularNumber
     {
@@ -113,9 +96,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Divide by $divisor.
-     * 
-     * @throws DifferentModulusError when this instance and $divisor have
-     * different modulus.
      */
     public function divide(string|int|float|BCMathNumber|Number $divisor): ModularNumber
     {
@@ -124,9 +104,6 @@ class ModularNumber extends ModularArithmeticNumber
 
     /**
      * Alias of divide() method.
-     * 
-     * @throws DifferentModulusError when this instance and $divisor have
-     * different modulus.
      */
     public function div(string|int|float|BCMathNumber|Number $divisor): ModularNumber
     {
@@ -174,6 +151,7 @@ class ModularNumber extends ModularArithmeticNumber
     /**
      * Normalize the input type of an `$argument` to the `Number` type.
      */
+    #[Deprecated("use \MarcoConsiglio\BCMathExtended\Number::normalize() instead", "v4.1.0")]
     public static function normalizeArgument(int|float|string|BcMathNumber|Number $argument): Number
     {
         if ($argument instanceof Number) return $argument;

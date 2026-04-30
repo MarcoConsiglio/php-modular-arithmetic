@@ -1,11 +1,11 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Feature;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use MarcoConsiglio\ModularArithmetic\ModularArithmeticNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;

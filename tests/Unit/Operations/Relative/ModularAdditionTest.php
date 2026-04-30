@@ -1,20 +1,36 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Operations\Relative;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Operations\Relative;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
-use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
-use Marcoconsiglio\ModularArithmetic\Ring;
-use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use MarcoConsiglio\ModularArithmetic\Builders\FromRing;
+use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluatorState;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueInsideRingLengthAndRingStart;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueOutsideNegativeRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueOutsidePositiveRingLength;
+use MarcoConsiglio\ModularArithmetic\ModularArithmeticNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
+use MarcoConsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 
 #[CoversClass(ModularAddition::class)]
+#[UsesClass(EvaluatorState::class)]
+#[UsesClass(FromRing::class)]
 #[UsesClass(ModularArithmeticNumber::class)]
-#[UsesClass(ModularRelativeNumber::class)]
 #[UsesClass(ModularNumber::class)]
+#[UsesClass(ModularRelativeNumber::class)]
+#[UsesClass(ModularRelativeNumberBuilder::class)]
+#[UsesClass(ValueInsideRingEndAndRingLength::class)]
+#[UsesClass(ValueInsideRingLengthAndRingStart::class)]
+#[UsesClass(ValueNeedsReduction::class)]
+#[UsesClass(ValueOutsideNegativeRingLength::class)]
+#[UsesClass(ValueOutsidePositiveRingLength::class)]
 class ModularAdditionTest extends BaseTestCase
 {
     public function test_result(): void

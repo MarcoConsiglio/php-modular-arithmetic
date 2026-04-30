@@ -1,5 +1,5 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic;
+namespace MarcoConsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;

@@ -1,8 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations;
+namespace MarcoConsiglio\ModularArithmetic\Operations;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
 
 /**
  * The exponentiation operation on a `ModularNumber`.
@@ -19,18 +19,12 @@ class ModularExponentiation extends Operation
     }
 
     /**
-     * The right operand.
-     */
-    protected int $exponent;
-
-    /**
      * Construct the modular exponentiation operation.
-     *
-     * @param ModularInteger $a
      */
-    public function __construct(ModularNumber $base, int $exponent)
-    {
-        $this->exponent = $exponent;
+    public function __construct(
+        ModularNumber $base, 
+        protected int $exponent
+    ) {
         $this->a = $base;
         $this->modulus = $base->modulus;
     }

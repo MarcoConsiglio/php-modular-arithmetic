@@ -1,8 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations\Relative;
+namespace MarcoConsiglio\ModularArithmetic\Operations\Relative;
 
 use MarcoConsiglio\BCMathExtended\Range;
-use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\ModularRelativeNumber;
 
 /**
  * The addition operation on a `ModularRelativeNumber`.

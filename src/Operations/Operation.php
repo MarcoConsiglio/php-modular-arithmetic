@@ -1,21 +1,16 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations;
+namespace MarcoConsiglio\ModularArithmetic\Operations;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularArithmeticNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
 
 /**
  * An `Operation` of the modular arithmetic.
  */
 abstract class Operation
 {    
-    /**
-     * The left operand.
-     */
-    protected ModularArithmeticNumber $a;
-
     /**
      * The right operand.
      */
@@ -29,10 +24,11 @@ abstract class Operation
     /**
      * Construct a modular operation between `$a` and `$b`.
      */
-    public function __construct(ModularArithmeticNumber $a, string|int|float|BCMathNumber|Number $b)
-    {
-        $this->a = $a;
-        $this->b = ModularNumber::normalizeArgument($b);
+    public function __construct(
+        protected ModularNumber $a, 
+        string|int|float|BCMathNumber|Number $b
+    ) {
+        $this->b = Number::normalize($b);
         $this->modulus = $this->a->modulus;
     }
 

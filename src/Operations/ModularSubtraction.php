@@ -1,7 +1,7 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations;
+namespace MarcoConsiglio\ModularArithmetic\Operations;
 
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
 
 /**
  * The subtraction operation on a `ModularNumber`.
