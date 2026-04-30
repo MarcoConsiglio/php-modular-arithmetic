@@ -15,7 +15,7 @@ abstract class EvaluatorState implements BuilderState
         public protected(set) Ring $ring
     ) {}
 
-    public function setBuilderContext(ModularRelativeNumberBuilder $builder)
+    public function setBuilderContext(ModularRelativeNumberBuilder $builder): void
     {
         $this->builder = $builder;
     }

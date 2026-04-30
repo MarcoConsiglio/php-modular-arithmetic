@@ -26,8 +26,10 @@ class ModularRelativeNumber extends ModularArithmeticNumber
         ModularRelativeNumberBuilder $builder
     ) { 
         $builder->evaluate(); 
-        if ($builder->value->isPositive()) $this->modulus = $builder->ring->length;
-        else $this->modulus = $builder->ring->length->opposite();
+        $this->modulus = 
+            $builder->value->isPositive() ? 
+            $builder->ring->length : 
+            $builder->ring->length->opposite();
         $this->value = $builder->value->mod($this->modulus);
         $this->ring = $builder->ring;
     }

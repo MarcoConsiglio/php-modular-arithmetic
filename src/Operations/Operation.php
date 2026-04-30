@@ -12,11 +12,6 @@ use MarcoConsiglio\ModularArithmetic\ModularNumber;
 abstract class Operation
 {    
     /**
-     * The left operand.
-     */
-    protected ModularArithmeticNumber $a;
-
-    /**
      * The right operand.
      */
     protected Number $b;
@@ -29,9 +24,10 @@ abstract class Operation
     /**
      * Construct a modular operation between `$a` and `$b`.
      */
-    public function __construct(ModularArithmeticNumber $a, string|int|float|BCMathNumber|Number $b)
-    {
-        $this->a = $a;
+    public function __construct(
+        protected ModularNumber $a, 
+        string|int|float|BCMathNumber|Number $b
+    ) {
         $this->b = Number::normalize($b);
         $this->modulus = $this->a->modulus;
     }
