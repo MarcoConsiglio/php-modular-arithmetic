@@ -1,13 +1,13 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Number;
 use MarcoConsiglio\BCMathExtended\Range;
-use Marcoconsiglio\ModularArithmetic\Builders\FromRing;
-use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
-use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
+use MarcoConsiglio\ModularArithmetic\Builders\FromRing;
+use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -22,7 +22,7 @@ class ValueNeedsReductionTest extends StateTestCase
          * Positive value needs reduction
          */
         // Arrange
-        $this->setValue(new Number(181));
+        $this->setValue(new Number(361));
         $this->setState();
         $this->state->setBuilderContext($this->getContextIfValueNeedsReduction());
 
@@ -36,7 +36,7 @@ class ValueNeedsReductionTest extends StateTestCase
          * Negative value needs reduction
          */
         // Arrange
-        $this->setValue(new Number(-181));
+        $this->setValue(new Number(-361));
         $this->setState();
         $this->state->setBuilderContext($this->getContextIfValueNeedsReduction());
 

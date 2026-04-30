@@ -1,5 +1,5 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Range;
 

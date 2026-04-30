@@ -1,16 +1,16 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Feature;
 
 use DivisionByZeroError;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularAddition;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularDivision;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularExponentiation;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularMultiplication;
-use Marcoconsiglio\ModularArithmetic\Operations\ModularSubtraction;
-use Marcoconsiglio\ModularArithmetic\Operations\Operation;
-use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularAddition;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularDivision;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularExponentiation;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularMultiplication;
+use MarcoConsiglio\ModularArithmetic\Operations\ModularSubtraction;
+use MarcoConsiglio\ModularArithmetic\Operations\Operation;
+use MarcoConsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\Attributes\UsesClass;

@@ -1,5 +1,5 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Builders\States;
 
 class ValueNeedsReduction extends EvaluatorState
 {
@@ -17,9 +17,8 @@ class ValueNeedsReduction extends EvaluatorState
 
     private function valueNeedsReduction(): bool
     {
-        return ! (
-            $this->value->inRange($this->ring->positive) || 
-            $this->value->inRange($this->ring->negative)
+        return ! $this->value->inRange(
+            $this->ring->range
         );
     }
 }

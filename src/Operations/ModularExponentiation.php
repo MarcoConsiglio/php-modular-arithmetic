@@ -1,8 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations;
+namespace MarcoConsiglio\ModularArithmetic\Operations;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
 
 /**
  * The exponentiation operation on a `ModularNumber`.

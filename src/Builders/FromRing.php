@@ -1,9 +1,9 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Builders;
+namespace MarcoConsiglio\ModularArithmetic\Builders;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Ring;
 
 class FromRing extends ModularRelativeNumberBuilder
 {

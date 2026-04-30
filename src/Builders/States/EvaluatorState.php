@@ -1,10 +1,10 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
-use Marcoconsiglio\ModularArithmetic\Interfaces\BuilderState;
-use Marcoconsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use MarcoConsiglio\ModularArithmetic\Interfaces\BuilderState;
+use MarcoConsiglio\ModularArithmetic\Ring;
 
 abstract class EvaluatorState implements BuilderState
 {

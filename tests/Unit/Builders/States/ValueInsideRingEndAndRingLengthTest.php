@@ -1,8 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Range;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueInsideRingEndAndRingLength;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ValueInsideRingEndAndRingLength::class)]

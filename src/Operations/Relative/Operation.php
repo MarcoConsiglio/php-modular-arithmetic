@@ -1,9 +1,9 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations\Relative;
+namespace MarcoConsiglio\ModularArithmetic\Operations\Relative;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularRelativeNumber;
-use Marcoconsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\ModularRelativeNumber;
+use MarcoConsiglio\ModularArithmetic\Ring;
 
 /**
  * An `Operation` of the modular arithmetic when its `Ring` is

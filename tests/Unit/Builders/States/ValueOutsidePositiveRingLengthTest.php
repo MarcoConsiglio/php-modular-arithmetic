@@ -1,7 +1,7 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueOutsidePositiveRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueOutsidePositiveRingLength;
 use Override;
 use PHPUnit\Framework\Attributes\CoversClass;
 

@@ -1,12 +1,12 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Builders\FromRing;
-use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
-use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluatorState;
-use Marcoconsiglio\ModularArithmetic\Ring;
-use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use MarcoConsiglio\ModularArithmetic\Builders\FromRing;
+use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluatorState;
+use MarcoConsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Tests\BaseTestCase;
 use Override;
 
 abstract class StateTestCase extends BaseTestCase

@@ -1,7 +1,7 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
-use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(EvaluationEnd::class)]

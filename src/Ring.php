@@ -1,5 +1,5 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic;
+namespace MarcoConsiglio\ModularArithmetic;
 
 use MarcoConsiglio\BCMathExtended\Number;
 use MarcoConsiglio\BCMathExtended\Range;
@@ -20,6 +20,18 @@ class Ring extends Range
     }
 
     /**
+     * The `Range` of this `Ring`.
+     */
+    public Range $range {
+        get {
+            return new Range(
+                $this->start,
+                $this->end
+            );
+        }
+    }
+
+    /**
      * The positive `Range` of this `Ring`.
      */
     public Range $positive {
@@ -28,8 +40,7 @@ class Ring extends Range
                 return $this;
             else if ($this->end->isPositive())
                 return new Range(0, $this->end);
-            else
-                return new Range(0, 0);
+            return new Range(0, 0);
         }
     }
 

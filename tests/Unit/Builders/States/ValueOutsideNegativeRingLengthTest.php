@@ -1,8 +1,8 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Unit\Builders\States;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Unit\Builders\States;
 
 use MarcoConsiglio\FakerPhpNumberHelpers\NextFloat;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueOutsideNegativeRingLength;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueOutsideNegativeRingLength;
 use Override;
 use PHPUnit\Framework\Attributes\CoversClass;
 

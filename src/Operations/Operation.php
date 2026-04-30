@@ -1,10 +1,10 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Operations;
+namespace MarcoConsiglio\ModularArithmetic\Operations;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\ModularArithmeticNumber;
-use Marcoconsiglio\ModularArithmetic\ModularNumber;
+use MarcoConsiglio\ModularArithmetic\ModularArithmeticNumber;
+use MarcoConsiglio\ModularArithmetic\ModularNumber;
 
 /**
  * An `Operation` of the modular arithmetic.

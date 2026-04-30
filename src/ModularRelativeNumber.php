@@ -1,14 +1,14 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic;
+namespace MarcoConsiglio\ModularArithmetic;
 
 use BcMath\Number as BcMathNumber;
 use MarcoConsiglio\BCMathExtended\Number;
 use MarcoConsiglio\BCMathExtended\Range;
-use Marcoconsiglio\ModularArithmetic\Builders\FromExtremes;
-use Marcoconsiglio\ModularArithmetic\Builders\FromRing;
-use Marcoconsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
-use Marcoconsiglio\ModularArithmetic\Interfaces\Builder;
-use Marcoconsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
+use MarcoConsiglio\ModularArithmetic\Builders\FromExtremes;
+use MarcoConsiglio\ModularArithmetic\Builders\FromRing;
+use MarcoConsiglio\ModularArithmetic\Builders\ModularRelativeNumberBuilder;
+use MarcoConsiglio\ModularArithmetic\Interfaces\Builder;
+use MarcoConsiglio\ModularArithmetic\Operations\Relative\ModularAddition;
 
 /**
  * The `ModularRelativeNumber`.
@@ -52,8 +52,8 @@ class ModularRelativeNumber extends ModularArithmeticNumber
      */
     public static function createFromExtremes(
         int|float|string|BcMathNumber|Number $value,
-        Number $start,
-        Number $end
+        int|float|string|BcMathNumber|Number $start,
+        int|float|string|BcMathNumber|Number $end
     ): ModularRelativeNumber {
         return new ModularRelativeNumber(
             new FromExtremes($value, $start, $end)

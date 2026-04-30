@@ -1,5 +1,5 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Interfaces;
+namespace MarcoConsiglio\ModularArithmetic\Interfaces;
 
 interface Builder
 {

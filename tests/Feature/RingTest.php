@@ -1,9 +1,11 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Tests\Feature;
+namespace MarcoConsiglio\ModularArithmetic\Tests\Feature;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Ring;
-use Marcoconsiglio\ModularArithmetic\Tests\BaseTestCase;
+use MarcoConsiglio\BCMathExtended\Range;
+use MarcoConsiglio\FakerPhpNumberHelpers\NextFloat;
+use MarcoConsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Tests\BaseTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\TestDox;
 
@@ -23,5 +25,50 @@ class RingTest extends BaseTestCase
         // Act & Assert
         $this->assertInstanceOf(Number::class, $ring->length);
         $this->assertEquals($expected_length, $ring->length);
+    }
+
+    #[TestDox("has a \"range\" property which is a Range object.")]
+    public function test_range(): void
+    {
+        // Arrange
+        $ring = new Ring($min = -180, $max = 180);
+
+        // Act
+        $range = $ring->range;
+
+        // Assert
+        $this->assertInstanceOf(Range::class, $range);
+        $this->assertEquals($min, $range->start->toInt());
+        $this->assertEquals($max, $range->end->toInt());
+    }
+
+    #[TestDox("has a \"positive\" property which is a Range object.")]
+    public function test_positive_range(): void
+    {
+        // Arrange
+        $ring = new Ring($min = -180, $max = 180);
+
+        // Act
+        $range = $ring->positive;
+
+        // Assert
+        $this->assertInstanceOf(Range::class, $range);
+        $this->assertEquals(0, $range->start->toInt());
+        $this->assertEquals($max, $range->end->toInt());       
+    }
+
+    #[TestDox("has a \"negative\" property which is a Range object.")]
+    public function test_negative_range(): void
+    {
+        // Arrange
+        $ring = new Ring($min = -180, $max = 180);
+
+        // Act
+        $range = $ring->negative;
+
+        // Assert
+        $this->assertInstanceOf(Range::class, $range);
+        $this->assertEquals($min, $range->start->toInt());
+        $this->assertEquals(new Number(NextFloat::beforeZero())->value, $range->end->value);       
     }
 }

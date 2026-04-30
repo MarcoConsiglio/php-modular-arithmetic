@@ -1,12 +1,12 @@
 <?php
-namespace Marcoconsiglio\ModularArithmetic\Builders;
+namespace MarcoConsiglio\ModularArithmetic\Builders;
 
 use MarcoConsiglio\BCMathExtended\Number;
-use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
-use Marcoconsiglio\ModularArithmetic\Builders\States\EvaluatorState;
-use Marcoconsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
-use Marcoconsiglio\ModularArithmetic\Interfaces\Builder;
-use Marcoconsiglio\ModularArithmetic\Ring;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluationEnd;
+use MarcoConsiglio\ModularArithmetic\Builders\States\EvaluatorState;
+use MarcoConsiglio\ModularArithmetic\Builders\States\ValueNeedsReduction;
+use MarcoConsiglio\ModularArithmetic\Interfaces\Builder;
+use MarcoConsiglio\ModularArithmetic\Ring;
 
 abstract class ModularRelativeNumberBuilder implements Builder
 {
