@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+### Changed
+- `ModularRelativeNumber::$ring` setter is now `protected`, use `ModularRelativeNumber::createFromRing()` method instead.
+- `ModularRelativeNumber::createFromExtremes()` `$start` and `$end` parameters now accept also `int`, `float`, `string` and `BcMath\Number` input types.
+### Added
+- `Ring::$range` virtual read-only property to express the range of the `Ring` object.
+
 ## v4.0.0 - 2026-04-17
 ### Changed
 - Both `ModularNumber` and `ModularRelativeNumber` now extends the abstract class `ModularArithmeticNumber`.
